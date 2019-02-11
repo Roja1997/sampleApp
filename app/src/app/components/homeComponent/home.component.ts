@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
+import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 /**
@@ -11,35 +11,22 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
  */
 
 @Component({
-    selector: 'bh-dashboard',
-    templateUrl: './dashboard.template.html'
+    selector: 'bh-home',
+    templateUrl: './home.template.html'
 })
 
-export class dashboardComponent extends NBaseComponent implements OnInit {
+export class homeComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    selected;
-    personalValueDetail:any={};
-    
-    constructor(private bdms: NDataModelService,private localStorage:NLocalStorageService) {
+
+    constructor(private bdms: NDataModelService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    countries  = [
-        { country: "South Africa", value: "South Africa" },
-        { country: "Singapore", value: "Singapore" },
-        { country: "Malaysia", value: "Malaysia" }
-    ]
 
     ngOnInit() {
-        // localStorage.setItem('country',country.country);
+
     }
-    selectCountry(event){
-       this.setLocalStorage(event.value);
-    }
-    setLocalStorage(value){
-this.personalValueDetail['Country']=value;
-this.localStorage.setValue('personalValue',this.personalValueDetail)
-    }
+
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {

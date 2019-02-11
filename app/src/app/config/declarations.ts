@@ -14,6 +14,16 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-expenselistresolverService
+import { expenselistresolverService } from '../services/expenseListResolver/expenselistresolver.service';
+//CORE_REFERENCE_IMPORT-userdetailComponent
+import { userdetailComponent } from '../components/userdetailComponent/userdetail.component';
+//CORE_REFERENCE_IMPORT-expenselistComponent
+import { expenselistComponent } from '../components/expenselistComponent/expenselist.component';
+//CORE_REFERENCE_IMPORT-expenseinfoComponent
+import { expenseinfoComponent } from '../components/expenseinfoComponent/expenseinfo.component';
+//CORE_REFERENCE_IMPORT-expenseComponent
+import { expenseComponent } from '../components/expenseComponent/expense.component';
 //CORE_REFERENCE_IMPORT-dashboardComponent
 import { dashboardComponent } from '../components/dashboardComponent/dashboard.component';
 //CORE_REFERENCE_IMPORT-homeComponent
@@ -52,6 +62,14 @@ export const appDeclarations = [
   PageNotFoundComponent,
   NMapComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-userdetailComponent
+userdetailComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-expenselistComponent
+expenselistComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-expenseinfoComponent
+expenseinfoComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-expenseComponent
+expenseComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-dashboardComponent
 dashboardComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-homeComponent
@@ -74,6 +92,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-expenselistresolverService
+expenselistresolverService,
 
 ];
 
@@ -82,5 +102,6 @@ export const appProviders = [
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{path: 'home', component: dashboardComponent},{path: '', redirectTo: '/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+export const appRoutes = [{path: 'home', component: homeComponent,
+children: [{path: 'dashboard', component: dashboardComponent},{path: 'expenselist', component: expenselistComponent, resolve: {config:expenselistresolverService}}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

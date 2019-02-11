@@ -2,44 +2,65 @@
 import { Component, OnInit } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
+import { NDataModelService,NLocalStorageService,NPubSubService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { Router } from '@angular/router';
 
+import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot} from '@angular/router';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
  */
 
 @Component({
-    selector: 'bh-dashboard',
-    templateUrl: './dashboard.template.html'
+    selector: 'bh-expenselist',
+    templateUrl: './expenselist.template.html'
 })
 
-export class dashboardComponent extends NBaseComponent implements OnInit {
+export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    selected;
-    personalValueDetail:any={};
-    
-    constructor(private bdms: NDataModelService,private localStorage:NLocalStorageService) {
+
+    //  personalValue:any = {
+    //         countryName: "SA",
+    //         Name: "Vinay",
+    //         Dept: "Delivery",
+    //         Project: "OTR",
+    //         Customer: "Rahul",
+    //         Purpose: "Travel",
+    //         Manager: "Vinay",
+    //         FromDate: "20 / 01 / 2019",
+    //         toDate: "30 / 01 / 2019",
+           
+    //         expense:[{
+    //            expType: "petrol",
+    //            billAttached:true,
+    //            amount:3000
+
+    //         }]
+    //     };
+
+    constructor(private route:ActivatedRoute,public pubsub:NPubSubService,private bdms: NDataModelService,private router:Router,private localStorage:NLocalStorageService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    countries  = [
-        { country: "South Africa", value: "South Africa" },
-        { country: "Singapore", value: "Singapore" },
-        { country: "Malaysia", value: "Malaysia" }
-    ]
 
     ngOnInit() {
-        // localStorage.setItem('country',country.country);
+
+    this.route.data.subscribe((res)=>{
+        
+        console.log(res)
+    })
+    
+        
     }
-    selectCountry(event){
-       this.setLocalStorage(event.value);
-    }
-    setLocalStorage(value){
-this.personalValueDetail['Country']=value;
-this.localStorage.setValue('personalValue',this.personalValueDetail)
-    }
+
+      
+    
+
+addExpense()
+{
+    this.router.navigate(['/expenseinfo'])   
+}
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {

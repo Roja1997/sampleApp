@@ -2,11 +2,22 @@
     "routes": [
         {
             "path": "home",
-            "component": "dashboardComponent"
+            "component": "homeComponent",
+            "children": [
+                {
+                    "component": "dashboardComponent",
+                    "path": "dashboard"
+                },
+                {
+                    "path": "expenselist",
+                    "component": "expenselistComponent",
+                    "resolve": "{config:expenselistresolverService}"
+                }
+            ]
         },
         {
             "path": "''",
-            "redirectTo": "/dashboard",
+            "redirectTo": "/home/dashboard",
             "pathMatch": "full",
             "default": true
         },

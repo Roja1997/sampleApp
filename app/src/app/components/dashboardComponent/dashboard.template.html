@@ -1,1 +1,16 @@
-<h1>Initialising the dashboard component</h1>
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <mat-form-field>
+      <mat-select [(ngModel)]="country" required (selectionChange)="selectCountry($event)" name="country" (onchange)="selectCountry($event)">
+        <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" color="primary">
+      <mat-icon>add_circle<mat-icon></mat-icon>
+      </mat-icon>
+    </button></div>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <p>please select a country</p>
+  </div>
+</div>
