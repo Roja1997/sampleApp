@@ -1,0 +1,18 @@
+<div fxLayout="column " fxLayoutAlign="  none" fxShow="true" fxHide="false" fxFill="">
+  <mat-toolbar fxLayoutAlign="space-between">
+    <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+      <h1>OTR</h1>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="center end" fxShow="true" fxHide="false">
+      <mat-icon>edit</mat-icon>
+    </div>
+  </mat-toolbar>
+  <div fxLayout="column " style="overflow:auto;" fxFlex="calc(100%-128px)" fxLayoutAlign="  none" fxShow="true" fxHide="false">
+    <router-outlet></router-outlet>
+  </div>
+  <mat-toolbar>
+    <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+      <p style="font-size:12px;">&#xA9; 2019 Neutrinos</p>
+    </div>
+  </mat-toolbar>
+</div>

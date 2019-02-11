@@ -4,6 +4,8 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { Router } from '@angular/router';
+
 
 /**
  * Service import Example :
@@ -11,41 +13,33 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
  */
 
 @Component({
-    selector: 'bh-expenseinfo',
-    templateUrl: './expenseinfo.template.html'
+    selector: 'bh-dashboard',
+    templateUrl: './dashboard.template.html'
 })
 
-export class expenseinfoComponent extends NBaseComponent implements OnInit {
+export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    expenseType=["Perdiem Charges","Airticket/Visa Charges","GuestHouse Charges","Hotel Charges","Onsite Telephone Charges",
-    "Onsite Conveyance Charges","Petrol/Fuel Expenses","Sales Promotion","Staff Welfare Expenses","Travel Food Expenses"]
-     button1='Yes';
-     button2='No';
-     amount=false;
-
-   constructor(private bdms: NDataModelService) {
+    selected;
+    
+    constructor(private bdms: NDataModelService,private router:Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
+    countries  = [
+        { country: "South Africa", value: "South Africa" },
+        { country: "Singapore", value: "Singapore" },
+        { country: "Malaysia", value: "Malaysia" }
+    ]
 
     ngOnInit() {
-
+        // localStorage.setItem('country',country.country);
     }
 
-    accept(option){
-        if(option===this.button1){
-        
-        }
-        else{
-             this.amount=true;
+      route()
+      {
+          this.router.navigate(['/home/expenseinfo'])
+      }
 
-        }
-    }
-
-
-    success($event){console.log($event)}
-
-    error($event){console.log($event)}
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

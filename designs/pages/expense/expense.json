@@ -1,0 +1,13 @@
+{
+    "appPageId": "1397b745-f04e-2bb2-620d-107e7bf8c871",
+    "appPageName": "expense",
+    "componentName": "expenseComponent",
+    "selectorName": "bh-expense",
+    "htmlFileName": "expense.template.html",
+    "tsFileName": "expense.component.ts",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

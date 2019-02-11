@@ -1,12 +1,23 @@
 {
     "routes": [
         {
-            "component": "expenseinfoComponent",
-            "path": "expenseInfo"
+            "path": "home",
+            "component": "homeComponent",
+            "children": [
+                {
+                    "component": "dashboardComponent",
+                    "path": "dashboard",
+                    "children": []
+                },
+                {
+                    "component": "expenseinfoComponent",
+                    "path": "expenseinfo"
+                }
+            ]
         },
         {
             "path": "''",
-            "redirectTo": "/expenseInfo",
+            "redirectTo": "/home/dashboard",
             "pathMatch": "full",
             "default": true
         },

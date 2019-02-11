@@ -1,7 +1,17 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <mat-form-field>
     <mat-select placeholder="Expense Type" required>
-      <mat-option></mat-option>
+      <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Attach Bill?</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" n-camera="" [cameraOptions]="{entityName: &apos;profile&apos;, metadata: {key: &apos;example@neutrinos.co&apos;}}" (onsuccess)="success($event)" (onerror)="error($event)">{{button1}}</button></div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" (click)="accept(button2)">{{button2}}</button></div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="amount">
+    <mat-form-field><input matInput="" placeholder="Amount" required></mat-form-field>
+  </div><button mat-button="">Submit</button>
 </div>
