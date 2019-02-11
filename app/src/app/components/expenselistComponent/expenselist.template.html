@@ -1,1 +1,16 @@
-<div>default page template</div>
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>OTR name</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p></p>
+    </div>
+  </div>
+  <mat-card></mat-card>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary">submit</button></div>
+  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" (click)="addExpense()">
+      <mat-icon>add_circle<mat-icon></mat-icon>
+      </mat-icon>
+    </button></div>
+</div>

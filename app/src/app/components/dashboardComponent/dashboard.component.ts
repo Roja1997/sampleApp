@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService } from 'neutrinos-seed-services';
+import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 /**
@@ -65,6 +65,13 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         
     }
+//     selectCountry(event){
+//        this.setLocalStorage(event.value);
+//     }
+//     setLocalStorage(value){
+// this.personalValueDetail['Country']=value;
+// this.localStorage.setValue('personalValue',this.personalValueDetail)
+//     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
