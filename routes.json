@@ -2,11 +2,11 @@
     "routes": [
         {
             "path": "home",
-            "component": "homeComponent"
+            "component": "dashboardComponent"
         },
         {
             "path": "''",
-            "redirectTo": "/home",
+            "redirectTo": "/dashboard",
             "pathMatch": "full",
             "default": true
         },

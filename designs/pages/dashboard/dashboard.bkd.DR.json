@@ -1,0 +1,25 @@
+{
+    "8b16eea9-ea40-aa98-159e-968a289b71d6": {
+        "paletteKey": "NG-H1",
+        "designerReference": [
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "H1 Text",
+                "_value": "Initialising the dashboard component",
+                "_type": "a",
+                "_attrDef": "p"
+            }
+        ]
+    }
+}
