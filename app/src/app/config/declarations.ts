@@ -103,5 +103,8 @@ expenselistresolverService,
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
-children: [{path: 'dashboard', component: dashboardComponent},{path: 'expenselist', component: expenselistComponent, resolve: {config:expenselistresolverService}}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: [{path: 'dashboard', component: dashboardComponent},
+{path: 'expenselist', component: expenselistComponent, resolve: {config:expenselistresolverService}}]},
+{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},
+{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

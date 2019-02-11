@@ -4,6 +4,8 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { Router } from '@angular/router';
+
 
 /**
  * Service import Example :
@@ -20,7 +22,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     selected;
     personalValueDetail:any={};
     
-    constructor(private bdms: NDataModelService,private localStorage:NLocalStorageService) {
+    constructor(private bdms: NDataModelService,private localStorage:NLocalStorageService,private router:Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }

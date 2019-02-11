@@ -4,7 +4,7 @@ import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot,Router
 import {NSystemService,NSessionStorageService,NLocalStorageService} from 'neutrinos-seed-services';
 @Injectable()
 export class expenselistresolverService {
-constructor(private route:ActivatedRoute,private localStorage:NLocalStorageService,private Router:Router){
+constructor(private route:ActivatedRoute,private localStorage:NLocalStorageService,private router:Router){
   
 
 }
@@ -14,8 +14,6 @@ let currentCountry=this.localStorage.getValue('personalValue');
 if(currentCountry)
 return currentCountry;
     else 
-  return this.router.navigate('home/dashboard');
-    
+  return this.router.navigate(['home/dashboard']);
     }
-  
 }

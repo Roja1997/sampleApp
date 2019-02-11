@@ -17,8 +17,13 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    expenseType=["Perdiem Charges","Airticket/Visa Charges","GuestHouse Charges","Hotel Charges","Onsite Telephone Charges",
+    "Onsite Conveyance Charges","Petrol/Fuel Expenses","Sales Promotion","Staff Welfare Expenses","Travel Food Expenses"]
+     button1='Yes';
+     button2='No';
+     amount=false;
 
-    constructor(private bdms: NDataModelService) {
+   constructor(private bdms: NDataModelService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -26,6 +31,21 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
 
     }
+
+    accept(option){
+        if(option===this.button1){
+        
+        }
+        else{
+             this.amount=true;
+
+        }
+    }
+
+
+    success($event){console.log($event)}
+
+    error($event){console.log($event)}
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

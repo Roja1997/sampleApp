@@ -138,7 +138,7 @@
                     },
                     {
                         "_key": "[(ngModel)]",
-                        "_value": "country",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -286,7 +286,7 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "",
+                        "_value": "route()",
                         "_type": "kv",
                         "_attrDef": "p"
                     }
