@@ -11,11 +11,11 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
  */
 
 @Component({
-    selector: 'bh-home',
-    templateUrl: './home.template.html'
+    selector: 'bh-expenseinfo',
+    templateUrl: './expenseinfo.template.html'
 })
 
-export class homeComponent extends NBaseComponent implements OnInit {
+export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
 
     constructor(private bdms: NDataModelService) {

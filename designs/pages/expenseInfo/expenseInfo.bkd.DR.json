@@ -1,5 +1,5 @@
 {
-    "30eb1782-af6a-9297-4fcc-5771d15cd713": {
+    "f7643e08-8f45-76ac-70f3-054b0daad6f5": {
         "paletteKey": "FlexLayoutCol",
         "designerReference": [
             {
@@ -57,8 +57,8 @@
                 "_attrDef": "p"
             }
         ],
-        "08fc4e32-dcf3-e242-249b-9f71c5fb0e6d": {
-            "paletteKey": "NG-Paragraph",
+        "06589fc5-1c81-3ac4-7341-31fe255a648f": {
+            "paletteKey": "NG-Select",
             "designerReference": [
                 {
                     "_key": "style",
@@ -73,8 +73,56 @@
                     "_attrDef": "p"
                 },
                 {
-                    "_key": "text",
-                    "_value": "sasdxsac",
+                    "_key": "placeholder",
+                    "_value": "Expense Type",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[(ngModel)]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "required",
+                    "_value": "required",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "multiple",
+                    "_value": "",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "(openedChange)",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "(selectionChange)",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "*ngFor",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "[value]",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "optiondata",
+                    "_value": "",
                     "_type": "a",
                     "_attrDef": "p"
                 }

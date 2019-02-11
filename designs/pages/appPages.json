@@ -1,7 +1,7 @@
 {
-    "e013c4d0-7bdc-da39-5144-591e508d7f0d": {
-        "appPageName": "home",
-        "componentName": "homeComponent",
+    "ad714606-17c2-78b8-5d66-6fc9d30eaad9": {
+        "appPageName": "expenseInfo",
+        "componentName": "expenseinfoComponent",
         "isEntry": false
     }
 }
