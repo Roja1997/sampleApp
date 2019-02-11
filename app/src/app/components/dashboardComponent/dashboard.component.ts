@@ -4,7 +4,7 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -17,9 +17,9 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    selected;
     
-    constructor(private bdms: NDataModelService) {
+    isShow:boolean=false;
+    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -28,9 +28,42 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         { country: "Singapore", value: "Singapore" },
         { country: "Malaysia", value: "Malaysia" }
     ]
+    //hard coded expenses details
+    expense = [{
+        FromDate: "20 / 01 / 2019",
+        toDate: "30 / 01 / 2019",
+        expType: "fuel",
+        billAttached: "true",
+        amount:"1000"
+    }]
+    //countryName fun
+    /* countryName(value){
+        
+        this.isShow=true;
+        var otr = {
+            country: value,
+            Name: "Vinay",
+            Department: "Delivery",
+            Project: "OTR",
+            Customer: "Rahul",
+            Purpose: "Travel",
+            Manager: "Vinay",
+            Destination:value,
+            expType: this.expense
+        };
+        localStorage.setItem('otr',JSON.stringify(otr));
+    }
+
+    */
+    countryName(value){
+        this.isShow=true;
+        localStorage.setItem('otr',JSON.stringify(value));
+        // this.otrdetailService.otrDetails(value);
+    }
+
 
     ngOnInit() {
-        // localStorage.setItem('country',country.country);
+        
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

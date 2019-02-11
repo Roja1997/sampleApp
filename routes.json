@@ -6,7 +6,12 @@
             "children": [
                 {
                     "component": "dashboardComponent",
-                    "path": "dashboard"
+                    "path": "dashboard",
+                    "children": []
+                },
+                {
+                    "path": "expense",
+                    "component": "expenseComponent"
                 }
             ]
         },
