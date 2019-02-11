@@ -1,0 +1,32 @@
+{
+    "55e6224b-0520-1b07-a0c8-0f30c351d285": {
+        "appPageName": "home",
+        "componentName": "homeComponent",
+        "isEntry": false
+    },
+    "b19e5577-ac40-75ab-6f8f-f8acca5f2f89": {
+        "appPageName": "dashboard",
+        "componentName": "dashboardComponent",
+        "isEntry": false
+    },
+    "1397b745-f04e-2bb2-620d-107e7bf8c871": {
+        "appPageName": "expense",
+        "componentName": "expenseComponent",
+        "isEntry": false
+    },
+    "a3b0f0b5-6824-58c2-6381-53f263cce3c7": {
+        "appPageName": "expenseinfo",
+        "componentName": "expenseinfoComponent",
+        "isEntry": false
+    },
+    "1a629f56-7e3b-b05c-fd30-7748a9dae7d5": {
+        "appPageName": "expenselist",
+        "componentName": "expenselistComponent",
+        "isEntry": false
+    },
+    "e45d32a2-69d3-be11-5f84-aa645ab57d8b": {
+        "appPageName": "userdetail",
+        "componentName": "userdetailComponent",
+        "isEntry": false
+    }
+}

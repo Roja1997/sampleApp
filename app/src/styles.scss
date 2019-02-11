@@ -2,3 +2,9 @@
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "nDefaults.scss";
+
+.expensebtn{
+    position: fixed;
+    bottom: 75px;
+    right: 10%;
+}
