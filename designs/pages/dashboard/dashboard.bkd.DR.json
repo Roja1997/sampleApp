@@ -162,7 +162,7 @@
                     },
                     {
                         "_key": "(selectionChange)",
-                        "_value": "selectCountry($event)",
+                        "_value": "countryName($event.value)",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -197,6 +197,94 @@
                         "_attrDef": "c"
                     }
                 ]
+            },
+            "bd57fc2a-4ebd-9ebf-79e7-e58840dc3f60": {
+                "paletteKey": "FlexLayoutCol",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "layoutAlign",
+                        "_value": "start",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "stretch",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxHide",
+                        "_value": "false",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "isShow==false",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ],
+                "ebaf7fae-8894-8350-5e51-cd9b3aaac30a": {
+                    "paletteKey": "NG-Paragraph",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "text",
+                            "_value": "please select a country",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
             }
         },
         "122343be-7908-4342-7238-c966d2b4e0f9": {
@@ -289,11 +377,17 @@
                         "_value": "route()",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "routerLink",
+                        "_value": "/home/expense",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ]
             }
         },
-        "bd57fc2a-4ebd-9ebf-79e7-e58840dc3f60": {
+        "9e532dab-8aba-2bf8-bdb8-0980c17bdb87": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
@@ -350,30 +444,7 @@
                     "_type": "kv",
                     "_attrDef": "p"
                 }
-            ],
-            "ebaf7fae-8894-8350-5e51-cd9b3aaac30a": {
-                "paletteKey": "NG-Paragraph",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "text",
-                        "_value": "please select a country",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    }
-                ]
-            }
+            ]
         }
     }
 }

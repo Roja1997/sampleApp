@@ -14,8 +14,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
-//CORE_REFERENCE_IMPORT-expenselistresolverService
-import { expenselistresolverService } from '../services/expenseListResolver/expenselistresolver.service';
+//CORE_REFERENCE_IMPORT-otrdetailService
+import { otrdetailService } from '../services/otrDetail/otrdetail.service';
 //CORE_REFERENCE_IMPORT-userdetailComponent
 import { userdetailComponent } from '../components/userdetailComponent/userdetail.component';
 //CORE_REFERENCE_IMPORT-expenselistComponent
@@ -92,8 +92,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
-//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-expenselistresolverService
-expenselistresolverService,
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-otrdetailService
+otrdetailService,
 
 ];
 
@@ -103,8 +103,6 @@ expenselistresolverService,
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
-children: [{path: 'dashboard', component: dashboardComponent},
-{path: 'expenselist', component: expenselistComponent, resolve: {config:expenselistresolverService}}]},
-{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},
-{path: '**', component: PageNotFoundComponent}]
+children: [{path: 'dashboard', component: dashboardComponent,
+children: []},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

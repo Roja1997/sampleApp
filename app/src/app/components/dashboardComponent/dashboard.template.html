@@ -1,16 +1,17 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <mat-form-field>
-      <mat-select [(ngModel)]="country" required (selectionChange)="selectCountry($event)" name="country" (onchange)="selectCountry($event)">
+      <mat-select required (selectionChange)="countryName($event.value)" name="country">
         <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="isShow==false">
+      <p>please select a country</p>
+    </div>
   </div>
-  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" color="primary" (click)="route()">
+  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" color="primary" routerLink="/home/expense">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
     </button></div>
-  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <p>please select a country</p>
-  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
 </div>
