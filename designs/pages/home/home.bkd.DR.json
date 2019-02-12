@@ -68,7 +68,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "background-color:blue;",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -323,7 +323,7 @@
                         "designerReference": [
                             {
                                 "_key": "style",
-                                "_value": "color:red;",
+                                "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },
@@ -349,7 +349,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "overflow:auto;",
+                    "_value": "overflow:auto;height:calc(100%-128px)",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -361,7 +361,7 @@
                 },
                 {
                     "_key": "fxFlex",
-                    "_value": "calc(100%-128px)",
+                    "_value": "100",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -379,13 +379,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": " ",
+                    "_value": "start",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "stretch",
                     "_type": "a",
                     "_attrDef": "p"
                 },

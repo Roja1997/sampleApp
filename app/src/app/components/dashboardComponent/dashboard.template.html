@@ -1,7 +1,7 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <mat-form-field>
-      <mat-select [(ngModel)]="country" required (selectionChange)="this.isShow = true;" name="country">
+      <mat-select [(ngModel)]="country" required (selectionChange)="countryName($event.value)" name="country">
         <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
       </mat-select>
     </mat-form-field>

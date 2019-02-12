@@ -1,1 +1,17 @@
-<div id="angularRoot"></div>
+<div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" placeholder="fromDate" [matDatepicker]="picker" (dateInput)="pickFromDate()" [(ngModel)]="fromDate">
+        <mat-datepicker-toggle matSuffix="" [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker="" readonly="true" touchUi="touch"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="fromDate">
+      <mat-form-field><input matInput="" placeholder="toDate" [matDatepicker]="picker1" [(ngModel)]="toDate" [min]="minDate">
+        <mat-datepicker-toggle matSuffix="" [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1=""></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="toDate"><button mat-raised-button="" (click)="submitDate()">Add</button></div>
+  </div>
+</div>

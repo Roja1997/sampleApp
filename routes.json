@@ -12,6 +12,10 @@
                 {
                     "path": "expense",
                     "component": "expenseComponent"
+                },
+                {
+                    "component": "expenselistComponent",
+                    "path": "expenselist"
                 }
             ]
         },

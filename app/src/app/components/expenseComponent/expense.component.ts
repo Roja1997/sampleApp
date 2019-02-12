@@ -5,7 +5,7 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
-
+import {Router} from '@angular/router'
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -18,16 +18,39 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 
 export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-
-    constructor(private bdms: NDataModelService,private otrdetailService: otrdetailService, ) {
+    fromDate;
+    toDate;
+    otr={};
+    otrDetail:any=[];
+    constructor(private bdms: NDataModelService,private otrdetailService: otrdetailService, private router:Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-
+    //mindate assigning
+    minDate = new Date();
+    
     ngOnInit() {
-        console.log(this.otrdetailService.temp)
+        console.log(this.otrdetailService.country)
     }
-
+   
+    //pickFromDate fun
+    pickFromDate(){
+        this.toDate=new Date(this.fromDate.getTime()+(1000*24*60*60*29));
+        console.log('from date',this.fromDate.toDateString());
+        console.log('to date', this.toDate.toDateString());
+        }
+    //submitDate() fun
+    submitDate(){
+        console.log('for storing dates into localstorage');
+        // this.otr['country']=this.otrdetailService.country;
+        this.otr['fromDate']=this.fromDate.toDateString();
+        // console.log("this.fromDate",this.fromDate.toDateString());
+        this.otr['toDate']=this.toDate.toDateString();
+        this.otrDetail.push(JSON.stringify(this.otr));
+        console.log('arr',this.otrDetail)
+        localStorage.setItem(JSON.stringify(this.otrdetailService.country),this.otrDetail);
+        //this.router.navigate(['home/expenselist']);
+    }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {

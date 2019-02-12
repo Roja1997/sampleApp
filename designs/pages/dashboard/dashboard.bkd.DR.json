@@ -162,7 +162,7 @@
                     },
                     {
                         "_key": "(selectionChange)",
-                        "_value": "this.isShow = true;",
+                        "_value": "countryName($event.value)",
                         "_type": "kv",
                         "_attrDef": "p"
                     },

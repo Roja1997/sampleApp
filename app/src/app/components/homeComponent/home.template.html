@@ -1,16 +1,16 @@
 <div fxLayout="column " fxLayoutAlign="  none" fxShow="true" fxHide="false" fxFill="">
-  <mat-toolbar fxLayoutAlign="space-between" style="background-color:blue;">
+  <mat-toolbar fxLayoutAlign="space-between">
     <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
       <h1>OTR</h1>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="center end" fxShow="true" fxHide="false">
       <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
         <mat-icon>edit</mat-icon>
-        <mat-icon style="color:red;">error_outline</mat-icon>
+        <mat-icon>error_outline</mat-icon>
       </div>
     </div>
   </mat-toolbar>
-  <div fxLayout="column " style="overflow:auto;" fxFlex="calc(100%-128px)" fxLayoutAlign="  none" fxShow="true" fxHide="false">
+  <div fxLayout="column " style="overflow:auto;height:calc(100%-128px)" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
     <router-outlet></router-outlet>
   </div>
   <mat-toolbar>

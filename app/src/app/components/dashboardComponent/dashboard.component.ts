@@ -6,6 +6,8 @@ import { NDataModelService, NLocalStorageService } from 'neutrinos-seed-services
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router'
+import { MatSnackBar } from '@angular/material';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -20,7 +22,8 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     country: string = '';
     isShow: boolean = false;
-    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router,private localStorage:NLocalStorageService) {
+    // otr={};
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -29,56 +32,67 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         { country: "Singapore", value: "Singapore" },
         { country: "Malaysia", value: "Malaysia" }
     ]
-    //hard coded expenses details
+    // //hard coded expenses details
     // expense = [{
-    //     FromDate: "20 / 01 / 2019",
+    //     fromDate: "20 / 01 / 2019",
     //     toDate: "30 / 01 / 2019",
     //     expType: "fuel",
     //     billAttached: "true",
     //     amount:"1000"
+    // },{
+    //     fromDate: "20 / 02 / 2019",
+    //     toDate: "30 / 02 / 2019",
+    //     expType: "fuel",
+    //     billAttached: "true",
+    //     amount:"2000"
     // }]
-    //countryName fun
-    /* countryName(value){
+    // //countryName fun
+    //  countryName(value){
         
-        this.isShow=true;
-        var otr = {
-            country: value,
-            Name: "Vinay",
-            Department: "Delivery",
-            Project: "OTR",
-            Customer: "Rahul",
-            Purpose: "Travel",
-            Manager: "Vinay",
-            Destination:value,
-            expType: this.expense
-        };
-        localStorage.setItem('otr',JSON.stringify(otr));
+    //     this.isShow=true;
+    //     var otr = {
+            
+    //         Name: "Vinay",
+    //         Department: "Delivery",
+    //         Project: "OTR",
+    //         Customer: "Rahul",
+    //         Purpose: "Travel",
+    //         Manager: "Vinay",
+    //         Destination:value,
+    //         expType: this.expense
+    //     };
+    //     console.log('this.value',value);
+    //     localStorage.setItem(JSON.stringify(value),JSON.stringify(otr));
+    // }
+    otr={};
+    countryName(value){
+        this.otr=localStorage.getItem(JSON.stringify(value));
+        // for(let i=0;i<=this.otr.expType.length;i++){
+        //     console.log('aa',i.fromDate);
+        // }
+        console.log(localStorage.getItem(JSON.stringify(value)));
+        console.log("otr object as",this.otr.Name);
+
     }
 
-    */
-    // countryName() {
-    //     this.isShow = true;
-    //     // localStorage.setItem('otr',JSON.stringify(value));
-    //     // console.log('jj',this.country);
-    //     // this.otrdetailService.otrDetails(value);
-    //     // this.otrdetailService.temp = value;
-    //     // console.log(value)
-    //     // this.router.navigate(['home/expense']);
-    // }
     //addExpense() func
-    addExpense(){
-        if(this.isShow==true){
-        this.otrdetailService.temp = this.country;
-        console.log(this.otrdetailService.temp);
-        this.router.navigate(['home/expense']);
-        }else{
+    addExpense() {
+        if (this.isShow == true) {
+            this.otrdetailService.country = this.country;
+            console.log(this.otrdetailService.country);
+
+            // this.otr['country']=this.country;
+            // localStorage.setItem(JSON.stringify(this.country),JSON.stringify(this.otr));
+            this.router.navigate(['home/expense']);
+        } else {
             console.log('select the country');
-         this.router.navigate(['home/dashboard']);
+            this.snackbar.open('select country', 'close', { duration: 3000 });
+            this.router.navigate(['home/dashboard']);
         }
     }
 
     ngOnInit() {
-
+        
     }
     //     selectCountry(event){
     //        this.setLocalStorage(event.value);
