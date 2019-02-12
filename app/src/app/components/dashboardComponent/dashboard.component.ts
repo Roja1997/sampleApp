@@ -2,9 +2,10 @@
 import { Component, OnInit } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
+import { NDataModelService, NLocalStorageService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { Router } from '@angular/router'
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -17,25 +18,25 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 
 export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    
-    isShow:boolean=false;
-    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService) {
+    country: string = '';
+    isShow: boolean = false;
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router,private localStorage:NLocalStorageService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    countries  = [
+    countries = [
         { country: "South Africa", value: "South Africa" },
         { country: "Singapore", value: "Singapore" },
         { country: "Malaysia", value: "Malaysia" }
     ]
     //hard coded expenses details
-    expense = [{
-        FromDate: "20 / 01 / 2019",
-        toDate: "30 / 01 / 2019",
-        expType: "fuel",
-        billAttached: "true",
-        amount:"1000"
-    }]
+    // expense = [{
+    //     FromDate: "20 / 01 / 2019",
+    //     toDate: "30 / 01 / 2019",
+    //     expType: "fuel",
+    //     billAttached: "true",
+    //     amount:"1000"
+    // }]
     //countryName fun
     /* countryName(value){
         
@@ -55,23 +56,37 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     }
 
     */
-    countryName(value){
-        this.isShow=true;
-        localStorage.setItem('otr',JSON.stringify(value));
-        // this.otrdetailService.otrDetails(value);
+    // countryName() {
+    //     this.isShow = true;
+    //     // localStorage.setItem('otr',JSON.stringify(value));
+    //     // console.log('jj',this.country);
+    //     // this.otrdetailService.otrDetails(value);
+    //     // this.otrdetailService.temp = value;
+    //     // console.log(value)
+    //     // this.router.navigate(['home/expense']);
+    // }
+    //addExpense() func
+    addExpense(){
+        if(this.isShow==true){
+        this.otrdetailService.temp = this.country;
+        console.log(this.otrdetailService.temp);
+        this.router.navigate(['home/expense']);
+        }else{
+            console.log('select the country');
+         this.router.navigate(['home/dashboard']);
+        }
     }
-
 
     ngOnInit() {
-        
+
     }
-//     selectCountry(event){
-//        this.setLocalStorage(event.value);
-//     }
-//     setLocalStorage(value){
-// this.personalValueDetail['Country']=value;
-// this.localStorage.setValue('personalValue',this.personalValueDetail)
-//     }
+    //     selectCountry(event){
+    //        this.setLocalStorage(event.value);
+    //     }
+    //     setLocalStorage(value){
+    // this.personalValueDetail['Country']=value;
+    // this.localStorage.setValue('personalValue',this.personalValueDetail)
+    //     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
@@ -124,7 +139,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here

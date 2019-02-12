@@ -4,6 +4,7 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 
 /**
  * Service import Example :
@@ -18,13 +19,13 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
 
-    constructor(private bdms: NDataModelService) {
+    constructor(private bdms: NDataModelService,private otrdetailService: otrdetailService, ) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-
+        console.log(this.otrdetailService.temp)
     }
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
