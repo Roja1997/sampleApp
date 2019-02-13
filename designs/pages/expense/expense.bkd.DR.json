@@ -232,7 +232,7 @@
                         },
                         {
                             "_key": "id",
-                            "_value": "",
+                            "_value": "disabled",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -295,12 +295,6 @@
                             "_value": "picker",
                             "_type": "ma",
                             "_attrDef": "p"
-                        },
-                        {
-                            "_key": "readonly",
-                            "_value": "true",
-                            "_type": "kv",
-                            "_attrDef": "c"
                         }
                     ]
                 }

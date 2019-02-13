@@ -1,15 +1,50 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <mat-form-field>
-      <mat-select [(ngModel)]="country" required (selectionChange)="countryName($event.value)" name="country">
-        <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p *ngIf="isShow==false" style="color:red;">please select a country</p>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field>
+        <mat-select [(ngModel)]="country" required (selectionChange)="countryName($event.value)" name="country">
+          <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p *ngIf="isShow==false" style="color:red;">please select a country</p>
+    </div>
   </div>
   <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" color="primary" title="add expense" (click)="addExpense()">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
     </button></div>
-  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="country">
+
+    <table mat-table="" [dataSource]="dataSource" matSort="" style="width:100%;">
+
+      <!-- fromDate Column -->
+      <ng-container matColumnDef="fromDate">
+        <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> From Date </th>
+        <td mat-cell="" *matCellDef="let element"> {{element.fromDate}} </td>
+      </ng-container>
+
+      <!-- toDate Column -->
+      <ng-container matColumnDef="toDate">
+        <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> To Date </th>
+        <td mat-cell="" *matCellDef="let element"> {{element.toDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="view">
+        <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> view</th>
+
+        <td mat-cell="" *matCellDef="let element">
+          <i class="material-icons" style="" (click)="expenseList(element.fromDate)">visibility</i>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row="" *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row="" *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[1, 2, 25, 100]" style="margin-right:100px;"></mat-paginator>
+  </div>
 </div>
