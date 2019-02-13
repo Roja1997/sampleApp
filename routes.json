@@ -11,7 +11,8 @@
                 {
                     "path": "expenselist",
                     "component": "expenselistComponent",
-                    "resolve": "{config:expenselistresolverService}"
+                    "resolve": "",
+                    "redirectTo": ""
                 }
             ]
         },
