@@ -1,14 +1,23 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>OTR name</p>
+    <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>OTR Name</p>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p></p>
+    <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>{{personalValue.countryName}}</p>
     </div>
   </div>
-  <mat-card></mat-card>
-  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary">submit</button></div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngFor="let expense of value.expense">
+    <div fxLayout="row nowrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>ExpType:</p>
+      <p>{{expense.expType}}</p>
+    </div>
+    <div fxLayout="row nowrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Amount:</p>
+      <p>{{expense.amount}}</p>
+    </div>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary" (click)=" createCSVandSendEmail()">submit</button></div>
   <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" (click)="addExpense()">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
