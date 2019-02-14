@@ -80,7 +80,7 @@
                 },
                 {
                     "_key": "[(ngModel)]",
-                    "_value": "",
+                    "_value": "expType",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -457,8 +457,8 @@
                 }
             }
         },
-        "9b74ffd8-bee4-2291-e3cb-afa8734ff873": {
-            "paletteKey": "FlexLayoutRow",
+        "e3f62705-2a47-90fd-1890-cecff2bd7d6a": {
+            "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
@@ -513,8 +513,37 @@
                     "_value": "false",
                     "_type": "kv",
                     "_attrDef": "p"
+                },
+                {
+                    "_key": "*ngIf",
+                    "_value": "img",
+                    "_type": "kv",
+                    "_attrDef": "c"
                 }
-            ]
+            ],
+            "9e13246c-cb63-4f49-48c1-725aed7fe769": {
+                "paletteKey": "HTML",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "html",
+                        "_value": "<img [src]=\"imgPath\" height=\"50px\" width:\"50px !important\"  >",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    }
+                ]
+            }
         },
         "0539bf24-fe7e-a792-1c2f-8f5badddcb8b": {
             "paletteKey": "FlexLayoutRow",
@@ -615,7 +644,7 @@
                     },
                     {
                         "_key": "[(ngModel)]",
-                        "_value": "",
+                        "_value": "expAmount",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -669,7 +698,7 @@
                 },
                 {
                     "_key": "(click)",
-                    "_value": "",
+                    "_value": "submit()",
                     "_type": "kv",
                     "_attrDef": "p"
                 }

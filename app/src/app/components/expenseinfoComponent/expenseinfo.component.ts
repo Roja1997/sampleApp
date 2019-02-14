@@ -4,14 +4,13 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { cameraService } from '../../services/camera/camera.service';
 
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
  */
-declare const navigator: any;
-declare const cordova: any;
-declare const textocr: any;
+
 
 @Component({
     selector: 'bh-expenseinfo',
@@ -25,11 +24,13 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     button1 = 'Yes';
     button2 = 'No';
     Amount = false;
-    thumb_nail;
+     imgPath;
+     img=false;
+     expType;
+     imageurl;
+     expAmount;
 
-
-
-    constructor(private bdms: NDataModelService) {
+    constructor(private bdms: NDataModelService,private camService:cameraService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -38,84 +39,36 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
     }
 
-    // // accept(option) {
-    // //     if (option === this.button1) {
-    //     openCamera(){
-    //         var that = this;
-    //         navigator.camera.getPicture(this.onSuccess, this.onFail, { quality: 100, correctOrientation: true });
-    //     }
-    // }
-    // onFail(message) 
-    // {
-    //     alert('Failed because: ' + message);
-    // }
+    openCamera() {
+        this.img=true;
+         this.camService.camera().then((path)=>{
+             console.log('path',path);
+             this.imgPath=path;
+         
+         }).catch((error)=>{
+             console.log(error);
 
-    // onSuccess(imageData)
-    //  {
-    //     textocr.recText(0, 3, imageData, onSuccess, onFail);
-    //     function onSuccess(recognizedText) {
-    //         console.log(recognizedText)
-    //         alert(recognizedText);
-    //     }
-    //     function onFail(message) {
-    //         alert('Failed because: ' + message);
-    //     }
+         });
+        this.Amount = true;
+
+         
+    }
 
 
-    // }
+    amount() {
+        this.Amount = true;
+    }
 
-    //needed code
+submit(){
 
-//  setOptions(srcType) {
-//     var options = {
-//         // Some common settings are 20, 50, and 100
-//         quality: 50,
-//         destinationType: Camera.DestinationType.FILE_URI,
-//         // In this app, dynamically set the picture source, Camera or photo gallery
-//         sourceType: srcType,
-//         encodingType: Camera.EncodingType.JPEG,
-//         mediaType: Camera.MediaType.PICTURE,
-//         allowEdit: true,
-//         correctOrientation: true  //Corrects Android orientation quirks
-//     }
-//     return options;
-// }
-
- openCamera() {
-     let opts={
-         quality:100,
-         destinationType:1,
-         sourceType:1,
-         encodingType:0,
-         mediaType:0,
-         saveToPhotoAlbum:true,
-         cameraDirection:0,
-         targetWidth:100,
-         targetHeight:100
-
-     }
-     navigator.camera.getPicture(this.cameraSuccess, this.cameraError, opts);
-
-
- }
-
-cameraSuccess(imageURI){
-// this.thumb_nail.src=imageURI;
-// console.log(this.thumb_nail.src);
-console.log(imageURI);
+    
+    console.log(this.expType);
+    this.imageurl=this.imgPath;
+    console.log(this.imageurl);
+    
+    console.log(this.expAmount);
 
 }
-
- cameraError(message){
-    console.log('message',message)
-}
-
- amount()
- {
-   this.Amount=true;
- }
-
-
 
 
 

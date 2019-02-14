@@ -14,6 +14,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-cameraService
+import { cameraService } from '../services/camera/camera.service';
 //CORE_REFERENCE_IMPORT-userdetailComponent
 import { userdetailComponent } from '../components/userdetailComponent/userdetail.component';
 //CORE_REFERENCE_IMPORT-expenselistComponent
@@ -90,6 +92,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-cameraService
+cameraService,
 
 ];
 

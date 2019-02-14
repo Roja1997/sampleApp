@@ -34,15 +34,15 @@
                     },
                     "configurations": {
                         "prod": {
-                            "optimization": true,
+                            "optimization": false,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
+                            "extractCss": false,
                             "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
+                            "aot": false,
+                            "extractLicenses": false,
                             "vendorChunk": false,
-                            "buildOptimizer": true,
+                            "buildOptimizer": false,
                             "fileReplacements": [
                                 {
                                     "replace": "src/environments/environment.ts",

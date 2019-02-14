@@ -1,6 +1,6 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <mat-form-field>
-    <mat-select placeholder="Expense Type" required>
+    <mat-select placeholder="Expense Type" [(ngModel)]="expType" required>
       <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
     </mat-select>
   </mat-form-field>
@@ -11,8 +11,8 @@
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" (click)="openCamera()">Yes</button></div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" (click)="amount()">No</button></div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="img"><img [src]="imgPath" height="50px" width:"50px="" !important"=""></div>
   <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="Amount">
-    <mat-form-field><input matInput="" placeholder="Amount" required></mat-form-field>
-  </div><button mat-button="">Submit</button>
+    <mat-form-field><input matInput="" [(ngModel)]="expAmount" placeholder="Amount" required></mat-form-field>
+  </div><button mat-button="" (click)="submit()">Submit</button>
 </div>
