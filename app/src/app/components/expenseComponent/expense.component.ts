@@ -49,13 +49,13 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     submitDate() {
         // this.expensetdetail.fromDate=this.fromDate.toDateString();
         // this.expensetdetail.toDate=this.fromDate.toDateString();
-        this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd/MM/yyyy');
-        this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd/MM/yyyy');
+        this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
+        this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         this.expensetdetail.push(this.otrDetail);
         console.log('expensetdetail', this.expensetdetail);
         this.otr.expenses = this.expensetdetail;
         console.log('final otr', this.otr);
-        var countryname = this.otrdetailService.country
+        var countryname = this.otrdetailService.country;
         localStorage.setItem(countryname, JSON.stringify(this.otr));
 
     }

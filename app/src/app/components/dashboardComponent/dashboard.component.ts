@@ -1,5 +1,5 @@
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
-import { Component, OnInit ,ViewChild} from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService, NLocalStorageService } from 'neutrinos-seed-services';
@@ -8,6 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from '@angular/router'
 import { MatSnackBar } from '@angular/material';
+import { imageserviceService } from '../../services/imageservice/imageservice.service';
 
 /**
  * Service import Example :
@@ -25,42 +26,62 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     isShow: boolean = false;
     // otr={};
     otrDetails: any = [];
-    displayedColumns: string[] = ['fromDate', 'toDate','view'];
+    displayedColumns: string[] = ['icon','fromDate', 'toDate','Amount' ,'view'];
     dataSource: any;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
-    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
+    //for carosal
+    dataSet;
+    img;
+    limitImage;
+    constructor(private bdms: NDataModelService, private imgService: imageserviceService,private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
+        this.dataSet = this.imgService.getImages();
+        console.log("m",this.dataSet);
         this.mm = new ModelMethods(bdms);
     }
     countries = [
-        
+
         { country: "Singapore", value: "Singapore" },
         { country: "South Africa", value: "South Africa" },
         { country: "Malaysia", value: "Malaysia" }
     ]
 
-   
+    //fab function for carosal
+        changeDataSet(dir) {
+        if (dir == 1) {
+            this.dataSet.push(this.dataSet.shift());
+        }
+        else {
+            let temp = [];
+            temp.push(this.dataSet.pop());
+            for (let i = 0; i < this.dataSet.length; ++i) {
+                temp.push(this.dataSet[i]);
+            }
+            this.dataSet = temp;
 
-  
-    otr:any = {};
+        }
+    }
+
+
+    otr: any = {};
     countryName(value) {
         this.isShow = true;
         this.otr = localStorage.getItem(JSON.stringify(value));
-        console.log(localStorage.getItem(JSON.stringify(value)));
+        // console.log(localStorage.getItem(JSON.stringify(value)));
         this.otr = JSON.parse(this.otr);
-        console.log("otr object as", this.otr.expenses);
-        this.otrDetails=this.otr.expenses;
+        // console.log("otr object as", this.otr.expenses);
+        this.otrDetails = this.otr.expenses;
         this.dataSource = new MatTableDataSource(this.otrDetails);
-            this.dataSource.paginator = this.otrDetails.length;
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-        
+        this.dataSource.paginator = this.otrDetails.length;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+
     }
 
     //expenseList()
-    expenseList(a){
-        console.log('eye',a,"bhagya component based on date you shoud show expenses of otr");
+    expenseList(a) {
+        console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
     }
 
     //addExpense() func
@@ -68,12 +89,10 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         if (this.isShow == true) {
             this.otrdetailService.country = this.country;
             console.log(this.otrdetailService.country);
-
             // this.otr['country']=this.country;
             // localStorage.setItem(JSON.stringify(this.country),JSON.stringify(this.otr));
             this.router.navigate(['home/expense']);
         } else {
-            console.log('select the country');
             this.snackbar.open('select country', 'close', { duration: 3000 });
             this.router.navigate(['home/dashboard']);
         }
@@ -92,13 +111,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     // }
 
 
-    //     selectCountry(event){
-    //        this.setLocalStorage(event.value);
-    //     }
-    //     setLocalStorage(value){
-    // this.personalValueDetail['Country']=value;
-    // this.localStorage.setValue('personalValue',this.personalValueDetail)
-    //     }
+
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
@@ -177,7 +190,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
                 // Handle errors here
             })
     }
-      // //hard coded expenses details
+    // //hard coded expenses details
     // expenses= [{
     //     fromDate: "12/09/2019",
     //     toDate: "31/09/ 2019",

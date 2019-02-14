@@ -14,6 +14,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-imageserviceService
+import { imageserviceService } from '../services/imageservice/imageservice.service';
 //CORE_REFERENCE_IMPORT-otrdetailService
 import { otrdetailService } from '../services/otrDetail/otrdetail.service';
 //CORE_REFERENCE_IMPORT-userdetailComponent
@@ -92,6 +94,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-imageserviceService
+imageserviceService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-otrdetailService
 otrdetailService,
 
