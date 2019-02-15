@@ -68,7 +68,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "",
+                    "_value": "background-color:red",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -160,7 +160,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "color:white;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -178,8 +178,119 @@
                         }
                     ]
                 }
-            },
-            "d6b45fc6-25ad-7032-de26-b1db83f78f79": {
+            }
+        },
+        "1d3b6196-5ad1-1faf-8a37-3c99b0276df8": {
+            "paletteKey": "FlexLayoutCol",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "overflow:auto;height:calc(100%-128px)",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "100",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                }
+            ],
+            "836361d2-2595-358a-e635-ab51113ff109": {
+                "paletteKey": "NG-RouterOutlet",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    }
+                ]
+            }
+        },
+        "9e483541-d915-4148-9287-cf7d5fa3ff9e": {
+            "paletteKey": "NG-Toolbar",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "background-color:red",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "color",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "content",
+                    "_value": "",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutAlign",
+                    "_value": "space-between",
+                    "_type": "kv",
+                    "_attrDef": "c"
+                }
+            ],
+            "16375219-e68c-d461-ca90-b0dd7931133a": {
                 "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
@@ -237,12 +348,12 @@
                         "_attrDef": "p"
                     }
                 ],
-                "70304b71-d723-8fb1-c58b-1f4cbcb51a9a": {
+                "780e024d-6786-3999-22a2-ff2722d8264d": {
                     "paletteKey": "NG-icon",
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "color:white;font-size: 32px;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -254,119 +365,14 @@
                         },
                         {
                             "_key": "IconName",
-                            "_value": "edit",
+                            "_value": "receipt",
                             "_type": "a",
                             "_attrDef": "p"
                         }
                     ]
                 }
-            }
-        },
-        "1d3b6196-5ad1-1faf-8a37-3c99b0276df8": {
-            "paletteKey": "FlexLayoutCol",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "overflow:auto;",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxFlex",
-                    "_value": "calc(100%-128px)",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxLayoutGap",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "wrap",
-                    "_value": "",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "layoutAlign",
-                    "_value": " ",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "pLayoutAlign",
-                    "_value": "none",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxShow",
-                    "_value": "true",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxHide",
-                    "_value": "false",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                }
-            ],
-            "836361d2-2595-358a-e635-ab51113ff109": {
-                "paletteKey": "NG-RouterOutlet",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    }
-                ]
-            }
-        },
-        "9e483541-d915-4148-9287-cf7d5fa3ff9e": {
-            "paletteKey": "NG-Toolbar",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "color",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "content",
-                    "_value": "",
-                    "_type": "a",
-                    "_attrDef": "p"
-                }
-            ],
-            "8ba9d38c-c1fd-e924-ccc7-c45b08109c76": {
+            },
+            "4ae336a7-914d-699f-c82a-81d0d54f4650": {
                 "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
@@ -383,7 +389,7 @@
                     },
                     {
                         "_key": "fxFlex",
-                        "_value": "100",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -407,7 +413,7 @@
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "center",
+                        "_value": "start",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -424,12 +430,12 @@
                         "_attrDef": "p"
                     }
                 ],
-                "d0c68969-6848-3a33-ddd7-89639ea98c48": {
-                    "paletteKey": "NG-Paragraph",
+                "2a89d967-4deb-17fa-aece-df008ce63ee7": {
+                    "paletteKey": "NG-icon",
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "font-size:12px;",
+                            "_value": "color:white;font-size: 32px;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -440,8 +446,8 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "text",
-                            "_value": "&copy; 2019 Neutrinos",
+                            "_key": "IconName",
+                            "_value": "person",
                             "_type": "a",
                             "_attrDef": "p"
                         }

@@ -339,7 +339,7 @@
                 },
                 {
                     "_key": "*ngFor",
-                    "_value": "let expense of value.expense",
+                    "_value": "let expense1 of expense",
                     "_type": "kv",
                     "_attrDef": "c"
                 }
@@ -442,7 +442,7 @@
                         },
                         {
                             "_key": "text",
-                            "_value": "{{expense.expType}}",
+                            "_value": "{{expense1.expType}}",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -547,7 +547,7 @@
                         },
                         {
                             "_key": "text",
-                            "_value": "{{expense.amount}}",
+                            "_value": "{{expense1.amount}}",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -647,6 +647,100 @@
                         "_attrDef": "p"
                     }
                 ]
+            },
+            "10f1415f-26aa-a337-7746-c0efabd16a7c": {
+                "paletteKey": "FlexLayoutCol",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "layoutAlign",
+                        "_value": "start",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "stretch",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxHide",
+                        "_value": "false",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    }
+                ],
+                "2cd28a68-3a93-0c10-7ef1-46e4341c1df2": {
+                    "paletteKey": "NG-button",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "buttonname",
+                            "_value": "MAIL",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "primary",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "mailingZip()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
             }
         },
         "e9d50551-3067-4482-0ca7-c3a3cda60acc": {
