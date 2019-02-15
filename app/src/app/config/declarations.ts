@@ -20,6 +20,10 @@ import { aftersendingmailComponent } from '../components/aftersendingmailCompone
 import { mailService } from '../services/mail/mail.service';
 //CORE_REFERENCE_IMPORT-expenselistresolverService
 import { expenselistresolverService } from '../services/expenseListResolver/expenselistresolver.service';
+//CORE_REFERENCE_IMPORT-imageserviceService
+import { imageserviceService } from '../services/imageservice/imageservice.service';
+//CORE_REFERENCE_IMPORT-otrdetailService
+import { otrdetailService } from '../services/otrDetail/otrdetail.service';
 //CORE_REFERENCE_IMPORT-userdetailComponent
 import { userdetailComponent } from '../components/userdetailComponent/userdetail.component';
 //CORE_REFERENCE_IMPORT-expenselistComponent
@@ -102,6 +106,10 @@ export const appProviders = [
 mailService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-expenselistresolverService
 expenselistresolverService,
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-imageserviceService
+imageserviceService,
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-otrdetailService
+otrdetailService,
 
 ];
 
@@ -111,5 +119,6 @@ expenselistresolverService,
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
-children: [{path: 'dashboard', component: dashboardComponent},{path: 'expenselist', component: expenselistComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: [{path: 'dashboard', component: dashboardComponent,
+children: []},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

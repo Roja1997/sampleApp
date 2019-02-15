@@ -29,28 +29,28 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
      values;
 
     csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
-    personalValue: object = {
-        countryName: "SouthAfrica",
-        Name: "Vinay",
-        Dept: "Delivery",
-        Project: "OTR",
-        Customer: "Rahul",
-        Purpose: "Travel",
-        Manager: "Vinay",
-        FromDate: "20 / 01 / 2019",
-        toDate: "30 / 01 / 2019",
+    // personalValue: object = {
+    //     countryName: "SouthAfrica",
+    //     Name: "Vinay",
+    //     Dept: "Delivery",
+    //     Project: "OTR",
+    //     Customer: "Rahul",
+    //     Purpose: "Travel",
+    //     Manager: "Vinay",
+    //     FromDate: "20 / 01 / 2019",
+    //     toDate: "30 / 01 / 2019",
 
-        expense: [{
-            expType: "petrol",
-            billAttached: true,
-            amount: 3000
+    //     expense: [{
+    //         expType: "petrol",
+    //         billAttached: true,
+    //         amount: 3000
 
-        }, {
-            expType: "diesel",
-            billAttached: true,
-            amount: 200
-        }]
-    };
+    //     }, {
+    //         expType: "diesel",
+    //         billAttached: true,
+    //         amount: 200
+    //     }]
+    // };
 
 
     constructor(private route: ActivatedRoute, public pubsub: NPubSubService, 
@@ -62,9 +62,9 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.personalValue)
-        localStorage.setItem('personalValue', JSON.stringify(this.personalValue));
-        this.value = JSON.parse(localStorage.personalValue);
+        //console.log(this.personalValue)
+        //localStorage.setItem('South Africa', JSON.stringify(this.South Africa));
+        this.value = JSON.parse(localStorage.SouthAfrica);
         console.log('get value', this.value);
         this.expense=this.value.expense;
     }

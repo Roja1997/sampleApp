@@ -1,16 +1,94 @@
-<div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <mat-form-field>
-      <mat-select [(ngModel)]="country" required (selectionChange)="selectCountry($event)" name="country" (onchange)="selectCountry($event)">
-        <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+<div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="  none" fxShow="false" fxHide="false">
+    <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false" fxFlex.xs="13">
+        <div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-mini-fab="" class="arrow-color" (click)="changeDataSet(1)">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button></div>
+      </div>
+      <div fxLayout="column " fxFlex="70" fxLayoutAlign="  none" fxShow="true" fxHide="false" *ngFor="let row of dataSet">
+        <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false"><img imgSrc="{{row.imgSrc}}">
+          <div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+            <p (click)="countryName(row.imgName)" ng-click="countryName(row.imgName)">{{row.imgName}}</p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false" fxFlex.xs="8"><button mat-mini-fab="" class="arrow-color" (click)="changeDataSet(1)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button></div>
+      </div>
+    </div>
   </div>
-  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" color="primary" (click)="route()">
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+      <mat-form-field>
+        <mat-select [(ngModel)]="country" required (selectionChange)="countryName($event.value)" name="country">
+          <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+      <p *ngIf="isShow==false" style="color:red;">please select a country</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="country">
+
+      <table mat-table="" [dataSource]="dataSource" matSort="" style="width:100%;">
+        <!--   <ng-container matColumnDef="icon">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> icon</th>
+  <td mat-cell *matCellDef="let element"> 
+       
+      <i class="material-icons" style="" >visibility</i>
+        
+    </td>
+    </ng-container>
+    -->
+        <ng-container matColumnDef="receipt">
+          <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> </th>
+
+          <td mat-cell="" *matCellDef="let element">
+            <i class="material-icons" style="">receipt</i>
+
+          </td>
+        </ng-container>
+        <!-- fromDate Column -->
+        <ng-container matColumnDef="fromDate">
+          <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> From Date </th>
+
+          <td mat-cell="" *matCellDef="let element"> {{element.fromDate}} </td>
+        </ng-container>
+
+        <!-- toDate Column -->
+        <ng-container matColumnDef="toDate">
+          <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> To Date </th>
+          <td mat-cell="" *matCellDef="let element"> {{element.toDate}} </td>
+        </ng-container>
+        <!--
+      <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount| currency: 'INR':true}} </td>
+    </ng-container>-->
+        <ng-container matColumnDef="view">
+          <th mat-header-cell="" *matHeaderCellDef="" mat-sort-header=""> view</th>
+
+          <td mat-cell="" *matCellDef="let element">
+            <i class="material-icons" style="" (click)="expenseList(element.fromDate)">visibility</i>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row="" *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row="" *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <!--
+  <mat-paginator [pageSizeOptions]="[1, 2, 25, 100]" style="margin-right:100px;"></mat-paginator>-->
+    </div>
+  </div>
+  <div fxLayout="column " class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" style="color:red;" color="red" title="add expense" (click)="addExpense()">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
     </button></div>
-  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <p>please select a country</p>
-  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
 </div>

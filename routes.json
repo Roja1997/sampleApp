@@ -6,13 +6,16 @@
             "children": [
                 {
                     "component": "dashboardComponent",
-                    "path": "dashboard"
+                    "path": "dashboard",
+                    "children": []
                 },
                 {
-                    "path": "expenselist",
+                    "path": "expense",
+                    "component": "expenseComponent"
+                },
+                {
                     "component": "expenselistComponent",
-                    "resolve": "",
-                    "redirectTo": ""
+                    "path": "expenselist"
                 }
             ]
         },

@@ -1,11 +1,14 @@
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService ,NLocalStorageService} from 'neutrinos-seed-services';
+import { NDataModelService, NLocalStorageService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-import { Router } from '@angular/router';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { Router } from '@angular/router'
+import { MatSnackBar } from '@angular/material';
+import { imageserviceService } from '../../services/imageservice/imageservice.service';
 
 /**
  * Service import Example :
@@ -15,33 +18,101 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'bh-dashboard',
     templateUrl: './dashboard.template.html'
+   
 })
 
 export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    selected;
-    personalValueDetail:any={};
-    
-    constructor(private bdms: NDataModelService,private localStorage:NLocalStorageService,private router:Router) {
+    country: string = '';
+    isShow: boolean = false;
+    // otr={};
+    otrDetails: any = [];
+    displayedColumns: string[] = ['receipt','fromDate', 'toDate' ,'view'];
+    dataSource: any;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    //for carosal
+    dataSet;
+    img;
+    limitImage;
+    constructor(private bdms: NDataModelService, private imgService: imageserviceService,private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
+        this.dataSet = this.imgService.getImages();
+        console.log("m",this.dataSet);
         this.mm = new ModelMethods(bdms);
     }
-    countries  = [
-        { country: "South Africa", value: "South Africa" },
+    countries = [
+
         { country: "Singapore", value: "Singapore" },
+        { country: "SouthAfrica", value: "South Africa" },
         { country: "Malaysia", value: "Malaysia" }
     ]
 
+    //fab function for carosal
+        changeDataSet(dir) {
+        if (dir == 1) {
+            this.dataSet.push(this.dataSet.shift());
+        }
+        else {
+            let temp = [];
+            temp.push(this.dataSet.pop());
+            for (let i = 0; i < this.dataSet.length; ++i) {
+                temp.push(this.dataSet[i]);
+            }
+            this.dataSet = temp;
+
+        }
+    }
+
+
+    otr: any = {};
+    countryName(value) {
+        this.isShow = true;
+        this.otr = localStorage.getItem(JSON.stringify(value));
+        // console.log(localStorage.getItem(JSON.stringify(value)));
+        this.otr = JSON.parse(this.otr);
+        // console.log("otr object as", this.otr.expenses);
+        this.otrDetails = this.otr.expenses;
+        this.dataSource = new MatTableDataSource(this.otrDetails);
+        this.dataSource.paginator = this.otrDetails.length;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+
+    }
+
+    //expenseList()
+    expenseList(a) {
+        console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
+    }
+
+    //addExpense() func
+    addExpense() {
+        if (this.isShow == true) {
+            this.otrdetailService.country = this.country;
+            console.log(this.otrdetailService.country);
+            // this.otr['country']=this.country;
+            // localStorage.setItem(JSON.stringify(this.country),JSON.stringify(this.otr));
+            this.router.navigate(['home/expense']);
+        } else {
+            this.snackbar.open('select country', 'close', { duration: 3000 });
+            this.router.navigate(['home/dashboard']);
+        }
+    }
+
     ngOnInit() {
-        // localStorage.setItem('country',country.country);
+
     }
-    selectCountry(event){
-       this.setLocalStorage(event.value);
-    }
-    setLocalStorage(value){
-this.personalValueDetail['Country']=value;
-this.localStorage.setValue('personalValue',this.personalValueDetail)
-    }
+
+    //  //apply filter
+    // applyFilter(filterValue: string) {
+    //     this.dataSource.filter = filterValue.trim().toLowerCase();
+    //     if (this.dataSource.paginator) {
+    //         this.dataSource.paginator.firstPage();
+    //     }
+    // }
+
+
+
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
@@ -94,7 +165,7 @@ this.localStorage.setValue('personalValue',this.personalValueDetail)
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here
@@ -120,6 +191,38 @@ this.localStorage.setValue('personalValue',this.personalValueDetail)
                 // Handle errors here
             })
     }
+    // //hard coded expenses details
+    // expenses= [{
+    //     fromDate: "12/09/2019",
+    //     toDate: "31/09/ 2019",
+    //     expType: "fuel",
+    //     billAttached: "true",
+    //     amount:"1000"
+    // },{
+    //     fromDate: "01/12/2019",
+    //     toDate: "31/12/ 2019",
+    //     expType: "fuel",
+    //     billAttached: "true",
+    //     amount:"2000"
+    // }]
+    // //countryName fun
+    //  countryName(value){
+
+    //     this.isShow=true;
+    //     var otr = {
+
+    //         Name: "Vinay",
+    //         Department: "Delivery",
+    //         Project: "OTR",
+    //         Customer: "Rahul",
+    //         Purpose: "Travel",
+    //         Manager: "Vinay",
+    //         Destination:value,
+    //         expenses: this.expenses
+    //     };
+    //     console.log('this.value',value);
+    //     localStorage.setItem(JSON.stringify(value),JSON.stringify(otr));
+    // }
 
 
 }

@@ -1,12 +1,4 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>OTR Name</p>
-    </div>
-    <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>{{personalValue.countryName}}</p>
-    </div>
-  </div>
   <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngFor="let expense1 of expense">
     <div fxLayout="row nowrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>ExpType:</p>
@@ -20,8 +12,4 @@
   <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary" (click)=" createCSVandSendEmail()">submit</button>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary" (click)="mailingZip()">MAIL</button></div>
   </div>
-  <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="end end" fxShow="true" fxHide="false"><button mat-fab="" (click)="addExpense()">
-      <mat-icon>add_circle<mat-icon></mat-icon>
-      </mat-icon>
-    </button></div>
 </div>

@@ -4,7 +4,23 @@
 @import "nDefaults.scss";
 
 .expensebtn{
-    position: fixed;
-    bottom: 75px;
-    right: 10%;
+   position: fixed;
+    
+    
+bottom: 11px;
+    color: red;
+    right: 36%;
+      border-radius: 50%;
+  border: 15px solid red;
+ 
+  
+  
+   }
+
+   .arrow-color {
+     background-color: white !important
+}
+
+.mat-mini-fab.mat-accent {
+    color:#5786d3 ;
 }
