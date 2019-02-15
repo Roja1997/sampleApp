@@ -26,6 +26,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
+    
     constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -37,7 +38,11 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         console.log(this.otrdetailService.country);
     }
     
-    
+    //to get our tour total Days
+    totaldays;
+    totalDays(){
+        this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
+    }
     //pickFromDate fun
     pickFromDate() {
         console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
@@ -51,7 +56,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         // this.expensetdetail.fromDate=this.fromDate.toDateString();
         // this.expensetdetail.toDate=this.fromDate.toDateString();
 
-        //to get our tour total Days
         this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');

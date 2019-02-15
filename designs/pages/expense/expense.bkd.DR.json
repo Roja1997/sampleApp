@@ -57,12 +57,12 @@
                 "_attrDef": "p"
             }
         ],
-        "b052c443-1ef1-7a30-163e-31309a68c5ab": {
+        "e07de7aa-70d0-ed6c-47d7-2ee1ee385e86": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "     margin-top: 18px;",
+                    "_value": "margin-top: 18px;",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -92,13 +92,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "start",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -113,9 +113,15 @@
                     "_value": "false",
                     "_type": "kv",
                     "_attrDef": "p"
+                },
+                {
+                    "_key": "disabaled",
+                    "_value": "disabaled",
+                    "_type": "a",
+                    "_attrDef": "c"
                 }
             ],
-            "358ae404-212e-648b-41c4-0d60f470cf38": {
+            "0bb64a03-d189-a89a-766f-969268e56b5d": {
                 "paletteKey": "FlexLayoutRow",
                 "designerReference": [
                     {
@@ -156,7 +162,7 @@
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "stretch",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -173,8 +179,8 @@
                         "_attrDef": "p"
                     }
                 ],
-                "f5b28369-684b-0a97-abec-0b5d1506218d": {
-                    "paletteKey": "NG-DatePicker",
+                "cd964647-6e7f-369e-05c2-b0ab8603097f": {
+                    "paletteKey": "HTML",
                     "designerReference": [
                         {
                             "_key": "style",
@@ -189,117 +195,15 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "placeholder",
-                            "_value": "From",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "value",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[min]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[max]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[startAt]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "startView",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "touchUi",
-                            "_value": "touch",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "id",
-                            "_value": "disabled",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(dateChange)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(dateInput)",
-                            "_value": "pickFromDate()",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "opened",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "disabled",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(open)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(close)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[matDatepickerFilter]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[(ngModel)]",
-                            "_value": "fromDate",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "name",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "picker",
-                            "_value": "picker",
-                            "_type": "ma",
+                            "_key": "html",
+                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"From\"  (click)=\"picker.open()\" (dateInput)=\"pickFromDate()\" [(ngModel)]=\"fromDate\">\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_type": "a",
                             "_attrDef": "p"
                         }
                     ]
                 }
             },
-            "e40784cb-dc42-ebf7-43dd-480a8595aff6": {
+            "168762bc-b43d-1bd5-f5ef-f8ace6a5f61e": {
                 "paletteKey": "FlexLayoutRow",
                 "designerReference": [
                     {
@@ -355,22 +259,10 @@
                         "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "*ngIf",
-                        "_value": "fromDate",
-                        "_type": "kv",
-                        "_attrDef": "c"
-                    },
-                    {
-                        "_key": "disabled",
-                        "_value": "disabled",
-                        "_type": "a",
-                        "_attrDef": "c"
                     }
                 ],
-                "a8359af9-2c5a-58af-1afe-1215a2f04f03": {
-                    "paletteKey": "NG-DatePicker",
+                "869b4558-51cc-0ec3-e11b-ca73acdb3818": {
+                    "paletteKey": "HTML",
                     "designerReference": [
                         {
                             "_key": "style",
@@ -385,111 +277,9 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "placeholder",
-                            "_value": "To",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "value",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[min]",
-                            "_value": "minDate",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[max]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[startAt]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "startView",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "touchUi",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "id",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(dateChange)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(dateInput)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "opened",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "disabled",
-                            "_value": "disabled",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(open)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(close)",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[matDatepickerFilter]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[(ngModel)]",
-                            "_value": "toDate",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "name",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "picker",
-                            "_value": "picker1",
-                            "_type": "ma",
+                            "_key": "html",
+                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker1\" placeholder=\"To\" (dateChange)=\"totalDays()\" (click)=\"picker1.open()\" [(ngModel)]=\"toDate\" [min]=\"minDate\" >\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker1\"></mat-datepicker-toggle>\n  <mat-datepicker #picker1 touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_type": "a",
                             "_attrDef": "p"
                         }
                     ]

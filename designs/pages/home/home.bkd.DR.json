@@ -68,7 +68,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "background-color:red",
+                    "_value": "background-color:red;height:54px;",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -261,7 +261,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "background-color:red",
+                    "_value": "background-color:red;height:54px;",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
