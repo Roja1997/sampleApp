@@ -1,15 +1,26 @@
-<div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngFor="let expense1 of expense">
-    <div fxLayout="row nowrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>ExpType:</p>
-      <p>{{expense1.expType}}</p>
-    </div>
-    <div fxLayout="row nowrap" fxFlex="50" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>Amount:</p>
-      <p>{{expense1.amount}}</p>
+<div fxLayout="column wrap" style="height:100%;" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="true">
+  <mat-toolbar style="background:red;color:white;">
+    <mat-icon style="padding:0px 10px;">keyboard_backspace</mat-icon>
+    <h3>My Expenses</h3>
+  </mat-toolbar>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="row nowrap" style="font-family:sans-serif;width:96%;border-bottom:1px solid #dcdcdc;" fxFlex="100" fxLayoutGap="1em" fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false" *ngFor="let expense of expenses">
+      <div fxLayout="row wrap" style="mar" fxFlex="70" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img imgSrc="../../assets/Web/Icons/favicon.ico" style="width:100%;height:100%;"></div>
+        <div fxLayout="column wrap" class="expDetails" fxFlex="75" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+          <h3>{{expense.expType}}</h3>
+          <p>{{expense.fromDate}}</p>
+          <p>comments are shown here.......</p>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start end" fxShow="true" fxHide="false">
+        <h3>{{expense.amount}}</h3>
+      </div>
     </div>
   </div>
-  <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary" (click)=" createCSVandSendEmail()">submit</button>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" color="primary" (click)="mailingZip()">MAIL</button></div>
-  </div>
+  <div fxLayout="column wrap" style="position:absolute;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;">SUBMIT</button></div>
+  <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="">
+      <mat-icon>add_circle<mat-icon></mat-icon>
+      </mat-icon>
+    </button></div>
 </div>

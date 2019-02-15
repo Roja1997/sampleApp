@@ -10,6 +10,7 @@ import { mailService } from '../../services/mail/mail.service';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {FsService} from 'ngx-fs';
 
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -64,9 +65,10 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         //console.log(this.personalValue)
         //localStorage.setItem('South Africa', JSON.stringify(this.South Africa));
-        this.value = JSON.parse(localStorage.SouthAfrica);
+        this.value=JSON.parse(localStorage.getItem(JSON.stringify("South Africa")));
+        //this.value = JSON.parse(localStorage.SouthAfrica);
         console.log('get value', this.value);
-        this.expense=this.value.expense;
+        this.expenses=this.value.expenses;
     }
 
     addExpense() {
