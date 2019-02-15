@@ -365,7 +365,7 @@
                         },
                         {
                             "_key": "IconName",
-                            "_value": "description",
+                            "_value": "receipt",
                             "_type": "a",
                             "_attrDef": "p"
                         }

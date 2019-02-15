@@ -36,7 +36,8 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         console.log(this.otrdetailService.country);
     }
-
+    
+    
     //pickFromDate fun
     pickFromDate() {
         console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
@@ -49,6 +50,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     submitDate() {
         // this.expensetdetail.fromDate=this.fromDate.toDateString();
         // this.expensetdetail.toDate=this.fromDate.toDateString();
+
+        //to get our tour total Days
+        this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         this.expensetdetail.push(this.otrDetail);

@@ -62,7 +62,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "",
+                    "_value": "margin-top:20px;",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -74,7 +74,7 @@
                 },
                 {
                     "_key": "fxFlex",
-                    "_value": "100",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -86,7 +86,7 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "wrap",
+                    "_value": "",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -132,7 +132,7 @@
                     },
                     {
                         "_key": "fxFlex",
-                        "_value": "1oo",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -144,7 +144,7 @@
                     },
                     {
                         "_key": "wrap",
-                        "_value": "wrap",
+                        "_value": "",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -190,7 +190,7 @@
                         },
                         {
                             "_key": "fxFlex",
-                            "_value": "8",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -202,19 +202,19 @@
                         },
                         {
                             "_key": "wrap",
-                            "_value": "wrap",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "layoutAlign",
-                            "_value": "center",
+                            "_value": "start",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "pLayoutAlign",
-                            "_value": "center",
+                            "_value": "stretch",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -266,7 +266,7 @@
                             },
                             {
                                 "_key": "wrap",
-                                "_value": "wrap",
+                                "_value": "",
                                 "_type": "a",
                                 "_attrDef": "p"
                             },
@@ -306,13 +306,13 @@
                                 },
                                 {
                                     "_key": "class",
-                                    "_value": "",
+                                    "_value": "arrow-color",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
                                 {
                                     "_key": "fabicon",
-                                    "_value": "<mat-icon>keyboard_arrow_right</mat-icon>",
+                                    "_value": "<mat-icon>keyboard_arrow_left</mat-icon>",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 },
@@ -349,7 +349,7 @@
                         },
                         {
                             "_key": "fxFlex",
-                            "_value": "90",
+                            "_value": "70",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -361,7 +361,7 @@
                         },
                         {
                             "_key": "wrap",
-                            "_value": "wrap",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -425,7 +425,7 @@
                             },
                             {
                                 "_key": "wrap",
-                                "_value": "wrap",
+                                "_value": "",
                                 "_type": "a",
                                 "_attrDef": "p"
                             },
@@ -482,68 +482,9 @@
                                     "_attrDef": "p"
                                 }
                             ]
-                        }
-                    },
-                    "44de1d8b-6bd1-cb39-48a6-3e2e6b2f962a": {
-                        "paletteKey": "FlexLayoutCol",
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "fxFlex",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "fxLayoutGap",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "wrap",
-                                "_value": "wrap",
-                                "_type": "a",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "layoutAlign",
-                                "_value": "start",
-                                "_type": "a",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "pLayoutAlign",
-                                "_value": "stretch",
-                                "_type": "a",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "fxShow",
-                                "_value": "true",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "fxHide",
-                                "_value": "false",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ],
-                        "3ed7a9ad-7b49-bb11-65e8-ac4a5059eee8": {
-                            "paletteKey": "NG-H3",
+                        },
+                        "44de1d8b-6bd1-cb39-48a6-3e2e6b2f962a": {
+                            "paletteKey": "FlexLayoutCol",
                             "designerReference": [
                                 {
                                     "_key": "style",
@@ -558,12 +499,83 @@
                                     "_attrDef": "p"
                                 },
                                 {
-                                    "_key": "H3 Text",
+                                    "_key": "fxFlex",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "fxLayoutGap",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "wrap",
                                     "_value": "",
                                     "_type": "a",
                                     "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "layoutAlign",
+                                    "_value": "start",
+                                    "_type": "a",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "pLayoutAlign",
+                                    "_value": "stretch",
+                                    "_type": "a",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "fxShow",
+                                    "_value": "true",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "fxHide",
+                                    "_value": "false",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
                                 }
-                            ]
+                            ],
+                            "e5ffa613-6224-0411-9350-472621f5d6b9": {
+                                "paletteKey": "NG-Paragraph",
+                                "designerReference": [
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "text",
+                                        "_value": "{{row.imgName}}",
+                                        "_type": "a",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "(click)",
+                                        "_value": "countryName(row.imgName)",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
+                                    },
+                                    {
+                                        "_key": "ng-click",
+                                        "_value": "countryName(row.imgName)",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
+                                    }
+                                ]
+                            }
                         }
                     }
                 },
@@ -596,19 +608,19 @@
                         },
                         {
                             "_key": "wrap",
-                            "_value": "wrap",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "layoutAlign",
-                            "_value": "center",
+                            "_value": "start",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "pLayoutAlign",
-                            "_value": "center",
+                            "_value": "stretch",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -642,7 +654,7 @@
                             },
                             {
                                 "_key": "fxFlex",
-                                "_value": "5",
+                                "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },
@@ -654,13 +666,13 @@
                             },
                             {
                                 "_key": "wrap",
-                                "_value": "wrap",
+                                "_value": "",
                                 "_type": "a",
                                 "_attrDef": "p"
                             },
                             {
                                 "_key": "layoutAlign",
-                                "_value": "center",
+                                "_value": "start",
                                 "_type": "a",
                                 "_attrDef": "p"
                             },
@@ -700,13 +712,13 @@
                                 },
                                 {
                                     "_key": "class",
-                                    "_value": "",
+                                    "_value": "arrow-color",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
                                 {
                                     "_key": "fabicon",
-                                    "_value": "<mat-icon>keyboard_arrow_left</mat-icon>",
+                                    "_value": "<mat-icon>keyboard_arrow_right</mat-icon>",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 },
@@ -763,13 +775,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "center",
+                    "_value": "start",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "center",
+                    "_value": "stretch",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -821,13 +833,13 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "stretch",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -957,13 +969,13 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "stretch",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -1009,6 +1021,94 @@
                         }
                     ]
                 }
+            },
+            "9e532dab-8aba-2bf8-bdb8-0980c17bdb87": {
+                "paletteKey": "FlexLayoutCol",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "layoutAlign",
+                        "_value": "start",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "stretch",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxHide",
+                        "_value": "false",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "country",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ],
+                "fa3bb8f6-9eac-231a-6c18-0335e6e87977": {
+                    "paletteKey": "HTML",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "html",
+                            "_value": "\n\n<table mat-table [dataSource]=\"dataSource\" matSort style=\"width:100%;\">\n      <!--   <ng-container matColumnDef=\"icon\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> icon</th>\n  <td mat-cell *matCellDef=\"let element\"> \n       \n      <i class=\"material-icons\" style=\"\" >visibility</i>\n        \n    </td>\n    </ng-container>\n    -->\n            <ng-container matColumnDef=\"receipt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" >receipt</i>\n        \n    </td>\n    </ng-container>\n    <!-- fromDate Column -->\n    <ng-container matColumnDef=\"fromDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> From Date </th>\n      \n      <td mat-cell *matCellDef=\"let element\"> {{element.fromDate}} </td>\n    </ng-container>\n\n    <!-- toDate Column -->\n    <ng-container matColumnDef=\"toDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> To Date </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.toDate}} </td>\n    </ng-container>\n    <!--\n      <ng-container matColumnDef=\"Amount\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.amount| currency: 'INR':true}} </td>\n    </ng-container>-->\n        <ng-container matColumnDef=\"view\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> view</th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" (click)=expenseList(element.fromDate)>visibility</i>\n        \n    </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n<!--\n  <mat-paginator [pageSizeOptions]=\"[1, 2, 25, 100]\" style=\"margin-right:100px;\"></mat-paginator>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
             }
         },
         "8d2d2deb-4e22-e663-04ae-d961ec04aadc": {
@@ -1040,7 +1140,7 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "wrap",
+                    "_value": "",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1074,7 +1174,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "",
+                        "_value": "color:red;",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1111,67 +1211,8 @@
                 ]
             }
         },
-        "122343be-7908-4342-7238-c966d2b4e0f9": {
+        "84aa2a1a-cd01-847f-a7a9-57c4fb4cd40c": {
             "paletteKey": "FlexLayoutRow",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "expensebtn",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxFlex",
-                    "_value": "50",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxLayoutGap",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "wrap",
-                    "_value": "wrap",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "layoutAlign",
-                    "_value": " ",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "pLayoutAlign",
-                    "_value": "none",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxShow",
-                    "_value": "true",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxHide",
-                    "_value": "false",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                }
-            ]
-        },
-        "9e532dab-8aba-2bf8-bdb8-0980c17bdb87": {
-            "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
@@ -1226,37 +1267,67 @@
                     "_value": "false",
                     "_type": "kv",
                     "_attrDef": "p"
+                }
+            ]
+        },
+        "8426e980-1294-118f-52b4-a8588df6038e": {
+            "paletteKey": "FlexLayoutRow",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
                 },
                 {
-                    "_key": "*ngIf",
-                    "_value": "country",
+                    "_key": "class",
+                    "_value": "",
                     "_type": "kv",
-                    "_attrDef": "c"
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
                 }
-            ],
-            "fa3bb8f6-9eac-231a-6c18-0335e6e87977": {
-                "paletteKey": "HTML",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "html",
-                        "_value": "\n\n<table mat-table [dataSource]=\"dataSource\" matSort style=\"width:100%;\">\n         <ng-container matColumnDef=\"icon\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> icon</th>\n  <td mat-cell *matCellDef=\"let element\"> \n       \n      <i class=\"material-icons\" style=\"\" >visibility</i>\n        \n    </td>\n    </ng-container>\n    <!-- fromDate Column -->\n    <ng-container matColumnDef=\"fromDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> From Date </th>\n      <i class=\"material-icons\" style=\"\" >visibility</i>\n      <td mat-cell *matCellDef=\"let element\"> {{element.fromDate}} </td>\n    </ng-container>\n\n    <!-- toDate Column -->\n    <ng-container matColumnDef=\"toDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> To Date </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.toDate}} </td>\n    </ng-container>\n      <ng-container matColumnDef=\"Amount\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.amount| currency: 'INR':true}} </td>\n    </ng-container>\n        <ng-container matColumnDef=\"view\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> view</th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" (click)=expenseList(element.fromDate)>visibility</i>\n        \n    </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n<!--\n  <mat-paginator [pageSizeOptions]=\"[1, 2, 25, 100]\" style=\"margin-right:100px;\"></mat-paginator>",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    }
-                ]
-            }
+            ]
         }
     }
 }

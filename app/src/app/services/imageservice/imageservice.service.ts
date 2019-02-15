@@ -5,19 +5,22 @@ import { Injectable } from '@angular/core';
 export class imageserviceService {
     images = [
         {
-            imgSrc: "images/favicon.png",
+            imgSrc: "images/Singapore.png",
             imgName: "Singapore",
 
         },
         {
-            imgSrc: "images/favicon.png",
+            imgSrc: "images/SouthAfrica.png",
             imgName: "South Africa",
 
         },
         {
-            imgSrc: "images/favicon.png",
+            imgSrc: "images/Malaysia.png",
             imgName: "Malaysia",
 
+        },{
+            imgSrc: "images/India.png",
+            imgName: "India",
         }]
     getImages() {
         return this.images;

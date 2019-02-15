@@ -18,6 +18,7 @@ import { imageserviceService } from '../../services/imageservice/imageservice.se
 @Component({
     selector: 'bh-dashboard',
     templateUrl: './dashboard.template.html'
+   
 })
 
 export class dashboardComponent extends NBaseComponent implements OnInit {
@@ -26,7 +27,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     isShow: boolean = false;
     // otr={};
     otrDetails: any = [];
-    displayedColumns: string[] = ['icon','fromDate', 'toDate','Amount' ,'view'];
+    displayedColumns: string[] = ['receipt','fromDate', 'toDate' ,'view'];
     dataSource: any;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;

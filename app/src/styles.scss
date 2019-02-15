@@ -5,8 +5,22 @@
 
 .expensebtn{
    position: fixed;
-    bottom: 22px;
-    right: 41%;
-   
     
+    
+bottom: 11px;
+    color: red;
+    right: 36%;
+      border-radius: 50%;
+  border: 15px solid red;
+ 
+  
+  
+   }
+
+   .arrow-color {
+     background-color: white !important
+}
+
+.mat-mini-fab.mat-accent {
+    color:#5786d3 ;
 }

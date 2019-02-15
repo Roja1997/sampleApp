@@ -16,7 +16,7 @@
             },
             {
                 "_key": "fxFlex",
-                "_value": "100",
+                "_value": "",
                 "_type": "kv",
                 "_attrDef": "p"
             },
@@ -62,7 +62,7 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "",
+                    "_value": "     margin-top: 18px;",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -92,13 +92,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "center",
+                    "_value": "start",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "center",
+                    "_value": "stretch",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -190,7 +190,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "fromDate",
+                            "_value": "From",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -361,6 +361,12 @@
                         "_value": "fromDate",
                         "_type": "kv",
                         "_attrDef": "c"
+                    },
+                    {
+                        "_key": "disabled",
+                        "_value": "disabled",
+                        "_type": "a",
+                        "_attrDef": "c"
                     }
                 ],
                 "a8359af9-2c5a-58af-1afe-1215a2f04f03": {
@@ -380,7 +386,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "toDate",
+                            "_value": "To",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -446,7 +452,7 @@
                         },
                         {
                             "_key": "disabled",
-                            "_value": "",
+                            "_value": "disabled",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -500,7 +506,7 @@
                     },
                     {
                         "_key": "class",
-                        "_value": "",
+                        "_value": "expensebtn",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -524,13 +530,13 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "stretch",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -553,12 +559,12 @@
                         "_attrDef": "c"
                     }
                 ],
-                "5aa9af09-20fb-4c7a-0b60-0af536ab1f86": {
-                    "paletteKey": "NG-RaisedButton",
+                "5ef96ed8-f27e-51e5-234e-a403177153f8": {
+                    "paletteKey": "NG-FabButton",
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "color:red;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -569,14 +575,14 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "buttonname",
-                            "_value": "Add",
+                            "_key": "fabicon",
+                            "_value": "<mat-icon>check_circle</mat-icon>",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "color",
-                            "_value": "",
+                            "_value": "red",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -588,6 +594,146 @@
                         }
                     ]
                 }
+            }
+        },
+        "b653fb3e-152a-c695-3c73-9284ceac9ea9": {
+            "paletteKey": "FlexLayoutCol",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "center",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "center",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                }
+            ],
+            "6825b649-cd90-897a-3e3c-b8424fbfbfff": {
+                "paletteKey": "NG-Paragraph",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "text",
+                        "_value": "Your tour total Days",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "toDate",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ]
+            },
+            "75249cf1-c47b-4e1a-20f2-2f0ee48b0d2f": {
+                "paletteKey": "NG-H1",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "    font-family: sans-serif;",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "H1 Text",
+                        "_value": "{{this.totaldays}}",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    }
+                ]
+            },
+            "2dc10d76-c96e-4207-fbbd-6b3380415e2b": {
+                "paletteKey": "NG-image",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "width: 56%;height: 56%;",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "imgSrc",
+                        "_value": "images/pic.png",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "alt",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    }
+                ]
             }
         }
     }
