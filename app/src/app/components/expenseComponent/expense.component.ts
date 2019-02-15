@@ -4,7 +4,9 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common'
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -12,21 +14,54 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 @Component({
     selector: 'bh-expense',
-    templateUrl: './expense.template.html'
+    templateUrl: './expense.template.html',
+    providers: [DatePipe]
+
 })
 
 export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-
-    constructor(private bdms: NDataModelService) {
+    fromDate;
+    toDate;
+    totaldays;
+    otr: any = {};
+    otrDetail: any = {};
+    expensetdetail: any = [];
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
     }
+    //mindate assigning
+    minDate = new Date();
 
     ngOnInit() {
+        console.log(this.otrdetailService.country);
+    }
+    
+    
+    //pickFromDate fun
+    pickFromDate() {
+        console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
+        // this.toDate=new Date(this.fromDate.getTime()+(1000*24*60*60*29));
+        this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
+        console.log('from date', this.fromDate.toDateString());
+        console.log('to date', this.toDate.toDateString());
+    }
+    //submitDate() fun
+    submitDate() {
+        //to get our tour total Days
+        this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
+        this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
+        this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
+        this.expensetdetail.push(this.otrDetail);
+        console.log('expensetdetail', this.expensetdetail);
+        this.otr.expenses = this.expensetdetail;
+        console.log('final otr', this.otr);
+        var countryname = this.otrdetailService.country;
+        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.otr));
+        this.router.navigate(['home/expenseinfo']);
 
     }
-
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
@@ -79,7 +114,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here

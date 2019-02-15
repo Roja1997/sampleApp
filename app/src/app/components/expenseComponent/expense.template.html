@@ -1,1 +1,23 @@
-<div>default page template</div>
+<div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+  <div fxLayout="column wrap" style="     margin-top: 18px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" placeholder="From" [matDatepicker]="picker" (dateInput)="pickFromDate()" [(ngModel)]="fromDate">
+        <mat-datepicker-toggle matSuffix="" [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker="" id="disabled" touchUi="touch"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="fromDate" disabled>
+      <mat-form-field><input matInput="" placeholder="To" [matDatepicker]="picker1" [(ngModel)]="toDate" [min]="minDate">
+        <mat-datepicker-toggle matSuffix="" [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1="" disabled="disabled"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="toDate"><button mat-fab="" style="color:red;" color="red" (click)="submitDate()">
+        <mat-icon>check_circle</mat-icon>
+      </button></div>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <p *ngIf="toDate">Your tour total Days</p>
+    <h1 style="    font-family: sans-serif;">{{this.totaldays}}</h1><img imgSrc="images/pic.png" style="width: 56%;height: 56%;">
+  </div>
+</div>

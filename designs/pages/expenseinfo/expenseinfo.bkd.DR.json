@@ -98,7 +98,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -120,7 +120,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "margin-top:1%;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -323,6 +323,12 @@
                             "_value": "{{i}}",
                             "_type": "a",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "touchUi",
+                            "_value": "touch",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -369,7 +375,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -391,7 +397,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "margin-top:1%;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -449,7 +455,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "color:grey;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -592,7 +598,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -614,7 +620,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "margin-top:1%;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -672,7 +678,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "color:grey",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -1340,130 +1346,6 @@
                         "_key": "html",
                         "_value": "<img [src]=\"imgPath\" height=\"30px\"  >",
                         "_type": "a",
-                        "_attrDef": "p"
-                    }
-                ]
-            }
-        },
-        "0539bf24-fe7e-a792-1c2f-8f5badddcb8b": {
-            "paletteKey": "FlexLayoutRow",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxFlex",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxLayoutGap",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "wrap",
-                    "_value": "wrap",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "layoutAlign",
-                    "_value": "start",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "pLayoutAlign",
-                    "_value": "stretch",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxShow",
-                    "_value": "true",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxHide",
-                    "_value": "false",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "*ngIf",
-                    "_value": "Amount",
-                    "_type": "kv",
-                    "_attrDef": "c"
-                }
-            ],
-            "99732285-fb42-c7fb-ecd1-2401625002f1": {
-                "paletteKey": "NG-Input",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "placeholder",
-                        "_value": "Amount",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "value",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "required",
-                        "_value": "required",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "[(ngModel)]",
-                        "_value": "expAmount",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "color",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "name",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "type",
-                        "_value": "",
-                        "_type": "kv",
                         "_attrDef": "p"
                     }
                 ]

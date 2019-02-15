@@ -23,7 +23,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
     button1 = 'Yes';
     button2 = 'No';
-    Amount = false;
+   
      imgPath;
      img=false;
      expType;
@@ -49,15 +49,13 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
              console.log(error);
 
          });
-        this.Amount = true;
+
 
          
     }
 
 
-    amount() {
-        this.Amount = true;
-    }
+  
 
 submit(){
 
