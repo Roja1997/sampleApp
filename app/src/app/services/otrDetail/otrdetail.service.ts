@@ -11,6 +11,6 @@ export class otrdetailService {
     //     console.log('from service',value);
     //     this.router.navigate(['home/expense']);
     // }
-
+    
 
 }

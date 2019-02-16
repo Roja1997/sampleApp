@@ -16,6 +16,10 @@
                 {
                     "component": "expenselistComponent",
                     "path": "expenselist"
+                },
+                {
+                    "path": "userdetail",
+                    "component": "userdetailComponent"
                 }
             ]
         },

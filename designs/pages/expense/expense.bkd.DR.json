@@ -196,7 +196,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"From\"  (click)=\"picker.open()\" (dateInput)=\"pickFromDate()\" [(ngModel)]=\"fromDate\">\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"From\" (keydown)=\"disableManualData($event)\" (click)=\"picker.open()\" (dateInput)=\"pickFromDate()\" [(ngModel)]=\"fromDate\">\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -259,6 +259,12 @@
                         "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "fromDate",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ],
                 "869b4558-51cc-0ec3-e11b-ca73acdb3818": {
@@ -278,7 +284,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker1\" placeholder=\"To\" (dateChange)=\"totalDays()\" (click)=\"picker1.open()\" [(ngModel)]=\"toDate\" [min]=\"minDate\" >\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker1\"></mat-datepicker-toggle>\n  <mat-datepicker #picker1 touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker1\" placeholder=\"To\"   (click)=\"picker1.open()\" [(ngModel)]=\"toDate\" [min]=\"minDate\" disabled>\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker1\"></mat-datepicker-toggle>\n  <mat-datepicker #picker1 touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }

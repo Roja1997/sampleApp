@@ -108,5 +108,5 @@ otrdetailService,
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
 children: [{path: 'dashboard', component: dashboardComponent,
-children: []},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: []},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'userdetail', component: userdetailComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END
