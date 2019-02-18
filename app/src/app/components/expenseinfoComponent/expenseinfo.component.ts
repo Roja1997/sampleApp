@@ -89,10 +89,11 @@ submit(){
      //sampreeth 
      this.otr.expenseDetail=this.expenseDetail;
      console.log('expense info comp ',this.otr);
-     localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.expenseDetail));
+     localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.otr));
      this.otrDetail={};
 }
 
+    
 
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

@@ -57,21 +57,17 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     }
     //submitDate() function
     submitDate() {
-        console.log("----------------");
-        // this.expensetdetail.fromDate=this.fromDate.toDateString();
-        // this.expensetdetail.toDate=this.fromDate.toDateString();
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if(this.expensetdetail==null)
          this.expensetdetail=[];
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
-        // this.otrdetailService.fromDate(this.expensetdetail);
-        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
-        this.router.navigate(['home/expenseinfo']);
         // this.otr=this.expensetdetail;
         localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
         this.otrDetail={};
+        this.router.navigate(['home/expenseinfo'])
+       
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

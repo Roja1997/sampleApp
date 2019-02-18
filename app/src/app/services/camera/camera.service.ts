@@ -21,6 +21,9 @@ imageURI;
             mediaType: 0,
             saveToPhotoAlbum: true,
             cameraDirection: 0,
+             correctOrientation: true,
+             targetHeight:100,
+             targetWidth:100
          });
      })
  }

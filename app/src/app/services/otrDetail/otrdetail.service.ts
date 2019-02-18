@@ -15,7 +15,7 @@ export class otrdetailService {
     fromDate(arr) {
         console.log('service array', arr);
         this.dateArray = arr;
-        this.router.navigate(['home/expenseinfo'])
+
     }
 
 }
