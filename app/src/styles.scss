@@ -5,22 +5,26 @@
 
 .expensebtn{
    position: fixed;
-    
-    
-bottom: 11px;
-    color: red;
-    right: 36%;
-      border-radius: 50%;
-  border: 15px solid red;
- 
-  
-  
-   }
+   bottom: 1px;
+   color: red;
+   right: 36%;
+   border-radius: 50%;
+   border: 15px solid red;
+ }
 
-   .arrow-color {
+.arrow-color {
      background-color: white !important
+     
 }
 
 .mat-mini-fab.mat-accent {
     color:#5786d3 ;
+}
+.toolbar{
+    background-color:red;height:54px;
+}
+.receiptclass{
+    color:white;
+    font-size: 34px;
+    margin-top: 7px;
 }
