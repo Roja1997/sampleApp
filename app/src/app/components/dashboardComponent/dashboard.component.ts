@@ -18,7 +18,7 @@ import { imageserviceService } from '../../services/imageservice/imageservice.se
 @Component({
     selector: 'bh-dashboard',
     templateUrl: './dashboard.template.html'
-   
+
 })
 
 export class dashboardComponent extends NBaseComponent implements OnInit {
@@ -27,18 +27,18 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     isShow: boolean = false;
     // otr={};
     otrDetails: any = [];
-    displayedColumns: string[] = ['receipt','fromDate', 'toDate' ,'view'];
+    displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
     //for carosal
     dataSet;
     img;
-    
-    constructor(private bdms: NDataModelService, private imgService: imageserviceService,private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
+
+    constructor(private bdms: NDataModelService, private imgService: imageserviceService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
         this.dataSet = this.imgService.getImages();
-        console.log("m",this.dataSet);
+        console.log("m", this.dataSet);
         this.mm = new ModelMethods(bdms);
     }
     countries = [
@@ -50,7 +50,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     ]
 
     //fab function for carosal
-        changeDataSet(dir) {
+    changeDataSet(dir) {
         if (dir == 1) {
             this.dataSet.push(this.dataSet.shift());
         }
@@ -69,19 +69,15 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     otr: any = {};
     countryName(value) {
         this.isShow = true;
-        this.country=value;
-        // console.log('country name',this.country);
+        this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(JSON.stringify(value));
-        // console.log(localStorage.getItem(JSON.stringify(value)));
         this.otr = JSON.parse(this.otr);
-        // console.log("otr object as", this.otr.expenses);
         this.otrDetails = this.otr;
         this.dataSource = new MatTableDataSource(this.otrDetails);
         // this.dataSource.paginator = this.otrDetails.length;
         // this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-
     }
 
     //expenseList()
@@ -92,10 +88,6 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     //addExpense() func
     addExpense() {
         if (this.isShow == true) {
-            // this.otrdetailService.country = this.country;
-            // console.log(this.otrdetailService.country);
-            // this.otr['country']=this.country;
-            // localStorage.setItem(JSON.stringify(this.country),JSON.stringify(this.otr));
             this.router.navigate(['home/expense']);
         } else {
             this.snackbar.open('select country', 'close', { duration: 3000 });

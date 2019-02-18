@@ -20,6 +20,10 @@
                 {
                     "path": "userdetail",
                     "component": "userdetailComponent"
+                },
+                {
+                    "component": "expenseinfoComponent",
+                    "path": "expenseinfo"
                 }
             ]
         },

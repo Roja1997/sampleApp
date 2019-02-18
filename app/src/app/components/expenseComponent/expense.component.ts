@@ -24,7 +24,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
-    otr: any = {};
+    // otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
@@ -66,6 +66,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         // this.otr=this.expensetdetail;
         localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
         this.otrDetail={};
+        // this.router.navigate(['home/expenseinfo']);
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
