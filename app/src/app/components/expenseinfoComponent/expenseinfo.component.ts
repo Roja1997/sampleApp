@@ -5,7 +5,7 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { cameraService } from '../../services/camera/camera.service';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -28,15 +28,21 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
      img=false;
      expType;
      imageurl;
+     billDate
+     comment;
      expAmount;
+     otr:any={};
+     otrDetail:any={};
+     expenseDetail:any=[];
 
-    constructor(private bdms: NDataModelService,private camService:cameraService) {
+
+    constructor(private bdms: NDataModelService,private camService:cameraService,private otrInfo:otrdetailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-
+        console.log('country name',this.otrInfo.country);
     }
 
     openCamera() {
@@ -60,12 +66,22 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 submit(){
 
     
-    console.log(this.expType);
-    this.imageurl=this.imgPath;
-    console.log(this.imageurl);
-    
-    console.log(this.expAmount);
+    // console.log(this.expType);
+    // this.imageurl=this.imgPath;
+    // console.log(this.imageurl);
+    // console.log(this.expAmount);
 
+
+    this.otrDetail['expType']=this.expType;
+    this.otrDetail['billDate']=this.billDate;
+    this.otrDetail['expAmount']=this.expAmount;
+    this.otrDetail['comment']=this.comment;
+        this.imageurl=this.imgPath;
+    this.otrDetail['imageurl']=this.imageurl;
+     this.expenseDetail.push(this.otrDetail);
+     console.log(this.otrDetail);  
+     this.otr.expenses=this.expenseDetail;
+     localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.otr));
 }
 
 

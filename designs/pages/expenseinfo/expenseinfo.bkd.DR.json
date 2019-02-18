@@ -375,7 +375,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "center",
+                    "_value": "stretch",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -427,13 +427,13 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "center",
+                        "_value": "end",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -474,12 +474,12 @@
                     ]
                 }
             },
-            "7a8a2892-d933-1483-acd2-698c2ef1dfcd": {
+            "5dded7d3-091d-5d2e-be44-e3a657389de6": {
                 "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "width:100vh;",
+                        "_value": "width:100%;",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -503,7 +503,7 @@
                     },
                     {
                         "_key": "wrap",
-                        "_value": "",
+                        "_value": "wrap",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -549,7 +549,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "\n<div style=\"width:300px;height:52px\">\n<mat-form-field class=\"example-full-width\" style=\"width:300vh;\">\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\">\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n<mat-icon></mat-icon>\n<!-- <mat-icon mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer\">arrow_drop_down</mat-icon> -->\n\n</div>\n",
+                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\">\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n<mat-icon></mat-icon>\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -790,7 +790,7 @@
                         },
                         {
                             "_key": "[(ngModel)]",
-                            "_value": "",
+                            "_value": "expAmount",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -909,7 +909,7 @@
                     },
                     {
                         "_key": "[(ngModel)]",
-                        "_value": "",
+                        "_value": "comment",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -934,7 +934,7 @@
                 ]
             }
         },
-        "e9ab8534-8e5a-3f5a-b1ea-fd9cd96a171c": {
+        "99b8dfb6-5548-75c6-2f10-5d2055ccf192": {
             "paletteKey": "FlexLayoutRow",
             "designerReference": [
                 {
@@ -969,13 +969,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "start",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -992,12 +992,12 @@
                     "_attrDef": "p"
                 }
             ],
-            "4e631153-2406-3853-f0f2-9ccd16fa20a6": {
-                "paletteKey": "FlexLayoutCol",
+            "d75a9cc1-7577-79e2-e2a5-91f8c84c67c6": {
+                "paletteKey": "NG-Paragraph",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "",
+                        "_value": "cursor:pointer;color:red;",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1008,259 +1008,18 @@
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "fxFlex",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxLayoutGap",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "wrap",
-                        "_value": "wrap",
+                        "_key": "text",
+                        "_value": "Retake?",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "layoutAlign",
-                        "_value": "start",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "pLayoutAlign",
-                        "_value": "stretch",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxShow",
-                        "_value": "true",
+                        "_key": "(click)",
+                        "_value": "openCamera()",
                         "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxHide",
-                        "_value": "false",
-                        "_type": "kv",
-                        "_attrDef": "p"
+                        "_attrDef": "c"
                     }
-                ],
-                "36e254f9-7b1d-07a4-b458-401cd5eb63e5": {
-                    "paletteKey": "NG-Paragraph",
-                    "designerReference": [
-                        {
-                            "_key": "style",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "text",
-                            "_value": "Attach Bill?",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        }
-                    ]
-                }
-            },
-            "4595165c-1bac-d25b-7920-59645cb5aa95": {
-                "paletteKey": "FlexLayoutCol",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxFlex",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxLayoutGap",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "wrap",
-                        "_value": "wrap",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "layoutAlign",
-                        "_value": "start",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "pLayoutAlign",
-                        "_value": "stretch",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxShow",
-                        "_value": "true",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxHide",
-                        "_value": "false",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    }
-                ],
-                "defb3110-60e3-02a3-9631-be790439a506": {
-                    "paletteKey": "NG-button",
-                    "designerReference": [
-                        {
-                            "_key": "style",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "buttonname",
-                            "_value": "Yes",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "color",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(click)",
-                            "_value": "openCamera()",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        }
-                    ]
-                }
-            },
-            "0caf4b49-5ac8-0eb1-8d03-8eaf8d7ad944": {
-                "paletteKey": "FlexLayoutCol",
-                "designerReference": [
-                    {
-                        "_key": "style",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxFlex",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxLayoutGap",
-                        "_value": "",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "wrap",
-                        "_value": "wrap",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "layoutAlign",
-                        "_value": "start",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "pLayoutAlign",
-                        "_value": "stretch",
-                        "_type": "a",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxShow",
-                        "_value": "true",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "fxHide",
-                        "_value": "false",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    }
-                ],
-                "f011103f-bc3f-21c5-aaa6-4201a5108d2d": {
-                    "paletteKey": "NG-button",
-                    "designerReference": [
-                        {
-                            "_key": "style",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "buttonname",
-                            "_value": "No",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "color",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(click)",
-                            "_value": "amount()",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        }
-                    ]
-                }
+                ]
             }
         },
         "e3f62705-2a47-90fd-1890-cecff2bd7d6a": {
@@ -1351,8 +1110,8 @@
                 ]
             }
         },
-        "9269e558-32db-7848-335a-e5f1cec9d89c": {
-            "paletteKey": "NG-button",
+        "0c7e2521-de3d-8da2-50e5-68cb63cbd342": {
+            "paletteKey": "FlexLayoutRow",
             "designerReference": [
                 {
                     "_key": "style",
@@ -1367,24 +1126,83 @@
                     "_attrDef": "p"
                 },
                 {
-                    "_key": "buttonname",
-                    "_value": "Submit",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "color",
+                    "_key": "fxFlex",
                     "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
                 {
-                    "_key": "(click)",
-                    "_value": "submit()",
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
                     "_type": "kv",
                     "_attrDef": "p"
                 }
-            ]
+            ],
+            "6706e4a7-236f-f992-ed00-236765678c14": {
+                "paletteKey": "NG-button",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "color:red",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "buttonname",
+                        "_value": "Submit",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "color",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "(click)",
+                        "_value": "submit()",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    }
+                ]
+            }
         }
     }
 }
