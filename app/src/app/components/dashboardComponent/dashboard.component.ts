@@ -76,10 +76,10 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         // console.log(localStorage.getItem(JSON.stringify(value)));
         this.otr = JSON.parse(this.otr);
         // console.log("otr object as", this.otr.expenses);
-        this.otrDetails = this.otr.expenses;
+        this.otrDetails = this.otr;
         this.dataSource = new MatTableDataSource(this.otrDetails);
-        this.dataSource.paginator = this.otrDetails.length;
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource.paginator = this.otrDetails.length;
+        // this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 
     }

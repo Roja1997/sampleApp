@@ -27,7 +27,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
-     totaldays;
+    totaldays;
     constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -38,12 +38,12 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         console.log(this.otrdetailService.country);
     }
-    
+
     //to get our tour total Days
     //function to disable once the user takes date from date. 
-   disableManualData(event){
-       event.preventDefault();
-   }
+    disableManualData(event) {
+        event.preventDefault();
+    }
 
     //pickFromDate fun
     pickFromDate() {
@@ -52,7 +52,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
         console.log('from date', this.fromDate.toDateString());
         console.log('to date', this.toDate.toDateString());
-        this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
+        this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() fun
     submitDate() {
@@ -61,11 +61,14 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         this.expensetdetail.push(this.otrDetail);
-        console.log('expensetdetail', this.expensetdetail);
-        this.otr.expenses = this.expensetdetail;
-        console.log('final otr', this.otr);
+        // console.log('expensetdetail', this.expensetdetail);
         var countryname = this.otrdetailService.country;
-        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.otr));
+        
+        // this.otr.countryname = this.countryname;
+        // console.log('jkk',this.otr.countryName);
+        // console.log('final otr', this.otr);
+        
+        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
