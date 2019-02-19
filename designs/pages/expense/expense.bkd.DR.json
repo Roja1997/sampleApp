@@ -360,7 +360,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "color:red;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -372,7 +372,7 @@
                         },
                         {
                             "_key": "fabicon",
-                            "_value": "<mat-icon>check_circle</mat-icon>",
+                            "_value": "<mat-icon>navigate_next</mat-icon>",
                             "_type": "a",
                             "_attrDef": "p"
                         },
