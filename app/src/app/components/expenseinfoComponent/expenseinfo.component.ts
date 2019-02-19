@@ -44,7 +44,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         console.log('country name',this.otrInfo.country);
         var otrArray=JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
-        console.log(otrArray);
+        console.log("otr array",otrArray);
         this.otr=otrArray[otrArray['length']-1];
         console.log("**********",this.otr);
     }
@@ -77,9 +77,7 @@ submit(){
     this.otrDetail['imageurl']=this.imageurl;
     console.log('otr details expense info',this.otrDetail)
      this.expenseDetail.push(this.otrDetail);
-     //sampreeth
      console.log('otrdetail',this.otrDetail);
-     //sampreeth 
      this.otr.expenseDetail=this.expenseDetail;
      console.log('expense info comp ',this.otr);
      localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.otr));
