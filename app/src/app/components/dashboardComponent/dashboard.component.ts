@@ -73,11 +73,11 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(JSON.stringify(value));
-        console.log('this.otr',this.otr);
+        console.log(this.otr);
         // this.otrDetails = JSON.parse(this.otr);
         this.otrDetails.push(JSON.parse(this.otr));
-        console.log('this.otr',this.otrDetails);
-        this.dataSource = new MatTableDataSource(this.otrDetails);
+        console.log('this.otr array',this.otrDetails);
+        this.dataSource = new MatTableDataSource(this.otrDetails[0]);
         // this.dataSource.paginator = this.otrDetails.length;
         // this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
