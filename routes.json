@@ -10,6 +10,10 @@
                     "children": []
                 },
                 {
+                    "component": "expenseinfoComponent",
+                    "path": "expenseinfo"
+                },
+                {
                     "path": "expense",
                     "component": "expenseComponent"
                 },

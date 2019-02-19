@@ -4,11 +4,13 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-
+import { cameraService } from '../../services/camera/camera.service';
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
  */
+
 
 @Component({
     selector: 'bh-expenseinfo',
@@ -17,15 +19,82 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    expenseType = ["Perdiem Charges", "Airticket/Visa Charges", "GuestHouse Charges", "Hotel Charges", "Onsite Telephone Charges",
+        "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
+    button1 = 'Yes';
+    button2 = 'No';
+   
+     imgPath;
+     img=false;
+     expType;
+     imageurl;
+     billDate
+     comment;
+     expAmount;
+     otr:any={};
+     otrDetail:any={};
+     expenseDetail:any=[];
 
-    constructor(private bdms: NDataModelService) {
+
+    constructor(private bdms: NDataModelService,private camService:cameraService,private otrInfo:otrdetailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-
+        console.log('country name',this.otrInfo.country);
+        var otrArray=JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+        console.log(otrArray);
+        this.otr=otrArray[otrArray['length']-1];
+        console.log(this.otr);
     }
+
+    openCamera() {
+        this.img=true;
+         this.camService.camera().then((path)=>{
+             console.log('path',path);
+             this.imgPath=path;
+         
+         }).catch((error)=>{
+             console.log(error);
+
+         });
+
+
+         
+    }
+
+
+  
+
+submit(){
+
+    
+    // console.log(this.expType);
+    // this.imageurl=this.imgPath;
+    // console.log(this.imageurl);
+    // console.log(this.expAmount);
+
+
+    this.otrDetail['expType']=this.expType;
+    this.otrDetail['billDate']=this.billDate;
+    this.otrDetail['expAmount']=this.expAmount;
+    this.otrDetail['comment']=this.comment;
+        this.imageurl=this.imgPath;
+    this.otrDetail['imageurl']=this.imageurl;
+    console.log('otr details expense info',this.otrDetail)
+     this.expenseDetail.push(this.otrDetail);
+     //sampreeth
+     console.log('otrdetail',this.otrDetail);
+     //sampreeth 
+     this.otr.expenseDetail=this.expenseDetail;
+     console.log('expense info comp ',this.otr);
+     localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.otr));
+     this.otrDetail={};
+}
+
+    
+
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
@@ -36,6 +105,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
                 // Handle errors here
             });
     }
+
 
     getById(dataModelName, dataModelId) {
         this.mm.getById(dataModelName, dataModelId,
@@ -79,7 +149,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here

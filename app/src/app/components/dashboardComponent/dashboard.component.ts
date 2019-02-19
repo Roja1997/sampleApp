@@ -68,12 +68,15 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
 
     otr: any = {};
     countryName(value) {
+        this.otrDetails=[];
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(JSON.stringify(value));
-        this.otr = JSON.parse(this.otr);
-        this.otrDetails = this.otr;
+        console.log('this.otr',this.otr);
+        // this.otrDetails = JSON.parse(this.otr);
+        this.otrDetails.push(JSON.parse(this.otr));
+        console.log('this.otr',this.otrDetails);
         this.dataSource = new MatTableDataSource(this.otrDetails);
         // this.dataSource.paginator = this.otrDetails.length;
         // this.dataSource.paginator = this.paginator;
@@ -187,7 +190,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
                 // Handle errors here
             })
     }
-    // //hard coded expenses details
+    // //hard coded expenses details"path": "expense",
     // expenses= [{
     //     fromDate: "12/09/2019",
     //     toDate: "31/09/ 2019",
