@@ -455,7 +455,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "color:grey;      padding-top: 12px;",
+                            "_value": "color:grey;      padding-top: 20px;font-size:20px;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -678,7 +678,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "color:grey",
+                            "_value": "color:grey;font-size:20px;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -969,13 +969,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "start",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1209,7 +1209,7 @@
                 },
                 {
                     "_key": "class",
-                    "_value": "",
+                    "_value": "expensebtn",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -1233,13 +1233,13 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "start",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1256,12 +1256,12 @@
                     "_attrDef": "p"
                 }
             ],
-            "6706e4a7-236f-f992-ed00-236765678c14": {
-                "paletteKey": "NG-button",
+            "ec2cbaf4-59bc-eaa7-d59e-d085dbd31011": {
+                "paletteKey": "NG-FabButton",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "color:red",
+                        "_value": "color:red;",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1272,14 +1272,14 @@
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "buttonname",
-                        "_value": "Submit",
+                        "_key": "fabicon",
+                        "_value": "<mat-icon>check_circle</mat-icon>",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "color",
-                        "_value": "",
+                        "_value": "red",
                         "_type": "kv",
                         "_attrDef": "p"
                     },

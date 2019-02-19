@@ -46,7 +46,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         var otrArray=JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log(otrArray);
         this.otr=otrArray[otrArray['length']-1];
-        console.log(this.otr);
+        console.log("**********",this.otr);
     }
 
     openCamera() {
