@@ -16,6 +16,14 @@
                 {
                     "component": "expenselistComponent",
                     "path": "expenselist"
+                },
+                {
+                    "path": "afterSendingMail",
+                    "component": "aftersendingmailComponent"
+                },
+                {
+                    "path": "expenseinfo",
+                    "component": "expenseinfoComponent"
                 }
             ]
         },

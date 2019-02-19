@@ -111,6 +111,12 @@
                         "_value": "keyboard_backspace",
                         "_type": "a",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "routerLink",
+                        "_value": "/home/expenseinfo",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ]
             },
@@ -706,7 +712,7 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "",
+                        "_value": "sendingMail()",
                         "_type": "kv",
                         "_attrDef": "p"
                     }
@@ -803,6 +809,12 @@
                         "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "routerLink",
+                        "_value": "/home/expense",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ]
             }

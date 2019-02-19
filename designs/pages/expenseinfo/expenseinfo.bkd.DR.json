@@ -637,6 +637,12 @@
                     "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
+                },
+                {
+                    "_key": "routerLink",
+                    "_value": "/home/expenselist",
+                    "_type": "kv",
+                    "_attrDef": "c"
                 }
             ]
         }

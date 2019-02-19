@@ -503,7 +503,37 @@
      "file": "/home/neutrinos/neutrinos-studio/workspacefinal/OTR/flows/user-data/node_modules/node-red-contrib-fs-ops/fs-ops.js"
     }
    }
+  },
+  "node-red-contrib-zip": {
+   "name": "node-red-contrib-zip",
+   "version": "1.0.0",
+   "local": true,
+   "nodes": {
+    "zip": {
+     "name": "zip",
+     "types": [
+      "zip"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-zip",
+     "file": "/home/neutrinos/neutrinos-studio/workspacefinal/OTR/flows/user-data/node_modules/node-red-contrib-zip/red/zip.js"
+    }
+   }
   }
  },
- "_credentialSecret": "c7a0664bd12b5d8319c7cb3896545917925884e36a66672c75aeebb607b7a709"
+ "_credentialSecret": "c7a0664bd12b5d8319c7cb3896545917925884e36a66672c75aeebb607b7a709",
+ "users": {
+  "_": {
+   "editor": {
+    "view": {
+     "view-grid-size": "20",
+     "view-node-status": true,
+     "view-show-tips": true,
+     "view-snap-grid": false,
+     "view-show-grid": false
+    }
+   }
+  }
+ }
 }

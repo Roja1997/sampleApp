@@ -62,6 +62,8 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         console.log('final otr', this.otr);
         var countryname = this.otrdetailService.country;
         localStorage.setItem(countryname, JSON.stringify(this.otr));
+       this.router.navigate(['/home/expenselist']);
+
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

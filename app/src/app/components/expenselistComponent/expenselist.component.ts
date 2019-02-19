@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 import { mailService } from '../../services/mail/mail.service';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {FsService} from 'ngx-fs';
+declare const cordova:any;
 
 
 /**
@@ -25,7 +25,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     
 
-     expense:any=[];
+     expenses:any=[];
      value;
      values;
 
@@ -57,7 +57,6 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     constructor(private route: ActivatedRoute, public pubsub: NPubSubService, 
     private bdms: NDataModelService, private router: Router, 
     private mService:mailService) {
-        //
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -75,16 +74,19 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
         this.router.navigate(['home/expenseinfo']);    
     }
     a: any = {};
-    createCSVandSendEmail() {
-        console.log("this.valueeeee", this.value);
+
+
+//submit
+sendingMail(){
+     console.log("this.valueeeee", this.value);
         let arr=[];
-            console.log("this.value.expnesetype",this.value.expense);
-            for(let i=0;i<this.value.expense.length;i++){
-             let arr1= Object.keys(this.value.expense[i]).map(key => this.value.expense[i][key]);
-             arr.push(arr1,"\n\t\t\t\t\t\t\t\t");
+            console.log("this.value.expnesetype",this.value.expenses);
+            for(let i=0;i<this.value.expenses.length;i++){
+             let arr1= Object.keys(this.value.expenses[i]).map(key => this.value.expenses[i][key]);
+             arr.push(arr1,"\n\t\t\t\t\t\t");
              console.log("this.arrr",arr);
             }
-            this.value.expense = arr;
+            this.value.expenses = arr;
         var blob = new Blob([this.csvarr], { type: "text/csv;charset=utf-8" });
         let obj = Object.keys(this.value).map(key => this.value[key]);
         const submitData = obj;
@@ -92,10 +94,36 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
         console.log("this.a:",this.a);
         blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
         saveAs(blob, "otr.csv");
-    }
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+    console.log(cordova.file);
+}
+
+    this.router.navigate(['home/afterSendingMail']); 
+}
+
+
+    // createCSVandSendEmail() {
+    //     console.log("this.valueeeee", this.value);
+    //     let arr=[];
+    //         console.log("this.value.expnesetype",this.value.expense);
+    //         for(let i=0;i<this.value.expense.length;i++){
+    //          let arr1= Object.keys(this.value.expenses[i]).map(key => this.value.expense[i][key]);
+    //          arr.push(arr1,"\n\t\t\t\t\t\t\t\t");
+    //          console.log("this.arrr",arr);
+    //         }
+    //         this.value.expense = arr;
+    //     var blob = new Blob([this.csvarr], { type: "text/csv;charset=utf-8" });
+    //     let obj = Object.keys(this.value).map(key => this.value[key]);
+    //     const submitData = obj;
+    //     console.log("data...........",obj);
+    //     console.log("this.a:",this.a);
+    //     blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
+    //     saveAs(blob, "otr.csv");
+    // }
     mailingZip(){
         console.log(".................")
- this.mService.sendingMail();
+        this.mService.sendingMail();
 
     }
 }
