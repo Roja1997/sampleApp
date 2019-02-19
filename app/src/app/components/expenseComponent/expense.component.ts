@@ -41,7 +41,10 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.otrdetailService.country);
-        this.expensetdetail=JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
+        this.expensetdetail.push(JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country))));
+        console.log('this.exp',this.expensetdetail);
+        console.log(typeof(this.expensetdetail));
+
     }
 
     //to get our tour total Days
@@ -63,8 +66,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     submitDate() {
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
-        if(this.expensetdetail==null)
-         this.expensetdetail=[];
+        // if(this.expensetdetail==null)
+        //  this.expensetdetail=[];
+        console.log('this.otrDetail',this.otrDetail);
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;

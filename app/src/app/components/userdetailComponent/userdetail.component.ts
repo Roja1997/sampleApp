@@ -17,14 +17,46 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
 export class userdetailComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    Name;
+    Department;
+    Project;
+    Customer; Manager;
+    Purpose;
+    otrDetail: any = {}
+    otrDetails: any = {};
+    expensetdetail: any = [];
 
+    bindingName;
     constructor(private bdms: NDataModelService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
+        this.otrDetails = JSON.parse(localStorage.getItem('profile'));
+        this.expensetdetail.push(this.otrDetails);
 
+        console.log('user details ', this.expensetdetail[0].Name);
+        this.Name = this.expensetdetail[0].Name;
+        this.Department = this.expensetdetail[0].Department;
+        this.Project = this.expensetdetail[0].Project;
+        this.Manager = this.expensetdetail[0].Manager;
+        this.Purpose = this.expensetdetail[0].Purpose;
+        this.Customer = this.expensetdetail[0].Customer;
+
+    }
+    //profileData() fun
+    profileData() {
+
+        this.otrDetail['Name'] = this.Name;
+        this.otrDetail['Department'] = this.Department;
+        this.otrDetail['Project'] = this.Project;
+        this.otrDetail['Customer'] = this.Customer;
+        this.otrDetail['Purpose'] = this.Purpose;
+        this.otrDetail['Manager'] = this.Manager;
+
+        // this.otr=this.expensetdetail;
+        localStorage.setItem('profile', JSON.stringify(this.otrDetail));
     }
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
@@ -79,7 +111,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here
