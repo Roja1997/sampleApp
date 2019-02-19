@@ -663,7 +663,7 @@
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "start",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
