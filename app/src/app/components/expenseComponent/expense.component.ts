@@ -29,6 +29,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     img;
     imgPath;
     otr: any = {};
+    // otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
