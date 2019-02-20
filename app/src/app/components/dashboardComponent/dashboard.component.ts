@@ -33,7 +33,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
     //for carosal
     dataSet;
-    img;
+    
 
     constructor(private bdms: NDataModelService, private imgService: imageserviceService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
