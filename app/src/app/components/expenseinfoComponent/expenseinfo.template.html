@@ -17,9 +17,13 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field style="width:100%;">
-        <input matInput="" required [matDatepicker]="picker" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <input matInput="" required [matDatepicker]="picker" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
         <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
       </mat-form-field>
+
+
+
+
 
     </div>
   </div>
@@ -28,7 +32,7 @@
       <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" [(ngModel)]="expAmount" type="number" placeholder="Amount" required></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="expAmount" type="number" placeholder="Amount" required (keypress)="expFill($event)"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -47,7 +51,7 @@
     <p (click)="openCamera()" style="cursor:pointer;color:red; ">Retake?</p>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" color="red" (click)="submit()">
+    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="amount"><button mat-fab="" color="red" (click)="submit()">
         <mat-icon>check</mat-icon>
       </button></div>
   </div>

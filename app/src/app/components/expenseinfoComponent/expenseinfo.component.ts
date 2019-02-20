@@ -6,6 +6,8 @@ import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { DatePipe } from '@angular/common';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -21,9 +23,8 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     expenseType = ["Perdiem Charges", "Airticket/Visa Charges", "GuestHouse Charges", "Hotel Charges", "Onsite Telephone Charges",
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
-    button1 = 'Yes';
-    button2 = 'No';
-
+ 
+    amount=false;
     imgPath;
     img = false;
     expType;
@@ -36,10 +37,12 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     //otrValue: Array = [];
     expenseDetail: any = [];
     otrArray: any = [];
-    fromDate;
+    minDate;
+    maxDate;
+    num=10000;
 
 
-    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService) {
+    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService,private datePipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -50,8 +53,17 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
         this.otr = this.otrArray[this.otrArray['length'] - 1];
-        console.log('1111111', this.otr)
-
+        console.log('1111111', this.otr);
+        console.log(this.otr.fromDate);
+        var fromDate=this.otr.fromDate;
+        console.log('from day',fromDate);
+        var toDate = this.otr.toDate;
+        console.log('to date',toDate);
+       console.log('formatted date yy-mm-dd',this.datePipe.transform(fromDate,"yyyy-MM-dd"));
+       this.minDate=this.datePipe.transform(fromDate,"yyyy-MM-dd");
+       console.log('new formatted date',this.minDate);
+        this.maxDate=this.datePipe.transform(toDate,"yyyy-MM-dd");
+       console.log('new formatted date',this.maxDate);
     }
 preventuserTyping(event){
     event.preventDefault();
@@ -61,14 +73,9 @@ preventuserTyping(event){
         this.camService.camera().then((path) => {
             console.log('path', path);
             this.imgPath = path;
-
         }).catch((error) => {
             console.log(error);
-
         });
-
-
-
     }
 
     detail(a) {
@@ -100,6 +107,11 @@ preventuserTyping(event){
         localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
         this.otrDetail = {};
     }
+
+expFill(event: any){
+    this.amount=true;
+}
+
 
 
 
