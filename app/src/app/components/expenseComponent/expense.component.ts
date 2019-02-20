@@ -6,7 +6,8 @@ import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -26,6 +27,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
+    totaldays;
     constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -35,9 +37,15 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.otrdetailService.country);
+        this.expensetdetail=JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
     }
-    
-    
+
+    //to get our tour total Days
+    //function to disable once the user takes date from date. 
+    disableManualData(event) {
+        event.preventDefault();
+    }
+
     //pickFromDate fun
     pickFromDate() {
         console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
@@ -45,25 +53,22 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
         console.log('from date', this.fromDate.toDateString());
         console.log('to date', this.toDate.toDateString());
+        this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
-    //submitDate() fun
-    totaldays;
+    //submitDate() function
     submitDate() {
-        // this.expensetdetail.fromDate=this.fromDate.toDateString();
-        // this.expensetdetail.toDate=this.fromDate.toDateString();
-
-        //to get our tour total Days
-        this.totaldays= (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
+        // if(this.expensetdetail==null)
+         this.expensetdetail=[];
         this.expensetdetail.push(this.otrDetail);
-        console.log('expensetdetail', this.expensetdetail);
-        this.otr.expenses = this.expensetdetail;
-        console.log('final otr', this.otr);
         var countryname = this.otrdetailService.country;
-        localStorage.setItem(countryname, JSON.stringify(this.otr));
-       this.router.navigate(['/home/expenselist']);
-
+        // this.otr=this.expensetdetail;
+        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
+        this.otrDetail={};
+        this.router.navigate(['home/expenseinfo'])
+ 
+       
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

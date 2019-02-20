@@ -261,7 +261,7 @@
                     },
                     {
                         "_key": "*ngFor",
-                        "_value": "let expense of expenses",
+                        "_value": "let expense of this.expenses",
                         "_type": "kv",
                         "_attrDef": "c"
                     }
@@ -382,12 +382,12 @@
                                 "_attrDef": "p"
                             }
                         ],
-                        "245a1e9f-5ef0-c7a0-dc91-284158c35b79": {
-                            "paletteKey": "NG-image",
+                        "fe74d783-85a9-0afb-9458-e8a0e3f0d549": {
+                            "paletteKey": "HTML",
                             "designerReference": [
                                 {
                                     "_key": "style",
-                                    "_value": "width:100%;height:100%;",
+                                    "_value": "",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
@@ -398,15 +398,9 @@
                                     "_attrDef": "p"
                                 },
                                 {
-                                    "_key": "imgSrc",
-                                    "_value": "../../assets/Web/Icons/favicon.ico",
-                                    "_type": "kv",
-                                    "_attrDef": "p"
-                                },
-                                {
-                                    "_key": "alt",
-                                    "_value": "",
-                                    "_type": "kv",
+                                    "_key": "html",
+                                    "_value": "<img [src]='expense.file' style=\"border-radius:10%\">",
+                                    "_type": "a",
                                     "_attrDef": "p"
                                 }
                             ]
@@ -510,7 +504,7 @@
                                 },
                                 {
                                     "_key": "text",
-                                    "_value": "{{expense.fromDate}}",
+                                    "_value": "{{expense.billDate}}",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -533,7 +527,7 @@
                                 },
                                 {
                                     "_key": "text",
-                                    "_value": "comments are shown here.......",
+                                    "_value": "{{expense.comment}}",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -712,9 +706,15 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "sendingMail()",
+                        "_value": "createDirectory()",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "routerLink",
+                        "_value": "/home/afterSendingMail",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ]
             }
@@ -812,7 +812,7 @@
                     },
                     {
                         "_key": "routerLink",
-                        "_value": "/home/expense",
+                        "_value": "/home/expenseinfo",
                         "_type": "kv",
                         "_attrDef": "c"
                     }

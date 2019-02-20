@@ -10,6 +10,10 @@
                     "children": []
                 },
                 {
+                    "component": "expenseinfoComponent",
+                    "path": "expenseinfo"
+                },
+                {
                     "path": "expense",
                     "component": "expenseComponent"
                 },
@@ -24,6 +28,14 @@
                 {
                     "path": "expenseinfo",
                     "component": "expenseinfoComponent"
+                },
+                {
+                    "path": "userdetail",
+                    "component": "userdetailComponent"
+                },
+                {
+                    "path": "afterSendingMail",
+                    "component": "aftersendingmailComponent"
                 }
             ]
         },

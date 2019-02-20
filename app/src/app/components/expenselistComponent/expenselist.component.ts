@@ -4,11 +4,16 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService, NLocalStorageService, NPubSubService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 import { mailService } from '../../services/mail/mail.service';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-declare const cordova:any;
+import { knownFolders, File, Folder } from "tns-core-modules/file-system";
+
+
+declare const cordova: any;
+declare const window: any;
+declare const LocalFileSystem: any;
 
 
 /**
@@ -23,13 +28,15 @@ declare const cordova:any;
 
 export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    
 
-     expenses:any=[];
-     value;
-     values;
 
-    csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
+    expenses: any = [];
+    value;
+    values;
+    success;
+    error;
+
+    //csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
     // personalValue: object = {
     //     countryName: "SouthAfrica",
     //     Name: "Vinay",
@@ -54,9 +61,9 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     // };
 
 
-    constructor(private route: ActivatedRoute, public pubsub: NPubSubService, 
-    private bdms: NDataModelService, private router: Router, 
-    private mService:mailService) {
+    constructor(private route: ActivatedRoute, public pubsub: NPubSubService,
+        private bdms: NDataModelService, private router: Router,
+        private mService: mailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -64,43 +71,92 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         //console.log(this.personalValue)
         //localStorage.setItem('South Africa', JSON.stringify(this.South Africa));
-        this.value=JSON.parse(localStorage.getItem(JSON.stringify("South Africa")));
+        this.value = JSON.parse(localStorage.getItem(JSON.stringify("South Africa")));
         //this.value = JSON.parse(localStorage.SouthAfrica);
         console.log('get value', this.value);
-        this.expenses=this.value.expenses;
+        this.expenses = this.value.expenseDetail;
     }
 
     addExpense() {
-        this.router.navigate(['home/expenseinfo']);    
+        this.router.navigate(['home/expenseinfo']);
     }
     a: any = {};
+    // fileName: string;
+    // fileContent: any;
+    // dirName: string;
+ public folderName: string;
+    public fileName: string;
+    public fileTextContent: string;
+
+    public successMessage: string;
+    public writtenContent: string;
+    public isItemVisible: boolean = false;
+
+    public file: File;
+    public folder: Folder;
+    createDirectory() {
+        let documents = knownFolders.documents();
+        this.folder = documents.getFolder(this.folderName || "testFolder");
+        this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
+
+        this.file.writeText(this.fileTextContent || "some random content")
+            .then(result => {
+                this.file.readText()
+                    .then(res => {
+                        this.successMessage = "Successfully saved in " + this.file.path;
+                        this.writtenContent = res;
+                        this.isItemVisible = true;
+                    });
+            }).catch(err => {
+                console.log(err);
+            });
+    }
+    // createFile() {
+    //     window.webkitRequestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+
+    //         console.log('file system open: ' + fs.name);
+    //         fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
+
+    //             console.log("fileEntry is file?" + fileEntry.isFile.toString());
+    //             fileEntry.name == 'someFile.txt'
+    //             fileEntry.fullPath == '/someFile.txt'
+    //             //writeFile(fileEntry, null);
+    //             console.log(fileEntry);
+
+    //         }, onErrorCreateFile => {
+    //             console.log("on error", onErrorCreateFile)
+    //         }
+    //         );
+
+    //     }, onErrorLoadFs => {
+    //             console.log("on error", onErrorLoadFs)
+    //         });
+    // }
+
+    //submit
+    sendingMail() {
+        //  console.log("this.valueeeee", this.value);
+        //     let arr=[];
+        //         console.log("this.value.expnesetype",this.value.expenses);
+        //         for(let i=0;i<this.value.expenses.length;i++){
+        //          let arr1= Object.keys(this.value.expenses[i]).map(key => this.value.expenses[i][key]);
+        //          arr.push(arr1,"\n\t\t\t\t\t\t");
+        //          console.log("this.arrr",arr);
+        //         }
+        //         this.value.expenses = arr;
+        //     var blob = new Blob([this.csvarr], { type: "text/csv;charset=utf-8" });
+        //     let obj = Object.keys(this.value).map(key => this.value[key]);
+        //     const submitData = obj;
+        //     console.log("data...........",obj);
+        //     console.log("this.a:",this.a);
+        //     blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
+        //     saveAs(blob, "otr.csv");
 
 
-//submit
-sendingMail(){
-     console.log("this.valueeeee", this.value);
-        let arr=[];
-            console.log("this.value.expnesetype",this.value.expenses);
-            for(let i=0;i<this.value.expenses.length;i++){
-             let arr1= Object.keys(this.value.expenses[i]).map(key => this.value.expenses[i][key]);
-             arr.push(arr1,"\n\t\t\t\t\t\t");
-             console.log("this.arrr",arr);
-            }
-            this.value.expenses = arr;
-        var blob = new Blob([this.csvarr], { type: "text/csv;charset=utf-8" });
-        let obj = Object.keys(this.value).map(key => this.value[key]);
-        const submitData = obj;
-        console.log("data...........",obj);
-        console.log("this.a:",this.a);
-        blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
-        saveAs(blob, "otr.csv");
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-    console.log(cordova.file);
-}
+        this.router.navigate(['home/afterSendingMail']);
+    }
 
-    this.router.navigate(['home/afterSendingMail']); 
-}
+
 
 
     // createCSVandSendEmail() {
@@ -121,9 +177,13 @@ sendingMail(){
     //     blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
     //     saveAs(blob, "otr.csv");
     // }
-    mailingZip(){
+    mailingZip() {
         console.log(".................")
         this.mService.sendingMail();
-
     }
 }
+
+
+
+
+

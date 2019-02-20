@@ -34,7 +34,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     //for carosal
     dataSet;
     img;
-    limitImage;
+    
     constructor(private bdms: NDataModelService, private imgService: imageserviceService,private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
         this.dataSet = this.imgService.getImages();
@@ -44,8 +44,9 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     countries = [
 
         { country: "Singapore", value: "Singapore" },
-        { country: "SouthAfrica", value: "South Africa" },
-        { country: "Malaysia", value: "Malaysia" }
+        { country: "South Africa", value: "South Africa" },
+        { country: "Malaysia", value: "Malaysia" },
+        { country: "India", value: "India" }
     ]
 
     //fab function for carosal
@@ -68,14 +69,17 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     otr: any = {};
     countryName(value) {
         this.isShow = true;
+        this.country=value;
+        // console.log('country name',this.country);
+        this.otrdetailService.country = value;
         this.otr = localStorage.getItem(JSON.stringify(value));
         // console.log(localStorage.getItem(JSON.stringify(value)));
         this.otr = JSON.parse(this.otr);
         // console.log("otr object as", this.otr.expenses);
-        this.otrDetails = this.otr.expenses;
+        this.otrDetails = this.otr;
         this.dataSource = new MatTableDataSource(this.otrDetails);
-        this.dataSource.paginator = this.otrDetails.length;
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource.paginator = this.otrDetails.length;
+        // this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 
     }
@@ -88,8 +92,8 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     //addExpense() func
     addExpense() {
         if (this.isShow == true) {
-            this.otrdetailService.country = this.country;
-            console.log(this.otrdetailService.country);
+            // this.otrdetailService.country = this.country;
+            // console.log(this.otrdetailService.country);
             // this.otr['country']=this.country;
             // localStorage.setItem(JSON.stringify(this.country),JSON.stringify(this.otr));
             this.router.navigate(['home/expense']);
@@ -191,7 +195,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
                 // Handle errors here
             })
     }
-    // //hard coded expenses details
+    // //hard coded expenses details"path": "expense",
     // expenses= [{
     //     fromDate: "12/09/2019",
     //     toDate: "31/09/ 2019",

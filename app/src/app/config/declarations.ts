@@ -20,6 +20,8 @@ import { aftersendingmailComponent } from '../components/aftersendingmailCompone
 import { mailService } from '../services/mail/mail.service';
 //CORE_REFERENCE_IMPORT-expenselistresolverService
 import { expenselistresolverService } from '../services/expenseListResolver/expenselistresolver.service';
+//CORE_REFERENCE_IMPORT-cameraService
+import { cameraService } from '../services/camera/camera.service';
 //CORE_REFERENCE_IMPORT-imageserviceService
 import { imageserviceService } from '../services/imageservice/imageservice.service';
 //CORE_REFERENCE_IMPORT-otrdetailService
@@ -106,11 +108,13 @@ export const appProviders = [
 mailService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-expenselistresolverService
 expenselistresolverService,
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-cameraService
+cameraService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-imageserviceService
 imageserviceService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-otrdetailService
 otrdetailService,
-
+// this.router.navigate(['home/expenseinfo'])
 ];
 
 /**
@@ -120,5 +124,5 @@ otrdetailService,
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
 children: [{path: 'dashboard', component: dashboardComponent,
-children: []},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'afterSendingMail', component: aftersendingmailComponent},{path: 'expenseinfo', component: expenseinfoComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: []},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'afterSendingMail', component: aftersendingmailComponent},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'userdetail', component: userdetailComponent},{path: 'afterSendingMail', component: aftersendingmailComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

@@ -68,13 +68,13 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "background-color:red",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "class",
-                    "_value": "",
+                    "_value": "toolbar",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -261,13 +261,13 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "background-color:red",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "class",
-                    "_value": "",
+                    "_value": "toolbar",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -319,19 +319,19 @@
                     },
                     {
                         "_key": "wrap",
-                        "_value": "wrap",
+                        "_value": "",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "center",
+                        "_value": "start",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "end",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -353,13 +353,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "color:white;font-size: 32px;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "receiptclass",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -401,19 +401,19 @@
                     },
                     {
                         "_key": "wrap",
-                        "_value": "wrap",
+                        "_value": "",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "center",
+                        "_value": "start",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "start",
+                        "_value": "end",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -435,13 +435,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "color:white;font-size: 32px;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "receiptclass",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -450,6 +450,12 @@
                             "_value": "person",
                             "_type": "a",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "routerLink",
+                            "_value": "/home/userdetail",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }

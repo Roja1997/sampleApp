@@ -1,17 +1,45 @@
 <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <mat-form-field>
-    <mat-select placeholder="Expense Type" required>
-      <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>Attach Bill?</p>
+      <mat-icon style="color:grey;font-size:20px;">receipt</mat-icon>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" n-camera="" [cameraOptions]="{entityName: &apos;profile&apos;, metadata: {key: &apos;example@neutrinos.co&apos;}}" (onsuccess)="success($event)" (onerror)="error($event)">{{button1}}</button></div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" (click)="accept(button2)">{{button2}}</button></div>
+    <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field>
+        <mat-select style="width:100%;" placeholder="Expense Type" [(ngModel)]="expType" required touchUi="touch">
+          <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="amount">
-    <mat-form-field><input matInput="" placeholder="Amount" required></mat-form-field>
-  </div><button mat-button="" routerLink="/home/expenselist">Submit</button>
+  <div fxLayout="row " fxLayoutAlign="  center" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxLayoutAlign="  stretch" fxShow="true" fxHide="false">
+      <mat-icon style="color:grey;      padding-top: 12px;">date_range</mat-icon>
+    </div>
+    <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field style="width:100%;">
+        <input matInput="" required [matDatepicker]="picker" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <mat-datepicker #picker=""></mat-datepicker>
+      </mat-form-field>
+      <mat-icon></mat-icon>
+    </div>
+  </div>
+  <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-icon style="color:grey">account_balance_wallet</mat-icon>
+    </div>
+    <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" [(ngModel)]="expAmount" type="number" placeholder="Amount" required></mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row " style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="comment" placeholder="Comments"></mat-form-field>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <p style="color:grey;">Bill Preview</p>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="img" (click)="openDialog()"><img [src]="imgPath" style="border-radius:10%;"></div>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <p (click)="openCamera()" style="cursor:pointer;color:red; ">Retake?</p>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-button="" style="color:red" (click)="submit()">Submit</button></div>
 </div>
