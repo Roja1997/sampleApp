@@ -991,7 +991,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "\n\n<table mat-table [dataSource]=\"dataSource\" matSort style=\"width:100%;\">\n      <!--   <ng-container matColumnDef=\"icon\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> icon</th>\n  <td mat-cell *matCellDef=\"let element\"> \n       \n      <i class=\"material-icons\" style=\"\" >visibility</i>\n        \n    </td>\n    </ng-container>\n    -->\n            <ng-container matColumnDef=\"receipt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" >receipt</i>\n        \n    </td>\n    </ng-container>\n    <!-- fromDate Column -->\n    <ng-container matColumnDef=\"fromDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> From Date </th>\n      \n      <td mat-cell *matCellDef=\"let element\"> {{element.fromDate}} </td>\n    </ng-container>\n\n    <!-- toDate Column -->\n    <ng-container matColumnDef=\"toDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> To Date </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.toDate}} </td>\n    </ng-container>\n    <!--\n      <ng-container matColumnDef=\"Amount\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.amount| currency: 'INR':true}} </td>\n    </ng-container>-->\n        <ng-container matColumnDef=\"view\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> view</th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" (click)=expenseList(element.fromDate)>visibility</i>\n        \n    </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n<!--\n  <mat-paginator [pageSizeOptions]=\"[1, 2, 25, 100]\" style=\"margin-right:100px;\"></mat-paginator>",
+                            "_value": "\n\n<table mat-table [dataSource]=\"dataSource\" matSort style=\"width:100%;\">\n      <!--   <ng-container matColumnDef=\"icon\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> icon</th>\n  <td mat-cell *matCellDef=\"let element\"> \n       \n      <i class=\"material-icons\" style=\"\" >visibility</i>\n        \n    </td>\n    </ng-container>\n    -->\n            <ng-container matColumnDef=\"receipt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"font-size: 40px;\" >receipt</i>\n        \n    </td>\n    </ng-container>\n    <!-- fromDate Column -->\n    <ng-container matColumnDef=\"fromDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> From Date </th>\n      \n      <td mat-cell *matCellDef=\"let element\"> {{element.fromDate}} </td>\n    </ng-container>\n\n    <!-- toDate Column -->\n    <ng-container matColumnDef=\"toDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> To Date </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.toDate}} </td>\n    </ng-container>\n    <!--\n      <ng-container matColumnDef=\"Amount\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.amount| currency: 'INR':true}} </td>\n    </ng-container>-->\n        <ng-container matColumnDef=\"view\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> view</th>\n  \n       <td mat-cell *matCellDef=\"let element\"> \n      <i class=\"material-icons\" style=\"\" (click)=expenseList(element.fromDate)>visibility</i>\n        \n    </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n<!--\n  <mat-paginator [pageSizeOptions]=\"[1, 2, 25, 100]\" style=\"margin-right:100px;\"></mat-paginator>",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -999,7 +999,7 @@
                 }
             }
         },
-        "8d2d2deb-4e22-e663-04ae-d961ec04aadc": {
+        "b93474ce-e895-7479-74fd-cd0f179645b0": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
@@ -1010,7 +1010,7 @@
                 },
                 {
                     "_key": "class",
-                    "_value": "expensebtn",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -1028,7 +1028,7 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "",
+                    "_value": "wrap",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1057,165 +1057,106 @@
                     "_attrDef": "p"
                 }
             ],
-            "0e85a095-c02a-b34c-10b9-e58970497ff9": {
-                "paletteKey": "NG-FabButton",
+            "8d2d2deb-4e22-e663-04ae-d961ec04aadc": {
+                "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "color:red;",
-                        "_type": "kv",
-                        "_attrDef": "p"
-                    },
-                    {
-                        "_key": "class",
                         "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "fabicon",
-                        "_value": " <mat-icon>add_circle<mat-icon>",
+                        "_key": "class",
+                        "_value": "expensebtn",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "color",
-                        "_value": "red",
+                        "_key": "layoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "(click)",
-                        "_value": "addExpense()",
+                        "_key": "fxHide",
+                        "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "title",
-                        "_value": "add expense",
-                        "_type": "kv",
-                        "_attrDef": "c"
                     }
-                ]
+                ],
+                "0e85a095-c02a-b34c-10b9-e58970497ff9": {
+                    "paletteKey": "NG-FabButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "color:red;  align:center",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fabicon",
+                            "_value": " <mat-icon>add_circle<mat-icon>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "red",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "addExpense()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "title",
+                            "_value": "add expense",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ]
+                }
             }
-        },
-        "84aa2a1a-cd01-847f-a7a9-57c4fb4cd40c": {
-            "paletteKey": "FlexLayoutRow",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxFlex",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxLayoutGap",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "wrap",
-                    "_value": "wrap",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "layoutAlign",
-                    "_value": "start",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "pLayoutAlign",
-                    "_value": "stretch",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxShow",
-                    "_value": "true",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxHide",
-                    "_value": "false",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                }
-            ]
-        },
-        "8426e980-1294-118f-52b4-a8588df6038e": {
-            "paletteKey": "FlexLayoutRow",
-            "designerReference": [
-                {
-                    "_key": "style",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "class",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxFlex",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxLayoutGap",
-                    "_value": "",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "wrap",
-                    "_value": "wrap",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "layoutAlign",
-                    "_value": "start",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "pLayoutAlign",
-                    "_value": "stretch",
-                    "_type": "a",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxShow",
-                    "_value": "true",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                },
-                {
-                    "_key": "fxHide",
-                    "_value": "false",
-                    "_type": "kv",
-                    "_attrDef": "p"
-                }
-            ]
         }
     }
 }

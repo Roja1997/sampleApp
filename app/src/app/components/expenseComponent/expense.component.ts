@@ -42,9 +42,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.otrdetailService.country);
-        this.expensetdetail=JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
-        console.log('this.exp',this.expensetdetail);
-        console.log(typeof(this.expensetdetail));
+        this.expensetdetail = JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
+        console.log('this.exp', this.expensetdetail);
+
 
     }
 
@@ -67,33 +67,18 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     submitDate() {
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
-        if(this.expensetdetail==null)
-         this.expensetdetail=[];
-        console.log('this.otrDetail',this.otrDetail);
+        if (this.expensetdetail == null)
+            this.expensetdetail = [];
+        console.log('this.otrDetail', this.otrDetail);
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
         localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
         this.otrDetail={};
-
-
-
-         //camera code
-              this.img=true;
-         this.camService.camera().then((path)=>{
-             console.log('path',path);
-             this.imgPath=path;
-         
-         }).catch((error)=>{
-             console.log(error);
-
-         });
-
-
-         
-
-        this.router.navigate(['home/expenseinfo']);
        
+        
+        this.router.navigate(['home/expenseinfo'])
+
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

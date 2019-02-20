@@ -36,6 +36,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     //otrValue: Array = [];
     expenseDetail: any = [];
     otrArray: any = [];
+    fromDate;
 
 
     constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService) {
@@ -44,6 +45,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
+         
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
@@ -51,7 +53,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         console.log('1111111', this.otr)
 
     }
-
+preventuserTyping(event){
+    event.preventDefault();
+}
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -94,11 +98,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         console.log('aa', this.otrArray);
 
         localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
-        this.otrDetail = {}
-
-
-
-
+        this.otrDetail = {};
     }
 
 
