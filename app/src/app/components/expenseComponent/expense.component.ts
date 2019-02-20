@@ -24,6 +24,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
+    img;
+    imgPath;
+    otr: any = {};
     // otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
