@@ -72,7 +72,6 @@
     "rxjs": "6.2.0",
     "rxjs-compat": "6.2.0",
     "signature_pad": "2.3.2",
-    "tns-core-modules": "^5.2.1",
     "zone.js": "0.8.26"
   },
   "devDependencies": {

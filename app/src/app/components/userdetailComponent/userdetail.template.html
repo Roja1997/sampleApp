@@ -1,31 +1,51 @@
-<div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-  <div fxLayout="row wrap" fxLayoutAlign="center stretch" fxShow="true" fxHide="false"></div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxFlex="20" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+<div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Name:</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start center" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" [(ngModel)]="Name" name="Name" required></mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Department:</p>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" required></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="Department" name="Department" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxFlex="20" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p></p>
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Project:</p>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" required></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="Project" name="Project" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxFlex="20" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p></p>
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Customer:</p>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" required></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="Customer" name="Customer" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"></div>
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Purpose:</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" [(ngModel)]="Purpose" name="Purpose" required></mat-form-field>
+    </div>
   </div>
+  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p>Manager:</p>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field><input matInput="" [(ngModel)]="Manager" name="Manager" required></mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="    border-radius: 32px;    width: 147px;     margin-top: 16px;" class="addbtn" color="warn" (click)="profileData()">Add</button></div>
 </div>

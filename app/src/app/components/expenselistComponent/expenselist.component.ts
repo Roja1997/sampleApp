@@ -7,8 +7,10 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 import { mailService } from '../../services/mail/mail.service';
+import { cameraService } from '../../services/camera/camera.service';
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { knownFolders, File, Folder } from "tns-core-modules/file-system";
+
 
 
 declare const cordova: any;
@@ -31,51 +33,39 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
 
 
     expenses: any = [];
-    value;
+    expenseArray;
+    user;
     values;
-    success;
-    error;
+    
+    imagePath;
+    
 
-    //csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
-    // personalValue: object = {
-    //     countryName: "SouthAfrica",
-    //     Name: "Vinay",
-    //     Dept: "Delivery",
-    //     Project: "OTR",
-    //     Customer: "Rahul",
-    //     Purpose: "Travel",
-    //     Manager: "Vinay",
-    //     FromDate: "20 / 01 / 2019",
-    //     toDate: "30 / 01 / 2019",
-
-    //     expense: [{
-    //         expType: "petrol",
-    //         billAttached: true,
-    //         amount: 3000
-
-    //     }, {
-    //         expType: "diesel",
-    //         billAttached: true,
-    //         amount: 200
-    //     }]
-    // };
-
+    
 
     constructor(private route: ActivatedRoute, public pubsub: NPubSubService,
         private bdms: NDataModelService, private router: Router,
-        private mService: mailService) {
+        private mService: mailService,private otrInfo: otrdetailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-        //console.log(this.personalValue)
-        //localStorage.setItem('South Africa', JSON.stringify(this.South Africa));
-        this.value = JSON.parse(localStorage.getItem(JSON.stringify("South Africa")));
-        //this.value = JSON.parse(localStorage.SouthAfrica);
-        console.log('get value', this.value);
-        this.expenses = this.value.expenseDetail;
+    
+           this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+           this.user=JSON.parse(localStorage.getItem("profile"));
+           console.log("user data",this.user);
+       
+        console.log('get value', this.expenseArray);
+      this.expenses = this.expenseArray[0].expenseList;
+      this.imagePath=this.expenseArray[0].imageurl;
+      console.log(" ",this.expenses);
+      console.log("image path ",  this.imagePath);
+    
+
+      
+       console.log('expense array....',this.expenses);
     }
+  
 
     addExpense() {
         this.router.navigate(['home/expenseinfo']);
@@ -84,33 +74,33 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     // fileName: string;
     // fileContent: any;
     // dirName: string;
- public folderName: string;
-    public fileName: string;
-    public fileTextContent: string;
+//  public folderName: string;
+//     public fileName: string;
+//     public fileTextContent: string;
 
-    public successMessage: string;
-    public writtenContent: string;
-    public isItemVisible: boolean = false;
+//     public successMessage: string;
+//     public writtenContent: string;
+//     public isItemVisible: boolean = false;
 
-    public file: File;
-    public folder: Folder;
-    createDirectory() {
-        let documents = knownFolders.documents();
-        this.folder = documents.getFolder(this.folderName || "testFolder");
-        this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
+//     public file: File;
+//     public folder: Folder;
+    // createDirectory() {
+    //     let documents = knownFolders.documents();
+    //     this.folder = documents.getFolder(this.folderName || "testFolder");
+    //     this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
 
-        this.file.writeText(this.fileTextContent || "some random content")
-            .then(result => {
-                this.file.readText()
-                    .then(res => {
-                        this.successMessage = "Successfully saved in " + this.file.path;
-                        this.writtenContent = res;
-                        this.isItemVisible = true;
-                    });
-            }).catch(err => {
-                console.log(err);
-            });
-    }
+    //     this.file.writeText(this.fileTextContent || "some random content")
+    //         .then(result => {
+    //             this.file.readText()
+    //                 .then(res => {
+    //                     this.successMessage = "Successfully saved in " + this.file.path;
+    //                     this.writtenContent = res;
+    //                     this.isItemVisible = true;
+    //                 });
+    //         }).catch(err => {
+    //             console.log(err);
+    //         });
+    // }
     // createFile() {
     //     window.webkitRequestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 

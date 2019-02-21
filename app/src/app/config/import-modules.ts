@@ -12,7 +12,7 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../../environments/environment';
 import { NeutrinosModule } from 'neutrinos-module';
-import { knownFolders, File, Folder } from "tns-core-modules/file-system";
+
 
 import {
   MatMenuModule, MatDialogModule, MatTabsModule, MatInputModule,
@@ -75,7 +75,7 @@ export const appImportModules: any = [
   MatPaginatorModule,
   MatGridListModule,
   MatBadgeModule,
-  knownFolders, File, Folder,
+ 
   MatNativeDateModule,
   AgmCoreModule.forRoot({
     apiKey: environment.properties.googleMapKey

@@ -399,7 +399,7 @@
                                 },
                                 {
                                     "_key": "html",
-                                    "_value": "<img [src]='expense.file' style=\"border-radius:10%\">",
+                                    "_value": "<img [src]='imagePath' style=\"border-radius:10%\">",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -610,7 +610,7 @@
                             },
                             {
                                 "_key": "H3 Text",
-                                "_value": "{{expense.amount}}",
+                                "_value": "{{expense.expAmount}}",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -706,7 +706,7 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "createDirectory()",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },

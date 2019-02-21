@@ -368,6 +368,12 @@
                             "_value": "receipt",
                             "_type": "a",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "routerLink",
+                            "_value": "/home/dashboard",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -447,7 +453,7 @@
                         },
                         {
                             "_key": "IconName",
-                            "_value": "person",
+                            "_value": "edit",
                             "_type": "a",
                             "_attrDef": "p"
                         },

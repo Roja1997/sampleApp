@@ -26,16 +26,8 @@
                     "component": "aftersendingmailComponent"
                 },
                 {
-                    "path": "expenseinfo",
-                    "component": "expenseinfoComponent"
-                },
-                {
                     "path": "userdetail",
                     "component": "userdetailComponent"
-                },
-                {
-                    "path": "afterSendingMail",
-                    "component": "aftersendingmailComponent"
                 }
             ]
         },

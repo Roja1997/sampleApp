@@ -7,6 +7,8 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { cameraService } from '../../services/camera/camera.service';
+
 
 /**
  * Service import Example :
@@ -24,11 +26,14 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
+    img;
+    imgPath;
     otr: any = {};
+    // otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
-    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe) {
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe,private camService:cameraService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -38,6 +43,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         console.log(this.otrdetailService.country);
         this.expensetdetail=JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
+        console.log('this.exp',this.expensetdetail);
+        console.log(typeof(this.expensetdetail));
+
     }
 
     //to get our tour total Days
@@ -61,13 +69,30 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         // if(this.expensetdetail==null)
          this.expensetdetail=[];
+        console.log('this.otrDetail',this.otrDetail);
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
         localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
         this.otrDetail={};
-        this.router.navigate(['home/expenseinfo'])
- 
+
+
+
+         //camera code
+              this.img=true;
+         this.camService.camera().then((path)=>{
+             console.log('path',path);
+             this.imgPath=path;
+         
+         }).catch((error)=>{
+             console.log(error);
+
+         });
+
+
+         
+
+        this.router.navigate(['home/expenseinfo']);
        
 
     }

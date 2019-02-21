@@ -24,78 +24,85 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
     button1 = 'Yes';
     button2 = 'No';
-   
-     imgPath;
-     img=false;
-     expType;
-     imageurl;
-     billDate
-     comment;
-     expAmount;
-     otr:any={};
-     otrDetail:any={};
-     expenseDetail:any=[];
+
+    imgPath;
+    img = false;
+    expType;
+    imageurl;
+    billDate
+    comment;
+    expAmount;
+    otr: any = {};
+    otrDetail: any = {};
+    //otrValue: Array = [];
+    expenseDetail: any = [];
+    otrArray: any = [];
 
 
-    constructor(private bdms: NDataModelService,private camService:cameraService,private router: Router,private otrInfo:otrdetailService) {
+    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService,public router:Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-        console.log('country name',this.otrInfo.country);
-        var otrArray=JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
-        console.log(otrArray);
-        this.otr=otrArray[otrArray['length']-1];
-        console.log(this.otr);
+        console.log('country name', this.otrInfo.country);
+        this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+        console.log("otr array", this.otrArray);
+        this.otr = this.otrArray[this.otrArray['length'] - 1];
+        console.log('1111111', this.otr)
+
     }
 
     openCamera() {
-        this.img=true;
-         this.camService.camera().then((path)=>{
-             console.log('path',path);
-             this.imgPath=path;
-         
-         }).catch((error)=>{
-             console.log(error);
+        this.img = true;
+        this.camService.camera().then((path) => {
+            console.log('path', path);
+            this.imgPath = path;
 
-         });
+        }).catch((error) => {
+            console.log(error);
+
+        });
 
 
-         
+
+    }
+
+    detail(a) {
+        this.expenseDetail.push(a);
+        this.otr.expenseList = this.expenseDetail;
     }
 
 
-  
+    submit() {
 
-submit(){
+        this.otrDetail['expType'] = this.expType;
+        this.otrDetail['billDate'] = this.billDate;
+        this.otrDetail['expAmount'] = this.expAmount;
+        this.otrDetail['comments'] = this.comment;
+        this.imageurl = this.imgPath;
+        this.otrDetail['imageurl'] = this.imageurl;
+        // console.log('otr details expense info', this.otrDetail)
 
-    
-    // console.log(this.expType);
-    // this.imageurl=this.imgPath;
-    // console.log(this.imageurl);
-    // console.log(this.expAmount);
+        this.detail(this.otrDetail);
+        //console.log('expense__--detail', this.expenseDetail);
+
+        // console.log('aa', this.otr);
+
+        this.otrArray[this.otrArray['length'] - 1] = (this.otr);
+        this.otrArray.push(this.otrArray[this.otrArray['length'] - 1]);
+        this.otrArray.pop(this.otrArray[this.otrArray['length'] - 1])
+        // console.log('aa', this.otrArray);
+
+        localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
+        this.otrDetail = {}
+        console.log('Routing to expenselist');
+        this.router.navigate(['/home/expenselist']);
 
 
-    this.otrDetail['expType']=this.expType;
-    this.otrDetail['billDate']=this.billDate;
-    this.otrDetail['expAmount']=this.expAmount;
-    this.otrDetail['comment']=this.comment;
-        this.imageurl=this.imgPath;
-    this.otrDetail['imageurl']=this.imageurl;
-    console.log('otr details expense info',this.otrDetail)
-     this.expenseDetail.push(this.otrDetail);
-     //sampreeth
-     console.log('otrdetail',this.otrDetail);
-     //sampreeth 
-     this.otr.expenseDetail=this.expenseDetail;
-     console.log('expense info comp ',this.otr);
-     localStorage.setItem(JSON.stringify(this.otrInfo.country),JSON.stringify(this.otr));
-     this.otrDetail={};
-     this.router.navigate(['home/expenselist']);
-}
+    }
 
-    
+
 
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
