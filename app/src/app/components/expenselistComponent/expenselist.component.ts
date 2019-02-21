@@ -5,7 +5,7 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService,NLocalStorageService,NPubSubService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { Router } from '@angular/router';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot} from '@angular/router';
 /**
  * Service import Example :
@@ -39,17 +39,16 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     //         }]
     //     };
 
-    constructor(private route:ActivatedRoute,public pubsub:NPubSubService,private bdms: NDataModelService,private router:Router,private localStorage:NLocalStorageService) {
+    constructor(private route:ActivatedRoute,public pubsub:NPubSubService, private otrdetailService: otrdetailService,private bdms: NDataModelService,private router:Router,private localStorage:NLocalStorageService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-
-    this.route.data.subscribe((res)=>{
-        
-        console.log(res)
-    })
+    // // console.log('in expenselist',this.otrdetailService.otrObject().then((data)=>{
+    // //     console.log('data',data);
+    // }));
+    
     
         
     }

@@ -4,7 +4,7 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-
+import { MatSnackBar } from '@angular/material';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -27,13 +27,13 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     expensetdetail: any = [];
 
     bindingName;
-    constructor(private bdms: NDataModelService) {
+    constructor(private bdms: NDataModelService, private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-        this.otrDetails = JSON.parse(localStorage.getItem('profile'));
+        this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
 
         console.log('user details ', this.expensetdetail[0].Name);
@@ -54,9 +54,10 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Customer'] = this.Customer;
         this.otrDetail['Purpose'] = this.Purpose;
         this.otrDetail['Manager'] = this.Manager;
-
+        console.log('fff',this.otrDetail);
         // this.otr=this.expensetdetail;
-        localStorage.setItem('profile', JSON.stringify(this.otrDetail));
+        localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
+        this.snackbar.open('successfully edited', 'close', { duration: 3000 });
     }
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

@@ -47,9 +47,13 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
-        this.otr = this.otrArray[this.otrArray['length'] - 1];
+        // this.otr = this.otrArray[this.otrArray['length'] - 1];
         console.log('1111111', this.otr)
 
+    }
+     //function to disable once the user takes date from date. 
+    disableManualData(event) {
+        event.preventDefault();
     }
 
     openCamera() {
@@ -74,7 +78,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
 
     submit() {
-
+        this.otr = this.otrArray[this.otrArray['length'] - 1];
         this.otrDetail['expType'] = this.expType;
         this.otrDetail['billDate'] = this.billDate;
         this.otrDetail['expAmount'] = this.expAmount;
