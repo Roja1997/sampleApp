@@ -706,7 +706,7 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "",
+                        "_value": "sendingMail()",
                         "_type": "kv",
                         "_attrDef": "p"
                     },

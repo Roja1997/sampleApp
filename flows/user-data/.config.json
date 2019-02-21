@@ -530,9 +530,8 @@
      "view-grid-size": "20",
      "view-node-status": true,
      "view-show-tips": true,
-     "view-snap-grid": false,
-     "view-show-grid": false
-  
+     "view-snap-grid": true,
+     "view-show-grid": true
     }
    }
   }

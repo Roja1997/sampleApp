@@ -7,9 +7,7 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { cameraService } from '../../services/camera/camera.service';
-
-
+import { MatSnackBar } from '@angular/material';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -33,7 +31,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
-    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private datepipe: DatePipe,private camService:cameraService) {
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService,private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -42,9 +40,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.otrdetailService.country);
-        this.expensetdetail=JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
-        console.log('this.exp',this.expensetdetail);
-        console.log(typeof(this.expensetdetail));
+        this.expensetdetail = JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
+        console.log('this.exp', this.expensetdetail);
+
 
     }
 
@@ -57,6 +55,11 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     //pickFromDate fun
     pickFromDate() {
         console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
+        // console.log('checking',this.expensetdetail[0].fromDate);
+        // if(this.expensetdetail[0].fromDate==this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy')){
+        //     this.snackbar.open('already claimed for these OTR add different OTR', 'close', { duration: 3000 });
+        //     this.router.navigate(['/home/expense']);
+        // }
         // this.toDate=new Date(this.fromDate.getTime()+(1000*24*60*60*29));
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
         console.log('from date', this.fromDate.toDateString());
@@ -65,35 +68,19 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     }
     //submitDate() function
     submitDate() {
+        
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
-        // if(this.expensetdetail==null)
-         this.expensetdetail=[];
-        console.log('this.otrDetail',this.otrDetail);
+        if (this.expensetdetail == null)
+            this.expensetdetail = [];
+        console.log('this.otrDetail', this.otrDetail);
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
         localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
-        this.otrDetail={};
+        this.otrDetail = {};
+        this.router.navigate(['home/expenseinfo'])
 
-
-
-         //camera code
-              this.img=true;
-         this.camService.camera().then((path)=>{
-             console.log('path',path);
-             this.imgPath=path;
-         
-         }).catch((error)=>{
-             console.log(error);
-
-         });
-
-
-         
-
-        this.router.navigate(['home/expenseinfo']);
-       
 
     }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

@@ -302,7 +302,7 @@
                         },
                         {
                             "_key": "(selectionChange)",
-                            "_value": "",
+                            "_value": "openCamera()",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -549,7 +549,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\">\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n<mat-icon></mat-icon>\n",
+                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required [matDatepicker]=\"picker\"  [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -811,6 +811,12 @@
                             "_value": "number",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(keypress)",
+                            "_value": "expFill($event)",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -949,7 +955,7 @@
                         },
                         {
                             "_key": "IconName",
-                            "_value": "edit",
+                            "_value": "comment",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -1339,8 +1345,8 @@
                 ]
             }
         },
-        "0c7e2521-de3d-8da2-50e5-68cb63cbd342": {
-            "paletteKey": "FlexLayoutRow",
+        "3b33951c-1bfa-595b-78c7-03282df0f81c": {
+            "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
@@ -1350,7 +1356,7 @@
                 },
                 {
                     "_key": "class",
-                    "_value": "expensebtn",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -1397,8 +1403,8 @@
                     "_attrDef": "p"
                 }
             ],
-            "ec2cbaf4-59bc-eaa7-d59e-d085dbd31011": {
-                "paletteKey": "NG-FabButton",
+            "0c7e2521-de3d-8da2-50e5-68cb63cbd342": {
+                "paletteKey": "FlexLayoutRow",
                 "designerReference": [
                     {
                         "_key": "style",
@@ -1408,29 +1414,94 @@
                     },
                     {
                         "_key": "class",
+                        "_value": "expensebtn",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
                         "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "fabicon",
-                        "_value": "<mat-icon>check</mat-icon>",
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "color",
-                        "_value": "red",
+                        "_key": "layoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "(click)",
-                        "_value": "submit()",
+                        "_key": "fxHide",
+                        "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "amount",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
-                ]
+                ],
+                "ec2cbaf4-59bc-eaa7-d59e-d085dbd31011": {
+                    "paletteKey": "NG-FabButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fabicon",
+                            "_value": "<mat-icon>check</mat-icon>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "red",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "submit()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
             }
         }
     }

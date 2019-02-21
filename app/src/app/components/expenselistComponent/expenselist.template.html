@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="column wrap" style="position:absolute;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" routerLink="/home/afterSendingMail">SUBMIT</button></div>
+  <div fxLayout="column wrap" style="position:absolute;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" routerLink="/home/afterSendingMail" (click)="sendingMail()">SUBMIT</button></div>
   <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" routerLink="/home/expenseinfo">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
