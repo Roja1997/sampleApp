@@ -5,7 +5,7 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field>
-        <mat-select style="width:100%;" placeholder="Expense Type" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch">
+        <mat-select style="width:100%;" placeholder="Expense Type*" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch">
           <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -17,7 +17,7 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field style="width:100%;">
-        <input matInput="" required [matDatepicker]="picker" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <input matInput="" [matDatepicker]="picker" [value]="billDate" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
         <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
       </mat-form-field>
 
@@ -32,7 +32,7 @@
       <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" [(ngModel)]="expAmount" type="number" placeholder="Amount" required (keypress)="expFill($event)"></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="expAmount" placeholder="Amount" required [value]="billAmount" (keyup)="expFill($event)" (keypress)="prevent($event)"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -40,7 +40,7 @@
       <mat-icon style="color:grey;font-size:20px;">comment</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="comment" placeholder="Comments"></mat-form-field>
+      <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="comment" placeholder="Comments" [value]="comment"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">

@@ -4,6 +4,7 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { Router } from '@angular/router';
 
 /**
  * Service import Example :
@@ -27,7 +28,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     expensetdetail: any = [];
 
     bindingName;
-    constructor(private bdms: NDataModelService) {
+    constructor(private bdms: NDataModelService,private router: Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -58,6 +59,11 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         // this.otr=this.expensetdetail;
         localStorage.setItem('profile', JSON.stringify(this.otrDetail));
     }
+
+add(){
+    this.router.navigate(['home/expenseinfo']);
+}
+
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

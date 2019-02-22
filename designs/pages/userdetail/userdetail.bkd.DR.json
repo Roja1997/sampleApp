@@ -1490,6 +1490,41 @@
                             "_attrDef": "p"
                         }
                     ]
+                },
+                "292efd7c-87cc-bfc8-f44b-a1b2380511ab": {
+                    "paletteKey": "NG-button",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "background-color:green;",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "buttonname",
+                            "_value": "submit",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "add()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        }
+                    ]
                 }
             },
             "edc93b79-6975-f20b-4167-0af3ebe83819": {

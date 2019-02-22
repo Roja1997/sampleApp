@@ -8,14 +8,11 @@ export class otrdetailService {
     constructor(public router: Router) {
         // console.log(this.temp)
     }
-    // otrDetails(value){
-    //     console.log('from service',value);
-    //     this.router.navigate(['home/expense']);
-    // }
-    fromDate(arr) {
-        console.log('service array', arr);
-        this.dateArray = arr;
 
-    }
+    // fromDate(arr) {
+    //     console.log('service array', arr);
+    //     this.dateArray = arr;
+
+    // }
 
 }

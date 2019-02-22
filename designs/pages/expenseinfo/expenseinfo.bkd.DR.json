@@ -272,7 +272,7 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "Expense Type",
+                            "_value": "Expense Type*",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -549,7 +549,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required [matDatepicker]=\"picker\"  [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput   [matDatepicker]=\"picker\" [value]='billDate' [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -808,13 +808,25 @@
                         },
                         {
                             "_key": "type",
-                            "_value": "number",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "(keypress)",
+                            "_key": "[value]",
+                            "_value": "billAmount",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(keyup)",
                             "_value": "expFill($event)",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(keypress)",
+                            "_value": "prevent($event)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -1076,6 +1088,12 @@
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[value]",
+                            "_value": "comment",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }

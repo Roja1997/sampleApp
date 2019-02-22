@@ -7,6 +7,8 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 /**
  * Service import Example :
@@ -23,15 +25,14 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     expenseType = ["Perdiem Charges", "Airticket/Visa Charges", "GuestHouse Charges", "Hotel Charges", "Onsite Telephone Charges",
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
- 
-    amount=false;
+    amount = false;
     imgPath;
     img = false;
     expType;
     imageurl;
-    billDate
-    comment;
-    expAmount;
+    billDate='';
+    comment='';
+    expAmount='';
     otr: any = {};
     otrDetail: any = {};
     //otrValue: Array = [];
@@ -39,35 +40,70 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     otrArray: any = [];
     minDate;
     maxDate;
-    num=10000;
+    num = 10000;
+    billAmount = '';
+    count=0;
 
-
-    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService,private datePipe: DatePipe) {
+    
+    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-         
+       
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
-        this.otr = this.otrArray[this.otrArray['length'] - 1];
-        console.log('1111111', this.otr);
+        console.log((this.otrArray.length)-1);
+
+        this.otr = this.otrArray[(this.otrArray.length)-1];
+        console.log('otr', this.otr);
         console.log(this.otr.fromDate);
-        var fromDate=this.otr.fromDate;
-        console.log('from day',fromDate);
+        var fromDate = this.otr.fromDate;
+        console.log('from date', fromDate);
         var toDate = this.otr.toDate;
-        console.log('to date',toDate);
-       console.log('formatted date yy-mm-dd',this.datePipe.transform(fromDate,"yyyy-MM-dd"));
-       this.minDate=this.datePipe.transform(fromDate,"yyyy-MM-dd");
-       console.log('new formatted date',this.minDate);
-        this.maxDate=this.datePipe.transform(toDate,"yyyy-MM-dd");
-       console.log('new formatted date',this.maxDate);
+        console.log('to date', toDate);
+        this.minDate = this.datePipe.transform(fromDate, "yyyy-MM-dd");
+        console.log('new formatted date', this.minDate);
+        this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
+        console.log('new formatted date', this.maxDate);
+
     }
-preventuserTyping(event){
-    event.preventDefault();
+
+    preventuserTyping(event) {
+        event.preventDefault();
+    }
+prevent(event){
+     const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+   
+    }
 }
+ 
+    expFill(event) {
+           this.amount=true;
+        let num = event.target.value;
+        if (typeof num === 'string' && num !== '')
+            num = parseFloat(num.replace(/,/g, ''));
+        let str = num.toString().split('.');
+        if (str[0].length >= 5) {
+            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        }
+        if (str[1] && str[1].length >= 5) {
+            str[1] = str[1].replace(/(\d{3})/g, '$1,');
+        }
+        str = str.join('.');
+        this.billAmount = str;
+        return str;
+        
+      
+    }
+
+    //camera code
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -85,7 +121,7 @@ preventuserTyping(event){
 
 
     submit() {
-
+        
         this.otrDetail['expType'] = this.expType;
         this.otrDetail['billDate'] = this.billDate;
         this.otrDetail['expAmount'] = this.expAmount;
@@ -93,108 +129,28 @@ preventuserTyping(event){
         this.imageurl = this.imgPath;
         this.otrDetail['imageurl'] = this.imageurl;
         console.log('otr details expense info', this.otrDetail)
+        // this.expType='';
+        // this.billDate='';
+        // this.comment=''
 
         this.detail(this.otrDetail);
-        console.log('expense__--detail', this.expenseDetail);
+        console.log('expense__detail', this.expenseDetail);
 
         console.log('aa', this.otr);
+        
+        this.otrArray[(this.otrArray.length) - 1] = (this.otr);
+  
+         this.otrArray.push(this.otrArray[(this.otrArray.length) - 1]);
 
-        this.otrArray[this.otrArray['length'] - 1] = (this.otr);
-        this.otrArray.push(this.otrArray[this.otrArray['length'] - 1]);
-        this.otrArray.pop(this.otrArray[this.otrArray['length'] - 1])
-        console.log('aa', this.otrArray);
+
+        this.otrArray.pop(this.otrArray[(this.otrArray.length) - 1]);
+        console.log('bb', this.otrArray);
 
         localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
-        this.otrDetail = {};
+        this.otrDetail={};
+        
+      this.router.navigate(['home/userdetail']);
+
     }
-
-expFill(event: any){
-    this.amount=true;
-}
-
-
-
-
-
-    get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
-        this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            });
-    }
-
-
-    getById(dataModelName, dataModelId) {
-        this.mm.getById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            })
-    }
-
-    put(dataModelName, dataModelObject) {
-        this.mm.put(dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    validatePut(formObj, dataModelName, dataModelObject) {
-        this.mm.validatePut(formObj, dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    update(dataModelName, update, filter, options) {
-        const updateObject = {
-            update: update,
-            filter: filter,
-            options: options
-        };
-        this.mm.update(dataModelName, updateObject,
-            result => {
-                //  On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    delete(dataModelName, filter) {
-        this.mm.delete(dataModelName, filter,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    deleteById(dataModelName, dataModelId) {
-        this.mm.deleteById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    updateById(dataModelName, dataModelId, dataModelObj) {
-        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
 
 }
