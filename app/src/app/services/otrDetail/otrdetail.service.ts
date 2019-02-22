@@ -4,15 +4,15 @@ import { Router } from '@angular/router';
 @Injectable()
 export class otrdetailService {
     country;
-    otrObject;
+    otrValue;
     constructor(public router: Router) {
         // console.log(this.temp)
     }
 
     otrObject(otrObj){
-        this.otrObject=otrObj;
+        this.otrValue=otrObj;
         console.log('otrObj',this.otrObject);
-        return this.otrObject;
+        return this.otrValue;
     }
 
 
