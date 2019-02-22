@@ -51,7 +51,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-       
+
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
@@ -121,9 +121,11 @@ prevent(event){
 
 
     submit() {
-        
+        console.log(')))))))))))))',this.billDate);
+        var bill=this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
+        console.log('new bill date',bill);
         this.otrDetail['expType'] = this.expType;
-        this.otrDetail['billDate'] = this.billDate;
+        this.otrDetail['billDate'] = bill;
         this.otrDetail['expAmount'] = this.expAmount;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
@@ -149,7 +151,7 @@ prevent(event){
         localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
         this.otrDetail={};
         
-      this.router.navigate(['home/userdetail']);
+      this.router.navigate(['home/expenselist']);
 
     }
 

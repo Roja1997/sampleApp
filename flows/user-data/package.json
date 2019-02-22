@@ -1,5 +1,11 @@
 {
     "name": "node-red-project",
     "description": "A Node-RED Project",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "dependencies": {
+        "node-red-contrib-bigcsv": "~1.2.0",
+        "node-red-contrib-fs-ops": "~1.5.0",
+        "node-red-contrib-json2csv": "0.0.3",
+        "node-red-contrib-zip": "~1.0.0"
+    }
 }

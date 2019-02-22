@@ -22,12 +22,12 @@
                     "path": "expenselist"
                 },
                 {
-                    "path": "userdetail",
-                    "component": "userdetailComponent"
+                    "path": "afterSendingMail",
+                    "component": "aftersendingmailComponent"
                 },
                 {
-                    "component": "expenseinfoComponent",
-                    "path": "expenseinfo"
+                    "path": "userdetail",
+                    "component": "userdetailComponent"
                 }
             ]
         },

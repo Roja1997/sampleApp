@@ -5,14 +5,8 @@ import { Router } from '@angular/router';
 export class otrdetailService {
     country;
     dateArray;
-    constructor(public router: Router) {
-        // console.log(this.temp)
+    constructor() {
+      
     }
-
-    // fromDate(arr) {
-    //     console.log('service array', arr);
-    //     this.dateArray = arr;
-
-    // }
 
 }

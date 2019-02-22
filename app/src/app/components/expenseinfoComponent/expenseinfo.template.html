@@ -5,7 +5,7 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field>
-        <mat-select style="width:100%;" placeholder="Expense Type*" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch">
+        <mat-select style="width:100%;" placeholder="Expense Type" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch">
           <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -17,7 +17,7 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field style="width:100%;">
-        <input matInput="" [matDatepicker]="picker" [value]="billDate" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <input matInput="" required [matDatepicker]="picker" [value]="billDate" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
         <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
       </mat-form-field>
 

@@ -442,6 +442,84 @@
      "file": "/opt/Neutrinos Studio/resources/app.asar.unpacked/node_modules/node-red-node-twitter/27-twitter.js"
     }
    }
+  },
+  "node-red-contrib-bigcsv": {
+   "name": "node-red-contrib-bigcsv",
+   "version": "1.2.0",
+   "local": true,
+   "nodes": {
+    "bigcsv": {
+     "name": "bigcsv",
+     "types": [
+      "bigcsv"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-bigcsv",
+     "file": "/home/neutrions/neutrinos-studio/OTR/flows/user-data/node_modules/node-red-contrib-bigcsv/bigcsv/bigcsv.js"
+    }
+   }
+  },
+  "node-red-contrib-json2csv": {
+   "name": "node-red-contrib-json2csv",
+   "version": "0.0.3",
+   "local": true,
+   "nodes": {
+    "json-2-csv": {
+     "name": "json-2-csv",
+     "types": [
+      "json-2-csv"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-json2csv",
+     "file": "/home/neutrions/neutrinos-studio/OTR/flows/user-data/node_modules/node-red-contrib-json2csv/nodes/v1.js"
+    }
+   }
+  },
+  "node-red-contrib-fs-ops": {
+   "name": "node-red-contrib-fs-ops",
+   "version": "1.5.0",
+   "local": true,
+   "nodes": {
+    "fs-ops": {
+     "name": "fs-ops",
+     "types": [
+      "fs-ops-move",
+      "fs-ops-copy",
+      "fs-ops-delete",
+      "fs-ops-access",
+      "fs-ops-size",
+      "fs-ops-stats",
+      "fs-ops-link",
+      "fs-ops-type",
+      "fs-ops-dir",
+      "fs-ops-mkdir",
+      "fs-ops-mktmpdir"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-fs-ops",
+     "file": "/home/neutrions/neutrinos-studio/OTR/flows/user-data/node_modules/node-red-contrib-fs-ops/fs-ops.js"
+    }
+   }
+  },
+  "node-red-contrib-zip": {
+   "name": "node-red-contrib-zip",
+   "version": "1.0.0",
+   "local": true,
+   "nodes": {
+    "zip": {
+     "name": "zip",
+     "types": [
+      "zip"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-zip",
+     "file": "/home/neutrions/neutrinos-studio/OTR/flows/user-data/node_modules/node-red-contrib-zip/red/zip.js"
+    }
+   }
   }
  },
  "_credentialSecret": "c7a0664bd12b5d8319c7cb3896545917925884e36a66672c75aeebb607b7a709",
@@ -449,7 +527,7 @@
   "_": {
    "editor": {
     "view": {
-     "view-grid-size": 20,
+     "view-grid-size": "20",
      "view-node-status": true,
      "view-show-tips": true,
      "view-snap-grid": true,
