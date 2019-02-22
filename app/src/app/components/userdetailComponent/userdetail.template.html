@@ -41,7 +41,7 @@
   </div>
   <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
     <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <p>Manager:</p>
+      <p>Manager:</p><button mat-button="" style="background-color:green;" (click)="sendEmailto1()">submit</button>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field><input matInput="" [(ngModel)]="Manager" name="Manager" required></mat-form-field>

@@ -19,6 +19,7 @@ import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot} from 
 
 export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    otrValue;
 
     //  personalValue:any = {
     //         countryName: "SA",
@@ -45,10 +46,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-    // // console.log('in expenselist',this.otrdetailService.otrObject().then((data)=>{
-    // //     console.log('data',data);
-    // }));
-    
+    console.log('in expenselist',this.otrdetailService.otrValue);
     
         
     }
