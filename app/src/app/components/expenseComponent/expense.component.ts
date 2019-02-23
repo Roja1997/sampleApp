@@ -63,17 +63,17 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
-    // userdetailobj:any={};
-    // userdetailObject;
+    userdetailobj:any={};
+    userdetailObject;
     submitDate() {
-        // this.userdetailobj=this.otrdetailService.userdetailObject;
-        // console.log('in expense',this.userdetailobj.Name);
-        // this.otrDetail['Name']=this.userdetailobj.Name;
-        // this.otrDetail['Department']=this.userdetailobj.Department;
-        // this.otrDetail['Project']=this.userdetailobj.Project;
-        // this.otrDetail['Customer']=this.userdetailobj.Customer;
-        // this.otrDetail['Manager']=this.userdetailobj.Manager;
-        // this.otrDetail['Purpose']=this.userdetailobj.Purpose;
+        this.userdetailobj=this.otrdetailService.userdetailObject;
+        console.log('in expense',this.userdetailobj.Name);
+        this.otrDetail['Name']=this.userdetailobj.Name;
+        this.otrDetail['Department']=this.userdetailobj.Department;
+        this.otrDetail['Project']=this.userdetailobj.Project;
+        this.otrDetail['Customer']=this.userdetailobj.Customer;
+        this.otrDetail['Manager']=this.userdetailobj.Manager;
+        this.otrDetail['Purpose']=this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)

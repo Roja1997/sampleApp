@@ -60,7 +60,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrdetailService.userDetailObject(this.otrDetail);
         localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
         this.snackbar.open('successfully edited', 'close', { duration: 3000 });
-         this.router.navigate(['home/dashboard']);
+         this.router.navigate(['home/expense']);
     }
 
     sendEmailto(){
