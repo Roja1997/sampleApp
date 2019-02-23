@@ -82,14 +82,10 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     }
 
     //expenseList()
-    expenseList(a) {
-        this.otrdetailService.otrObject(a);
-        this.otrdetailService.showdetails = true;
-        this.otrdetailService.showOtrDetails = a;
+    expenseList(singleOtr) {
+        this.otrdetailService.otrObject(singleOtr);
         this.router.navigate(['home/expenselist']);
-        console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
-
-        
+        console.log('eye', "bhagya component based on date you shoud show expenses of otr");
     }
 
     //addExpense() func

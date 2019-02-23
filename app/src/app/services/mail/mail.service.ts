@@ -67,7 +67,7 @@ export class mailService {
         // return this.http.post('http://127.0.0.1:24483/api/convertToCSV', { userInfo: obj }, headers).subscribe(result => {
         //     console.log(result);
         // });
-        return this.http.post('http://localhost:5000/generate/csv', { userInfo: expenseArray }, headers).subscribe(result => {
+        return this.http.post('http://localhost:5000/generate/csv', { userInfo: expenseArray[expenseArray.length-1] }, headers).subscribe(result => {
             console.log(result);
         });
 

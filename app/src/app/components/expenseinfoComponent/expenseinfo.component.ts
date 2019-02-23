@@ -79,10 +79,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
 
     submit() {
-        this.otrInfo.showdetails = false;
         this.otr = this.otrArray[this.otrArray['length'] - 1];
         this.otrDetail['expType'] = this.expType;
-        this.otrDetail['billDate'] = this.billDate;
+        this.otrDetail['billDate'] = this.datePipe.transform(this.billDate, 'dd-MMM-yyyy');
         this.otrDetail['expAmount'] = this.expAmount;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
