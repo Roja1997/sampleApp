@@ -95,7 +95,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     //addExpense() func
     addExpense() {
         if (this.isShow == true) {
-            this.router.navigate(['home/expense']);
+            this.router.navigate(['home/userdetail']);
         } else {
             this.snackbar.open('select country', 'close', { duration: 3000 });
             this.router.navigate(['home/dashboard']);

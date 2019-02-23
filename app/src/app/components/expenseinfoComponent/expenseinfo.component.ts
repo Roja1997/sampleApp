@@ -24,15 +24,14 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     expenseType = ["Perdiem Charges", "Airticket/Visa Charges", "GuestHouse Charges", "Hotel Charges", "Onsite Telephone Charges",
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
- 
-    amount=false;
+    amount = false;
     imgPath;
     img = false;
     expType;
     imageurl;
-    billDate
-    comment;
-    expAmount;
+    billDate='';
+    comment='';
+    expAmount='';
     otr: any = {};
     otrDetail: any = {};
     //otrValue: Array = [];
@@ -40,8 +39,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     otrArray: any = [];
     minDate;
     maxDate;
-    num=10000;
-
+    num = 10000;
+    billAmount = '';
+    count=0;
 
     constructor(private bdms: NDataModelService,public router:Router ,private camService: cameraService, private otrInfo: otrdetailService,private datePipe: DatePipe) {
         super();
@@ -49,7 +49,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-         
+       
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
@@ -101,7 +101,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
         localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
         this.otrDetail = {};
-        this.router.navigate(['/home/expenselist']);
+     //   this.router.navigate(['/home/expenselist']);
     }
 
 expFill(event: any){
@@ -165,32 +165,14 @@ expFill(event: any){
             })
     }
 
-    delete(dataModelName, filter) {
-        this.mm.delete(dataModelName, filter,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
+        // this.otrArray.pop(this.otrArray[(this.otrArray.length) - 1]);
+        // console.log('bb', this.otrArray);
 
-    deleteById(dataModelName, dataModelId) {
-        this.mm.deleteById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
+        // localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
+        // this.otrDetail={};
+        
+    //   this.router.navigate(['home/userdetail']);
 
-    updateById(dataModelName, dataModelId, dataModelObj) {
-        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
+    // }
 
 }

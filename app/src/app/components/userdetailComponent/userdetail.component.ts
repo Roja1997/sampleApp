@@ -5,6 +5,8 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { MatSnackBar } from '@angular/material';
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { Router } from '@angular/router';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -27,11 +29,11 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     expensetdetail: any = [];
 
     bindingName;
-    constructor(private bdms: NDataModelService, private snackbar: MatSnackBar) {
+    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService,private router:Router, private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-
+    country;
     ngOnInit() {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
@@ -47,7 +49,6 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     }
     //profileData() fun
     profileData() {
-
         this.otrDetail['Name'] = this.Name;
         this.otrDetail['Department'] = this.Department;
         this.otrDetail['Project'] = this.Project;
@@ -56,9 +57,24 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Manager'] = this.Manager;
         console.log('fff',this.otrDetail);
         // this.otr=this.expensetdetail;
+        this.otrdetailService.userDetailObject(this.otrDetail);
         localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
         this.snackbar.open('successfully edited', 'close', { duration: 3000 });
+         this.router.navigate(['home/expense']);
     }
+
+    sendEmailto(){
+        // this.country=this.otrdetailService.country;
+        // console.log('hhfhgyjgfuhkl',this.country);
+       // this.otrdetailService.sendEmail();
+    }
+
+    sendEmailto1(){
+        this.country=this.otrdetailService.country;
+        console.log('hhfhgyjgfuhkl',this.country);
+        this.otrdetailService.sendEmail(this.country);
+    }
+
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

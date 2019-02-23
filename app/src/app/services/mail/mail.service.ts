@@ -25,12 +25,12 @@ export class mailService {
 
 
 
-        let expenseArray = JSON.parse(localStorage.getItem(JSON.stringify("Malaysia")));//this.otrInfo.country
+        let expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));//this.otrInfo.country
         console.log('expense', expenseArray);
-        let country = "Malaysia";//this.otrInfo.country;
-        let user = JSON.parse(localStorage.getItem("userdetail"));
+        //let country = this.otrInfo.country;
+        // let user = JSON.parse(localStorage.getItem("userdetail"));
        
-        let test = Object.assign({ expense: expenseArray }, { user: user }, { country: country });
+       // let test = Object.assign({ expense: expenseArray });
         // let keys = Object.keys(user);
         // let values = Object.keys(user).map(key => user[key]);
 
@@ -67,7 +67,7 @@ export class mailService {
         // return this.http.post('http://127.0.0.1:24483/api/convertToCSV', { userInfo: obj }, headers).subscribe(result => {
         //     console.log(result);
         // });
-        return this.http.post('http://localhost:5000/generate/csv', { userInfo: test }, headers).subscribe(result => {
+        return this.http.post('http://localhost:5000/generate/csv', { userInfo: expenseArray }, headers).subscribe(result => {
             console.log(result);
         });
 

@@ -47,7 +47,7 @@
     <p (click)="openCamera()" style="cursor:pointer;color:red; ">Retake?</p>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="amount"><button mat-fab="" color="red" (click)="submit()">
+    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="amount"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
         <mat-icon>check</mat-icon>
       </button></div>
   </div>

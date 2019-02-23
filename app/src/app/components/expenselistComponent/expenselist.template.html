@@ -19,7 +19,7 @@
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="showdetails">
     <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false" *ngFor="let data of showOtrDetails;">
-      <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img></div>
+      <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img style="border-radius:10%;width:95%;" [src]="imagePath"></div>
       <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
         <h3>{{data.expType}}</h3>
         <p>{{data.billDate}}</p>
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" routerLink="/home/expenseinfo">
+  <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" (click)="sendEmailto()">
       <mat-icon>add_circle<mat-icon></mat-icon>
       </mat-icon>
     </button></div>

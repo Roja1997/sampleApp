@@ -10,19 +10,8 @@ import { mailService } from '../../services/mail/mail.service';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-//import { knownFolders, File, Folder } from "tns-core-modules/file-system";
 
 
-
-declare const cordova: any;
-declare const window: any;
-declare const LocalFileSystem: any;
-
-
-/**
- * Service import Example :
- * import { HeroService } from '../services/hero/hero.service';
- */
 
 @Component({
     selector: 'bh-expenselist',
@@ -31,6 +20,7 @@ declare const LocalFileSystem: any;
 
 export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    otrValue;
 
 
     expenses: any = [];
@@ -41,9 +31,9 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     imagePath;
     showdetails = false
     showOtrDetails = [];
-    //csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
+    
 
-    constructor(private route: ActivatedRoute, public pubsub: NPubSubService,
+    constructor(private route: ActivatedRoute, 
         private bdms: NDataModelService, private router: Router,
         private mService: mailService, private otrInfo: otrdetailService) {
         super();
@@ -57,102 +47,31 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
             this.showOtrDetails.push(this.otrInfo.showOtrDetails.expenseList[0]);
             console.log(this.showOtrDetails)
         }
-        this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify("Malaysia")));//this.otrInfo.country
+        this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));//this.otrInfo.country
         console.log('EXpense Array:', this.expenseArray);
         this.user = JSON.parse(localStorage.getItem("userdetail"));
         this.expenses = this.expenseArray[this.expenseArray.length - 1].expenseList;
         this.imagePath = this.expenses[this.expenses.length - 1].imageurl;
     }
 
+    country;
+    sendEmailto(){
+        this.country=this.otrInfo.country;
+        // console.log('hhfhgyjgfuhkl',this.country);
+       this.otrInfo.sendEmail(this.country);
+    }
 
     addExpense() {
         this.router.navigate(['home/expenseinfo']);
     }
     a: any = {};
-    //using tns-filesystem framework 
-    // fileName: string;
-    // fileContent: any;
-    // dirName: string;
-    //  public folderName: string;
-    //     public fileName: string;
-    //     public fileTextContent: string;
-
-    //     public successMessage: string;
-    //     public writtenContent: string;
-    //     public isItemVisible: boolean = false;
-
-    //     public file: File;
-    //     public folder: Folder;
-    // createDirectory() {
-    //     let documents = knownFolders.documents();
-    //     this.folder = documents.getFolder(this.folderName || "testFolder");
-    //     this.file = this.folder.getFile((this.fileName || "testFile") + ".txt");
-
-    //     this.file.writeText(this.fileTextContent || "some random content")
-    //         .then(result => {
-    //             this.file.readText()
-    //                 .then(res => {
-    //                     this.successMessage = "Successfully saved in " + this.file.path;
-    //                     this.writtenContent = res;
-    //                     this.isItemVisible = true;
-    //                 });
-    //         }).catch(err => {
-    //             console.log(err);
-    //         });
-    // }
-    //using cordova file plugin  
-    // createFile() {
-    //     window.webkitRequestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-
-    //         console.log('file system open: ' + fs.name);
-    //         fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
-
-    //             console.log("fileEntry is file?" + fileEntry.isFile.toString());
-    //             fileEntry.name == 'someFile.txt'
-    //             fileEntry.fullPath == '/someFile.txt'
-    //             //writeFile(fileEntry, null);
-    //             console.log(fileEntry);
-
-    //         }, onErrorCreateFile => {
-    //             console.log("on error", onErrorCreateFile)
-    //         }
-    //         );
-
-    //     }, onErrorLoadFs => {
-    //             console.log("on error", onErrorLoadFs)
-    //         });
-    // }
-
-    //submit
+   
     sendingMail() {
-        //  console.log("this.valueeeee",this.expenseArray);
-        //     let arr=[];
-        //         console.log("this.value.expnesetype",this.expenseArray.expenses);
-        //         for(let i=0;i<this.expenses.length - 1;i++){
-        //          let arr1= Object.keys(this.expenseArray.expenses[i]).map(key => this.expenseArray.expenses[i][key]);
-        //          arr.push(arr1,"\n\t\t\t\t\t\t");
-        //          console.log("this.arrr",arr);
-        //         }
-        //        this.expenseArray.expenses = arr;
-        //     var blob = new Blob([this.csvarr], { type: "text/csv;charset=utf-8" });
-        //     let obj=
-        //      obj = Object.keys(this.user).map(key => this.user[key]);
-        //     const submitData = obj;
-        //     console.log("data...........",obj);
-
-        //     blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
-        //     saveAs(blob, "otr.csv");
-
+   
         this.mService.sendingMail();
-        this.router.navigate(['home/afterSendingMail']);
+    
     }
 
-
-
-    mailingZip() {
-        console.log(".................")
-        this.mService.sendingMail();
-    }
 }
 
 

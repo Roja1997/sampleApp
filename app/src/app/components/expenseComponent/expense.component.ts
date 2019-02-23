@@ -29,7 +29,8 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
-
+    //for userdetail page
+      Name; Department;Project;Customer; Manager;Purpose;
     constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -55,15 +56,24 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     //pickFromDate fun
     pickFromDate() {
-        console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
+        // console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
-        console.log('from date', this.fromDate.toDateString());
-        console.log('to date', this.toDate.toDateString());
+        // console.log('from date', this.fromDate.toDateString());
+        // console.log('to date', this.toDate.toDateString());
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
+    userdetailobj:any={};
+    userdetailObject;
     submitDate() {
-
+        this.userdetailobj=this.otrdetailService.userdetailObject;
+        console.log('in expense',this.userdetailobj.Name);
+        this.otrDetail['Name']=this.userdetailobj.Name;
+        this.otrDetail['Department']=this.userdetailobj.Department;
+        this.otrDetail['Project']=this.userdetailobj.Project;
+        this.otrDetail['Customer']=this.userdetailobj.Customer;
+        this.otrDetail['Manager']=this.userdetailobj.Manager;
+        this.otrDetail['Purpose']=this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)

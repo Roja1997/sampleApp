@@ -892,7 +892,7 @@
                         "designerReference": [
                             {
                                 "_key": "style",
-                                "_value": "",
+                                "_value": "border-radius:10%;width:95%;",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },
@@ -913,6 +913,12 @@
                                 "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[src]",
+                                "_value": "imagePath",
+                                "_type": "kv",
+                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -1216,15 +1222,9 @@
                     },
                     {
                         "_key": "(click)",
-                        "_value": "",
+                        "_value": "sendEmailto()",
                         "_type": "kv",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "routerLink",
-                        "_value": "/home/expenseinfo",
-                        "_type": "kv",
-                        "_attrDef": "c"
                     }
                 ]
             }
