@@ -39,9 +39,9 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     values;
 
     imagePath;
-
-
-csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
+    showdetails = false
+    showOtrDetails = [];
+    //csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
 
     constructor(private route: ActivatedRoute, public pubsub: NPubSubService,
         private bdms: NDataModelService, private router: Router,
@@ -51,8 +51,15 @@ csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Man
     }
 
     ngOnInit() {
-        this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
-        this.user = JSON.parse(localStorage.getItem("profile"));
+        this.showdetails = false
+        this.showdetails = this.otrInfo.showdetails;
+        if (this.showdetails) {
+            this.showOtrDetails.push(this.otrInfo.showOtrDetails.expenseList[0]);
+            console.log(this.showOtrDetails)
+        }
+        this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify("Malaysia")));//this.otrInfo.country
+        console.log('EXpense Array:', this.expenseArray);
+        this.user = JSON.parse(localStorage.getItem("userdetail"));
         this.expenses = this.expenseArray[this.expenseArray.length - 1].expenseList;
         this.imagePath = this.expenses[this.expenses.length - 1].imageurl;
     }
@@ -62,7 +69,7 @@ csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Man
         this.router.navigate(['home/expenseinfo']);
     }
     a: any = {};
-   //using tns-filesystem framework 
+    //using tns-filesystem framework 
     // fileName: string;
     // fileContent: any;
     // dirName: string;
@@ -93,7 +100,7 @@ csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Man
     //             console.log(err);
     //         });
     // }
-  //using cordova file plugin  
+    //using cordova file plugin  
     // createFile() {
     //     window.webkitRequestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
@@ -132,11 +139,11 @@ csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Man
         //      obj = Object.keys(this.user).map(key => this.user[key]);
         //     const submitData = obj;
         //     console.log("data...........",obj);
-           
+
         //     blob = new Blob([blob, [submitData]], { type: "text/csv;charset=utf-8" });
         //     saveAs(blob, "otr.csv");
 
-this.mService.sendingMail();
+        this.mService.sendingMail();
         this.router.navigate(['home/afterSendingMail']);
     }
 

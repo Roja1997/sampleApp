@@ -4,7 +4,7 @@
         "designerReference": [
             {
                 "_key": "style",
-                "_value": "",
+                "_value": "padding:16px;",
                 "_type": "kv",
                 "_attrDef": "p"
             },
@@ -86,19 +86,19 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "wrap",
+                    "_value": "",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "layoutAlign",
-                    "_value": "center",
+                    "_value": "start",
                     "_type": "a",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "center",
+                    "_value": "stretch",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -196,7 +196,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"From\" (keydown)=\"disableManualData($event)\" (click)=\"picker.open()\" (dateInput)=\"pickFromDate()\" [(ngModel)]=\"fromDate\">\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "\n<mat-form-field >\n  <input matInput required [matDatepicker]=\"picker\" placeholder=\"From\" (keydown)=\"disableManualData($event)\" (click)=\"picker.open()\" (dateInput)=\"pickFromDate()\" [(ngModel)]=\"fromDate\"[max]=\"minDate\">\n  <mat-datepicker-toggle matSuffix=\"\" [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker touchUi=\"touch\" [max]=\"minDate\"></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -291,8 +291,8 @@
                     ]
                 }
             },
-            "e012dfd6-2325-f9a8-b5e7-f7fa08c7656d": {
-                "paletteKey": "FlexLayoutRow",
+            "35ded1f7-c198-8b7d-6bfe-87403724ddc8": {
+                "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
@@ -302,7 +302,7 @@
                     },
                     {
                         "_key": "class",
-                        "_value": "expensebtn",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -347,16 +347,10 @@
                         "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "*ngIf",
-                        "_value": "toDate",
-                        "_type": "kv",
-                        "_attrDef": "c"
                     }
                 ],
-                "5ef96ed8-f27e-51e5-234e-a403177153f8": {
-                    "paletteKey": "NG-FabButton",
+                "e012dfd6-2325-f9a8-b5e7-f7fa08c7656d": {
+                    "paletteKey": "FlexLayoutRow",
                     "designerReference": [
                         {
                             "_key": "style",
@@ -366,29 +360,94 @@
                         },
                         {
                             "_key": "class",
+                            "_value": "expensebtn",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex",
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "fabicon",
-                            "_value": "<mat-icon>navigate_next</mat-icon>",
+                            "_key": "fxLayoutGap",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "wrap",
+                            "_value": "wrap",
                             "_type": "a",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "color",
-                            "_value": "red",
+                            "_key": "layoutAlign",
+                            "_value": "center",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "pLayoutAlign",
+                            "_value": "center",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxShow",
+                            "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "(click)",
-                            "_value": "submitDate()",
+                            "_key": "fxHide",
+                            "_value": "false",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "toDate",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
-                    ]
+                    ],
+                    "5ef96ed8-f27e-51e5-234e-a403177153f8": {
+                        "paletteKey": "NG-FabButton",
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "color:red;    background-color: white;",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "fabicon",
+                                "_value": "<mat-icon>navigate_next</mat-icon>",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "submitDate()",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
                 }
             }
         },

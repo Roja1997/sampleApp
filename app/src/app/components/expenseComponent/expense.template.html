@@ -1,10 +1,10 @@
-<div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-  <div fxLayout="column wrap" style="margin-top: 18px;" fxLayoutAlign="center center" fxShow="true" fxHide="false" disabaled="">
+<div fxLayout="column wrap" style="padding:16px;" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+  <div fxLayout="column " style="margin-top: 18px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" disabaled="">
     <div fxLayout="row wrap" fxLayoutAlign="start center" fxShow="true" fxHide="false">
       <mat-form-field>
-        <input matInput="" required [matDatepicker]="picker" placeholder="From" (keydown)="disableManualData($event)" (click)="picker.open()" (dateInput)="pickFromDate()" [(ngModel)]="fromDate">
+        <input matInput="" required [matDatepicker]="picker" placeholder="From" (keydown)="disableManualData($event)" (click)="picker.open()" (dateInput)="pickFromDate()" [(ngModel)]="fromDate" [max]="minDate">
         <mat-datepicker-toggle matSuffix="" [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
+        <mat-datepicker #picker="" touchUi="touch" [max]="minDate"></mat-datepicker>
       </mat-form-field>
 
 
@@ -24,9 +24,11 @@
 
 
     </div>
-    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="toDate"><button mat-fab="" color="red" (click)="submitDate()">
-        <mat-icon>navigate_next</mat-icon>
-      </button></div>
+    <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+      <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="toDate"><button mat-fab="" style="color:red;    background-color: white;" (click)="submitDate()">
+          <mat-icon>navigate_next</mat-icon>
+        </button></div>
+    </div>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <p *ngIf="toDate">Your tour total Days</p>

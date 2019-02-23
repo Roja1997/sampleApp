@@ -17,14 +17,10 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field style="width:100%;">
-        <input matInput="" required [matDatepicker]="picker" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
-        <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
+        <input matInput="" required [matDatepicker]="picker" (keydown)="disableManualData($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <mat-datepicker #picker=""></mat-datepicker>
       </mat-form-field>
-
-
-
-
-
+      <mat-icon></mat-icon>
     </div>
   </div>
   <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">

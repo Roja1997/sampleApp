@@ -53,22 +53,15 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         console.log('country name', this.otrInfo.country);
         this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
         console.log("otr array", this.otrArray);
-        this.otr = this.otrArray[this.otrArray['length'] - 1];
-        console.log('1111111', this.otr);
-        console.log(this.otr.fromDate);
-        var fromDate=this.otr.fromDate;
-        console.log('from day',fromDate);
-        var toDate = this.otr.toDate;
-        console.log('to date',toDate);
-       console.log('formatted date yy-mm-dd',this.datePipe.transform(fromDate,"yyyy-MM-dd"));
-       this.minDate=this.datePipe.transform(fromDate,"yyyy-MM-dd");
-       console.log('new formatted date',this.minDate);
-        this.maxDate=this.datePipe.transform(toDate,"yyyy-MM-dd");
-       console.log('new formatted date',this.maxDate);
+        // this.otr = this.otrArray[this.otrArray['length'] - 1];
+        console.log('1111111', this.otr)
+
     }
-preventuserTyping(event){
-    event.preventDefault();
-}
+     //function to disable once the user takes date from date. 
+    disableManualData(event) {
+        event.preventDefault();
+    }
+
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -86,7 +79,8 @@ preventuserTyping(event){
 
 
     submit() {
-
+        this.otrInfo.showdetails = false;
+        this.otr = this.otrArray[this.otrArray['length'] - 1];
         this.otrDetail['expType'] = this.expType;
         this.otrDetail['billDate'] = this.billDate;
         this.otrDetail['expAmount'] = this.expAmount;

@@ -549,7 +549,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required [matDatepicker]=\"picker\"  [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput required [matDatepicker]=\"picker\"  (keydown)=\"disableManualData($event)\" placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\">\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n<mat-icon></mat-icon>\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -1345,7 +1345,7 @@
                 ]
             }
         },
-        "3b33951c-1bfa-595b-78c7-03282df0f81c": {
+        "701f4944-81e3-13e1-45d9-8571651dcdc1": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
