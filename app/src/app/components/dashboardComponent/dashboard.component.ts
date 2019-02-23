@@ -25,7 +25,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     country: string = '';
     isShow: boolean = false;
-    // otr={};
+    
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
@@ -70,14 +70,13 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
-        this.otr = localStorage.getItem(JSON.stringify(value));
+        this.otr = localStorage.getItem(value);
         if(this.otr==null)
             this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
         this.otrDetails.push(JSON.parse(this.otr));
-        // console.log('this.otr array',this.otrDetails[0]);
+       
         this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-        // this.dataSource.paginator = this.otrDetails.length;
-        // this.dataSource.paginator = this.paginator;
+    
         this.dataSource.sort = this.sort;
     }
 
@@ -85,7 +84,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     expenseList(singleOtr) {
         this.otrdetailService.otrObject(singleOtr);
         this.router.navigate(['home/expenselist']);
-        console.log('eye', "bhagya component based on date you shoud show expenses of otr");
+        
     }
 
     //addExpense() func

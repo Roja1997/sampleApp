@@ -38,7 +38,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
 
-        console.log('user details ', this.expensetdetail[0].Name);
+       
         this.Name = this.expensetdetail[0].Name;
         this.Department = this.expensetdetail[0].Department;
         this.Project = this.expensetdetail[0].Project;
@@ -56,26 +56,13 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Customer'] = this.Customer;
         this.otrDetail['Purpose'] = this.Purpose;
         this.otrDetail['Manager'] = this.Manager;
-        console.log('fff',this.otrDetail);
+       
         // this.otr=this.expensetdetail;
         this.otrdetailService.userDetailObject(this.otrDetail);
         localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
         this.snackbar.open('successfully edited', 'close', { duration: 3000 });
          this.router.navigate(['home/expense']);
     }
-
-    sendEmailto(){
-        // this.country=this.otrdetailService.country;
-        // console.log('hhfhgyjgfuhkl',this.country);
-       // this.otrdetailService.sendEmail();
-    }
-
-    sendEmailto1(){
-        this.country=this.otrdetailService.country;
-        console.log('hhfhgyjgfuhkl',this.country);
-        this.otrdetailService.sendEmail(this.country);
-    }
-
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

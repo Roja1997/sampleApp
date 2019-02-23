@@ -8,6 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
+import { expenselistresolverService } from '../../services/expenseListResolver/expenselistresolver.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -24,8 +25,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
-    // otr: any = {};
-    // otr: any = {};
+
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
@@ -39,11 +39,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
-        console.log(this.otrdetailService.country);
-        this.expensetdetail = JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
-        console.log('this.exp', this.expensetdetail);
-
-
+        this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
     }
 
 
@@ -56,10 +52,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     //pickFromDate fun
     pickFromDate() {
-        // console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
+      
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
-        // console.log('from date', this.fromDate.toDateString());
-        // console.log('to date', this.toDate.toDateString());
+       
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
@@ -67,7 +62,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     userdetailObject;
     submitDate() {
         this.userdetailobj = this.otrdetailService.userdetailObject;
-        console.log('in expense', this.userdetailobj.Name);
         this.otrDetail['Name'] = this.userdetailobj.Name;
         this.otrDetail['country'] = this.userdetailobj.country;
         this.otrDetail['Department'] = this.userdetailobj.Department;
@@ -79,94 +73,12 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)
             this.expensetdetail = [];
-        console.log('this.otrDetail', this.otrDetail);
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
-        // this.otr=this.expensetdetail;
-        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
+        localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
-        this.router.navigate(['home/expenseinfo'])
+        this.router.navigate(['home/expenseinfo']);
 
 
     }
-    get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
-        this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            });
-    }
-
-    getById(dataModelName, dataModelId) {
-        this.mm.getById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            })
-    }
-
-    put(dataModelName, dataModelObject) {
-        this.mm.put(dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    validatePut(formObj, dataModelName, dataModelObject) {
-        this.mm.validatePut(formObj, dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    update(dataModelName, update, filter, options) {
-        const updateObject = {
-            update: update,
-            filter: filter,
-            options: options
-        };
-        this.mm.update(dataModelName, updateObject,
-            result => {
-                //  On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    delete(dataModelName, filter) {
-        this.mm.delete(dataModelName, filter,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    deleteById(dataModelName, dataModelId) {
-        this.mm.deleteById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    updateById(dataModelName, dataModelId, dataModelObj) {
-        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-
 }

@@ -5,7 +5,7 @@
   </mat-toolbar>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="row nowrap" style="font-family:sans-serif;width:96%;border-bottom:1px solid #dcdcdc;overflow-y:auto;" fxFlex="calc(100% - 64px)" fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false" *ngFor="let expense of expenseArray">
-      <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="false"><img style="border-radius:10%;width:95%;" [src]="{{expense.imageurl}}"></div>
+      <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img style="border-radius:10%;width:95%;" [src]="expense.imageurl"></div>
       <div fxLayout="column wrap" class="expDetails" fxFlex="47" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
         <h3>{{expense.expType}}</h3>
         <p>{{expense.billDate}}</p>
@@ -17,8 +17,10 @@
     </div>
     <div fxLayout="column wrap" style="position:absolute;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showSubmitButton"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" (click)="sendingMail()">SUBMIT</button></div>
   </div>
-  <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" (click)="sendEmailto()">
-      <mat-icon>add_circle<mat-icon></mat-icon>
-      </mat-icon>
-    </button></div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" class="expensebtn" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" style="color:red;  align:center;background-color:white;" (click)="sendEmailto()">
+        <mat-icon>add_circle<mat-icon></mat-icon>
+        </mat-icon>
+      </button></div>
+  </div>
 </div>

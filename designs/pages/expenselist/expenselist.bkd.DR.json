@@ -322,12 +322,6 @@
                             "_value": "false",
                             "_type": "kv",
                             "_attrDef": "p"
-                        },
-                        {
-                            "_key": "*ngIf",
-                            "_value": "false",
-                            "_type": "kv",
-                            "_attrDef": "c"
                         }
                     ],
                     "e98b692f-c622-5881-e384-d694a7afbcfa": {
@@ -359,7 +353,7 @@
                             },
                             {
                                 "_key": "[src]",
-                                "_value": "{{expense.imageurl}}",
+                                "_value": "expense.imageurl",
                                 "_type": "kv",
                                 "_attrDef": "c"
                             }
@@ -678,12 +672,12 @@
                 }
             }
         },
-        "99bf3a35-5ed5-c8af-1356-b55a5931e567": {
+        "0465f7a0-617e-e901-2210-f9eaa563718a": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": "position:fixed;bottom:20px;width:100%;",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -695,7 +689,7 @@
                 },
                 {
                     "_key": "fxFlex",
-                    "_value": "100",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -736,8 +730,8 @@
                     "_attrDef": "p"
                 }
             ],
-            "03dca6b6-2ae3-c624-01e7-259d677fac62": {
-                "paletteKey": "NG-FabButton",
+            "99bf3a35-5ed5-c8af-1356-b55a5931e567": {
+                "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
@@ -747,29 +741,88 @@
                     },
                     {
                         "_key": "class",
+                        "_value": "expensebtn",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "100",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
                         "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "fabicon",
-                        "_value": " <mat-icon>add_circle<mat-icon>",
+                        "_key": "wrap",
+                        "_value": "wrap",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "color",
-                        "_value": "",
+                        "_key": "layoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "(click)",
-                        "_value": "sendEmailto()",
+                        "_key": "fxHide",
+                        "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
                     }
-                ]
+                ],
+                "03dca6b6-2ae3-c624-01e7-259d677fac62": {
+                    "paletteKey": "NG-FabButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "color:red;  align:center;background-color:white;",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fabicon",
+                            "_value": " <mat-icon>add_circle<mat-icon>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "sendEmailto()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        }
+                    ]
+                }
             }
         }
     }

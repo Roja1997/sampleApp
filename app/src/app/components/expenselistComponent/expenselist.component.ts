@@ -5,7 +5,7 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService, NLocalStorageService, NPubSubService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { Router } from '@angular/router';
-import { saveAs } from 'file-saver';
+//import { saveAs } from 'file-saver';
 import { mailService } from '../../services/mail/mail.service';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
@@ -30,14 +30,16 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this.otrInfo.viewOtr);
         if (this.otrInfo.viewOtr){
             this.showSubmitButton = false;
             this.expenseArray = this.otrInfo.otrValue.expenseList;
             console.log('Expense Array:',this.expenseArray);
         }
         else {
-            let otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+            let otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
             this.expenseArray = otrArray[otrArray['length'] - 1].expenseList;
+            console.log(this.expenseArray);
         }
     }
 
