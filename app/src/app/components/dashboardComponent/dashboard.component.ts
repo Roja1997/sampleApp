@@ -29,11 +29,11 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+
     @ViewChild(MatSort) sort: MatSort;
     //for carosal
     dataSet;
-    
+
 
     constructor(private bdms: NDataModelService, private imgService: imageserviceService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
@@ -66,18 +66,17 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
 
     otr: any = {};
     countryName(value) {
-        this.otrDetails=[];
+        this.otrDetails = [];
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(value);
-        if(this.otr==null)
+        if (this.otr == null)
             this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
         this.otrDetails.push(JSON.parse(this.otr));
-        // console.log('this.otr array',this.otrDetails[0]);
+
         this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-        // this.dataSource.paginator = this.otrDetails.length;
-        // this.dataSource.paginator = this.paginator;
+
         this.dataSource.sort = this.sort;
     }
 
@@ -85,7 +84,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     expenseList(a) {
         this.otrdetailService.otrObject(a);
         this.router.navigate(['home/expenselist']);
-        //console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
+        
     }
 
     //addExpense() func

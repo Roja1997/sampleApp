@@ -37,8 +37,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
-        // console.log('ff',this.fromDate);
-        //         console.log('ff',this.toDate);
+       
 
         console.log(this.otrdetailService.country);
         this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
@@ -55,10 +54,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     //pickFromDate fun
     pickFromDate() {
-        // console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
-        // console.log('from date', this.fromDate.toDateString());
-        // console.log('to date', this.toDate.toDateString());
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
@@ -66,7 +62,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     userdetailObject;
     submitDate() {
         this.userdetailobj = this.otrdetailService.userdetailObject;
-        console.log('in expense', this.userdetailobj.Name);
+       
         this.otrDetail['Name'] = this.userdetailobj.Name;
         this.otrDetail['country'] = this.userdetailobj.country;
         this.otrDetail['Department'] = this.userdetailobj.Department;
@@ -78,7 +74,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)
             this.expensetdetail = [];
-        console.log('this.otrDetail', this.otrDetail);
+       
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
