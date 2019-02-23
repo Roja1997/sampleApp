@@ -1,1 +1,26 @@
-<div id="angularRoot"></div>
+<div fxLayout="column wrap" style="height:100%;" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="true">
+  <mat-toolbar style="background:red;color:white;">
+    <mat-icon style="padding:0px 10px;" routerLink="/home/expenseinfo">keyboard_backspace</mat-icon>
+    <h3>My Expenses</h3>
+  </mat-toolbar>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="row nowrap" style="font-family:sans-serif;width:96%;border-bottom:1px solid #dcdcdc;" fxFlex="100" fxLayoutGap="1em" fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false" *ngFor="let expense of this.expenses">
+      <div fxLayout="row wrap" style="mar" fxFlex="70" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img [src]="imagePath" style="border-radius:10%"></div>
+        <div fxLayout="column wrap" class="expDetails" fxFlex="75" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+          <h3>{{expense.expType}}</h3>
+          <p>{{expense.billDate}}</p>
+          <p>{{expense.comment}}</p>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start end" fxShow="true" fxHide="false">
+        <h3>{{expense.expAmount}}</h3>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column wrap" style="position:absolute;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" routerLink="/home/afterSendingMail" (click)="sendingMail()">SUBMIT</button></div>
+  <div fxLayout="column wrap" style="position:fixed;bottom:20px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" routerLink="/home/expenseinfo">
+      <mat-icon>add_circle<mat-icon></mat-icon>
+      </mat-icon>
+    </button></div>
+</div>

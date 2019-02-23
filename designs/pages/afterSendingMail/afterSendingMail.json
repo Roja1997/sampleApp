@@ -1,0 +1,13 @@
+{
+    "appPageId": "31d359b7-8f85-dfb8-a04c-c2b57a08945e",
+    "appPageName": "afterSendingMail",
+    "componentName": "aftersendingmailComponent",
+    "selectorName": "bh-aftersendingmail",
+    "htmlFileName": "aftersendingmail.template.html",
+    "tsFileName": "aftersendingmail.component.ts",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

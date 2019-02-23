@@ -7,7 +7,7 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot,Router} from '@angular/router';
 
 
 /**
@@ -30,45 +30,39 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     img = false;
     expType;
     imageurl;
-    billDate='';
-    comment='';
-    expAmount='';
-    otr: any = {};
-    otrDetail: any = {};
-    //otrValue: Array = [];
+    billDate = '';
+    comment = '';
+    expAmount = '';
+    otr: any = {'fromDate':'','toDate':''};
+    otrDetail: any={};
     expenseDetail: any = [];
     otrArray: any = [];
+    valueArray: any = [];
     minDate;
     maxDate;
     num = 10000;
     billAmount = '';
-    count=0;
+    currentExpense;
+    expenseList;
 
-    
-    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router) {
+
+    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router,private route:ActivatedRoute) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-       
-        console.log('country name', this.otrInfo.country);
-        this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
-        console.log("otr array", this.otrArray);
-        console.log((this.otrArray.length)-1);
 
-        this.otr = this.otrArray[(this.otrArray.length)-1];
-        console.log('otr', this.otr);
-        console.log(this.otr.fromDate);
+        this.otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
+        this.otr = this.otrArray[(this.otrArray.length) - 1];
+        if(this.otr.expenseList)
+        {
+        this.expenseDetail = this.otr.expenseList;
+        }
         var fromDate = this.otr.fromDate;
-        console.log('from date', fromDate);
         var toDate = this.otr.toDate;
-        console.log('to date', toDate);
         this.minDate = this.datePipe.transform(fromDate, "yyyy-MM-dd");
-        console.log('new formatted date', this.minDate);
         this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
-        console.log('new formatted date', this.maxDate);
-
     }
      //function to disable once the user takes date from date. 
     disableManualData(event) {
@@ -78,18 +72,19 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     preventuserTyping(event) {
         event.preventDefault();
     }
-prevent(event){
-     const pattern = /[0-9\+\-\ ]/;
 
-    let inputChar = String.fromCharCode(event.charCode);
-    if (event.keyCode != 8 && !pattern.test(inputChar)) {
-      event.preventDefault();
-   
+
+    prevent(event) {
+        const pattern = /[0-9\+\-\ ]/;
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+            event.preventDefault();
+
+        }
     }
-}
- 
+
     expFill(event) {
-           this.amount=true;
+        this.amount = true;
         let num = event.target.value;
         if (typeof num === 'string' && num !== '')
             num = parseFloat(num.replace(/,/g, ''));
@@ -103,11 +98,9 @@ prevent(event){
         str = str.join('.');
         this.billAmount = str;
         return str;
-        
-      
-    }
 
-    //camera code
+
+    }
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -118,43 +111,25 @@ prevent(event){
         });
     }
 
-    detail(a) {
-        this.expenseDetail.push(a);
-        this.otr.expenseList = this.expenseDetail;
-    }
 
 
     submit() {
-
+        var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
         this.otrDetail['expType'] = this.expType;
-        this.otrDetail['billDate'] = this.billDate;
+        this.otrDetail['billDate'] = bill;
         this.otrDetail['expAmount'] = this.expAmount;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
         this.otrDetail['imageurl'] = this.imageurl;
-        console.log('otr details expense info', this.otrDetail)
-        // this.expType='';
-        // this.billDate='';
-        // this.comment=''
-
-        this.detail(this.otrDetail);
-        console.log('expense__detail', this.expenseDetail);
-
-        console.log('aa', this.otr);
+                this.expenseDetail.push(this.otrDetail);
+        this.otr['expenseList']=this.expenseDetail;
+        this.otrArray.push(this.otr);
+        this.otrArray.pop();
+        localStorage.setItem(this.otrInfo.country,JSON.stringify(this.otrArray));
+        this.otrDetail = {};
+        this.otr = {};
+        this.router.navigate(['/home/expenselist']);
         
-        this.otrArray[(this.otrArray.length) - 1] = (this.otr);
-  
-         this.otrArray.push(this.otrArray[(this.otrArray.length) - 1]);
-
-
-        this.otrArray.pop(this.otrArray[(this.otrArray.length) - 1]);
-        console.log('bb', this.otrArray);
-
-        localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
-        this.otrDetail={};
-        
-      this.router.navigate(['home/userdetail']);
-
     }
 
 }
