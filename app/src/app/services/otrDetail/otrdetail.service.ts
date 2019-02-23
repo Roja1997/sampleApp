@@ -5,8 +5,14 @@ import { Router } from '@angular/router';
 export class otrdetailService {
     country;
     dateArray;
-    constructor() {
+    constructor(private route:Router) {
       
+    }
+    getValue(data)
+    {
+        this.dateArray = data;
+        console.log(this.dateArray)
+        this.route.navigate['home/expenseinfo'];
     }
 
 }

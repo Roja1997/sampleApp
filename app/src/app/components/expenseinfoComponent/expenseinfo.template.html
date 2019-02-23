@@ -43,12 +43,15 @@
       <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="comment" placeholder="Comments" [value]="comment"></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <p style="color:grey;">Bill Preview</p>
-  </div>
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="img" (click)="openDialog()"><img [src]="imgPath" style="border-radius:10%;"></div>
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <p (click)="openCamera()" style="cursor:pointer;color:red; ">Retake?</p>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false"></div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="img">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p style="color:grey;">Bill Preview</p>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img [src]="imgPath" style="border-radius:10%;"></div>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <p (click)="openCamera()" style="cursor:pointer;color:red; ">Retake?</p>
+    </div>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="amount"><button mat-fab="" color="red" (click)="submit()">

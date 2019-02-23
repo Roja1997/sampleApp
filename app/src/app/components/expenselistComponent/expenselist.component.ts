@@ -52,6 +52,8 @@ csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Man
 
     ngOnInit() {
         this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+        console.log( "expense list starting point", this.expenseArray);
+        
         this.user = JSON.parse(localStorage.getItem("profile"));
         this.expenses = this.expenseArray[this.expenseArray.length - 1].expenseList;
         this.imagePath = this.expenses[this.expenses.length - 1].imageurl;

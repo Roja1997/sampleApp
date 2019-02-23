@@ -11,7 +11,8 @@
                 },
                 {
                     "component": "expenseinfoComponent",
-                    "path": "expenseinfo"
+                    "path": "expenseinfo",
+                    "resolve": "{data:expenselistresolverService}"
                 },
                 {
                     "path": "expense",
@@ -29,7 +30,8 @@
                     "path": "userdetail",
                     "component": "userdetailComponent"
                 }
-            ]
+            ],
+            "redirectTo": ""
         },
         {
             "path": "''",

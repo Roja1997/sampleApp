@@ -8,6 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
+import {expenselistresolverService} from '../../services/expenseListResolver/expenselistresolver.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -31,7 +32,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
-    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService,private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
+    constructor(private expenseService:expenselistresolverService,private bdms: NDataModelService, private otrdetailService: otrdetailService,private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -39,8 +40,11 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
+        // console.log('ff',this.fromDate);
+        //         console.log('ff',this.toDate);
+
         console.log(this.otrdetailService.country);
-        this.expensetdetail = JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
+        this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
         console.log('this.exp', this.expensetdetail);
 
 
@@ -77,90 +81,12 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
-        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
+        this.otrdetailService.getValue(this.expensetdetail)
+       // this.expenseService.setLocalStorage(countryname,this.expensetdetail);
+       localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
-        this.router.navigate(['home/expenseinfo'])
+       this.router.navigate(['home/expenseinfo']);
 
 
     }
-    get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
-        this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            });
-    }
-
-    getById(dataModelName, dataModelId) {
-        this.mm.getById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            })
-    }
-
-    put(dataModelName, dataModelObject) {
-        this.mm.put(dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    validatePut(formObj, dataModelName, dataModelObject) {
-        this.mm.validatePut(formObj, dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    update(dataModelName, update, filter, options) {
-        const updateObject = {
-            update: update,
-            filter: filter,
-            options: options
-        };
-        this.mm.update(dataModelName, updateObject,
-            result => {
-                //  On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    delete(dataModelName, filter) {
-        this.mm.delete(dataModelName, filter,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    deleteById(dataModelName, dataModelId) {
-        this.mm.deleteById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    updateById(dataModelName, dataModelId, dataModelObj) {
-        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-
 }
