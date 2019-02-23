@@ -22,7 +22,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     Name;
     Department;
     Project;
-    Customer; Manager;
+    Customer; Manager;country
     Purpose;
     otrDetail: any = {}
     otrDetails: any = {};
@@ -33,7 +33,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    country;
+    
     ngOnInit() {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
@@ -45,10 +45,11 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.Manager = this.expensetdetail[0].Manager;
         this.Purpose = this.expensetdetail[0].Purpose;
         this.Customer = this.expensetdetail[0].Customer;
-
+        this.country=this.otrdetailService.country;
     }
     //profileData() fun
     profileData() {
+        this.otrDetail['country']=this.otrdetailService.country;
         this.otrDetail['Name'] = this.Name;
         this.otrDetail['Department'] = this.Department;
         this.otrDetail['Project'] = this.Project;
