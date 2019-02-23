@@ -22,10 +22,7 @@ import { MatSnackBar } from '@angular/material';
 
 export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    fromDate;
-    toDate;
-    // otr: any = {};
-    // otr: any = {};
+    fromDate; toDate;
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
@@ -42,8 +39,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         console.log(this.otrdetailService.country);
         this.expensetdetail = JSON.parse(localStorage.getItem(JSON.stringify(this.otrdetailService.country)));
         console.log('this.exp', this.expensetdetail);
-
-
     }
 
 
@@ -83,7 +78,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
         // this.otr=this.expensetdetail;
-        localStorage.setItem(JSON.stringify(countryname), JSON.stringify(this.expensetdetail));
+        localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
         this.router.navigate(['home/expenseinfo'])
 

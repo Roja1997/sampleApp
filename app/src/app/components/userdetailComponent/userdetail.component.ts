@@ -19,11 +19,7 @@ import { Router } from '@angular/router';
 
 export class userdetailComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    Name;
-    Department;
-    Project;
-    Customer; Manager;country
-    Purpose;
+    Name;Department;Project;Customer; Manager;country;Purpose;
     otrDetail: any = {}
     otrDetails: any = {};
     expensetdetail: any = [];

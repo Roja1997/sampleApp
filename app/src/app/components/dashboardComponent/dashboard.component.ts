@@ -70,7 +70,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
-        this.otr = localStorage.getItem(JSON.stringify(value));
+        this.otr = localStorage.getItem(value);
         if(this.otr==null)
             this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
         this.otrDetails.push(JSON.parse(this.otr));
@@ -85,7 +85,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     expenseList(a) {
         this.otrdetailService.otrObject(a);
         this.router.navigate(['home/expenselist']);
-        console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
+        //console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
     }
 
     //addExpense() func
