@@ -28,7 +28,7 @@ export class otrdetailService {
         }
         console.log('amsdmsugdysud',a);
         console.log("this.obj",obj.name);
-        return this.http.post('http://127.0.0.1:24483/api/sendEmail',obj).subscribe((response)=>{
+        return this.http.post('http://127.0.0.1:24483/api/sendEmaill',obj).subscribe((response)=>{
             console.log("response is",response);
         });
     }
