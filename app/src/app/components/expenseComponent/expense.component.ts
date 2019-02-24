@@ -25,14 +25,14 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
-    img;
-    imgPath;
-    otr: any = {};
+    // otr: any = {};
     // otr: any = {};
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
-    constructor(private expenseService:expenselistresolverService,private bdms: NDataModelService, private otrdetailService: otrdetailService,private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
+    //for userdetail page
+    Name; Department; Project; Customer; Manager; Purpose;
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -50,29 +50,35 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     }
 
-    //to get our tour total Days
+
     //function to disable once the user takes date from date. 
     disableManualData(event) {
         event.preventDefault();
     }
 
+
+
     //pickFromDate fun
     pickFromDate() {
-        console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
-        // console.log('checking',this.expensetdetail[0].fromDate);
-        // if(this.expensetdetail[0].fromDate==this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy')){
-        //     this.snackbar.open('already claimed for these OTR add different OTR', 'close', { duration: 3000 });
-        //     this.router.navigate(['/home/expense']);
-        // }
-        // this.toDate=new Date(this.fromDate.getTime()+(1000*24*60*60*29));
+        // console.log(this.datepipe.transform(this.fromDate, 'dd/MM/yyyy'));
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
-        console.log('from date', this.fromDate.toDateString());
-        console.log('to date', this.toDate.toDateString());
+        // console.log('from date', this.fromDate.toDateString());
+        // console.log('to date', this.toDate.toDateString());
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
+    userdetailobj: any = {};
+    userdetailObject;
     submitDate() {
-        
+        this.userdetailobj = this.otrdetailService.userdetailObject;
+        console.log('in expense', this.userdetailobj.Name);
+        this.otrDetail['Name'] = this.userdetailobj.Name;
+        this.otrDetail['country'] = this.userdetailobj.country;
+        this.otrDetail['Department'] = this.userdetailobj.Department;
+        this.otrDetail['Project'] = this.userdetailobj.Project;
+        this.otrDetail['Customer'] = this.userdetailobj.Customer;
+        this.otrDetail['Manager'] = this.userdetailobj.Manager;
+        this.otrDetail['Purpose'] = this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)

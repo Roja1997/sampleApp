@@ -4,8 +4,9 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
+import { MatSnackBar } from '@angular/material';
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
-
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -21,20 +22,20 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     Name;
     Department;
     Project;
-    Customer; Manager;
+    Customer; Manager;country
     Purpose;
     otrDetail: any = {}
     otrDetails: any = {};
     expensetdetail: any = [];
 
     bindingName;
-    constructor(private bdms: NDataModelService,private router: Router) {
+    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService,private router:Router, private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-
+    
     ngOnInit() {
-        this.otrDetails = JSON.parse(localStorage.getItem('profile'));
+        this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
 
         console.log('user details ', this.expensetdetail[0].Name);
@@ -44,25 +45,36 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.Manager = this.expensetdetail[0].Manager;
         this.Purpose = this.expensetdetail[0].Purpose;
         this.Customer = this.expensetdetail[0].Customer;
-
+        this.country=this.otrdetailService.country;
     }
     //profileData() fun
     profileData() {
-
+        this.otrDetail['country']=this.otrdetailService.country;
         this.otrDetail['Name'] = this.Name;
         this.otrDetail['Department'] = this.Department;
         this.otrDetail['Project'] = this.Project;
         this.otrDetail['Customer'] = this.Customer;
         this.otrDetail['Purpose'] = this.Purpose;
         this.otrDetail['Manager'] = this.Manager;
-
+        console.log('fff',this.otrDetail);
         // this.otr=this.expensetdetail;
-        localStorage.setItem('profile', JSON.stringify(this.otrDetail));
+        this.otrdetailService.userDetailObject(this.otrDetail);
+        localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
+        this.snackbar.open('successfully edited', 'close', { duration: 3000 });
+         this.router.navigate(['home/expense']);
     }
 
-add(){
-    this.router.navigate(['home/expenseinfo']);
-}
+    sendEmailto(){
+        // this.country=this.otrdetailService.country;
+        // console.log('hhfhgyjgfuhkl',this.country);
+       // this.otrdetailService.sendEmail();
+    }
+
+    sendEmailto1(){
+        this.country=this.otrdetailService.country;
+        console.log('hhfhgyjgfuhkl',this.country);
+        this.otrdetailService.sendEmail(this.country);
+    }
 
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

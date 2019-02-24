@@ -5,20 +5,8 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService, NLocalStorageService, NPubSubService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { Router } from '@angular/router';
-//import { saveAs } from 'file-saver';
-import { mailService } from '../../services/mail/mail.service';
-import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
-import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-//import { knownFolders, File, Folder } from "tns-core-modules/file-system";
-
-
-
-declare const cordova: any;
-declare const window: any;
-declare const LocalFileSystem: any;
-
-
+import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot} from '@angular/router';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -31,6 +19,7 @@ declare const LocalFileSystem: any;
 
 export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+    otrValue;
 
 
     expenses: any = [];
@@ -38,21 +27,14 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     user;
     values;
 
-    imagePath;
-
-
-csvarr = ["Country Name", "Name", "Dept", "Project", "customer", "Purpose", "Manager", "From Date", "To Date", "expType", "billAttached", "Amount\n"];
-
-    constructor(private route: ActivatedRoute, public pubsub: NPubSubService,
-        private bdms: NDataModelService, private router: Router,
-        private mService: mailService, private otrInfo: otrdetailService) {
+    constructor(private route:ActivatedRoute,public pubsub:NPubSubService, private otrdetailService: otrdetailService,private bdms: NDataModelService,private router:Router,private localStorage:NLocalStorageService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
-        this.expenseArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
-        console.log( "expense list starting point", this.expenseArray);
+    console.log('in expenselist',this.otrdetailService.otrValue);
+    
         
         this.user = JSON.parse(localStorage.getItem("profile"));
         this.expenses = this.expenseArray[this.expenseArray.length - 1].expenseList;

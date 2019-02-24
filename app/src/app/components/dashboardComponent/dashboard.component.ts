@@ -38,7 +38,6 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     constructor(private bdms: NDataModelService, private imgService: imageserviceService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
         this.dataSet = this.imgService.getImages();
-        console.log("m", this.dataSet);
         this.mm = new ModelMethods(bdms);
     }
     countries = [
@@ -65,7 +64,6 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         }
     }
 
-
     otr: any = {};
     countryName(value) {
         this.otrDetails=[];
@@ -73,8 +71,6 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(JSON.stringify(value));
-        // console.log(JSON.parse(this.otr)[0].fromDate);
-        // this.otrDetails = JSON.parse(this.otr);
         if(this.otr==null)
             this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
         this.otrDetails.push(JSON.parse(this.otr));
@@ -87,14 +83,15 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
 
     //expenseList()
     expenseList(a) {
+        this.otrdetailService.otrObject(a);
+        this.router.navigate(['home/expenselist']);
         console.log('eye', a, "bhagya component based on date you shoud show expenses of otr");
     }
 
     //addExpense() func
     addExpense() {
         if (this.isShow == true) {
-            console.log("once");
-            this.router.navigate(['home/expense']);
+            this.router.navigate(['home/userdetail']);
         } else {
             this.snackbar.open('select country', 'close', { duration: 3000 });
             this.router.navigate(['home/dashboard']);

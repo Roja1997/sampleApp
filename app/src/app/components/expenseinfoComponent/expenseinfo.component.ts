@@ -7,7 +7,7 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { DatePipe } from '@angular/common';
-import {Resolve,ActivatedRoute,ActivatedRouteSnapshot,RouterStateSnapshot,Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 /**
@@ -30,57 +30,63 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     img = false;
     expType;
     imageurl;
-    billDate = '';
-    comment = '';
-    expAmount = '';
-    otr: any = {'fromDate':'','toDate':''};
-    otrDetail: any={};
+    billDate='';
+    comment='';
+    expAmount='';
+    otr: any = {};
+    otrDetail: any = {};
+    //otrValue: Array = [];
     expenseDetail: any = [];
     otrArray: any = [];
-    valueArray: any = [];
     minDate;
     maxDate;
     num = 10000;
     billAmount = '';
-    currentExpense;
-    expenseList;
+    count=0;
 
-
-    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router,private route:ActivatedRoute) {
+    
+    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router) {
         super();
         this.mm = new ModelMethods(bdms);
     }
 
     ngOnInit() {
 
-        this.otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
-        this.otr = this.otrArray[(this.otrArray.length) - 1];
-        if(this.otr.expenseList)
-        {
-        this.expenseDetail = this.otr.expenseList;
-        }
+        console.log('country name', this.otrInfo.country);
+        this.otrArray = JSON.parse(localStorage.getItem(JSON.stringify(this.otrInfo.country)));
+
+        console.log("otr array old ", this.otrArray);
+        console.log((this.otrArray.length)-1);
+
+        this.otr = this.otrArray[(this.otrArray.length)-1];
+        console.log('otr new ', this.otr);
+        console.log(this.otr.fromDate);
         var fromDate = this.otr.fromDate;
+        console.log('from date', fromDate);
         var toDate = this.otr.toDate;
+        console.log('to date', toDate);
         this.minDate = this.datePipe.transform(fromDate, "yyyy-MM-dd");
+        console.log('new formatted date', this.minDate);
         this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
+        console.log('new formatted date', this.maxDate);
+
     }
 
     preventuserTyping(event) {
         event.preventDefault();
     }
+prevent(event){
+     const pattern = /[0-9\+\-\ ]/;
 
-
-    prevent(event) {
-        const pattern = /[0-9\+\-\ ]/;
-        let inputChar = String.fromCharCode(event.charCode);
-        if (event.keyCode != 8 && !pattern.test(inputChar)) {
-            event.preventDefault();
-
-        }
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+   
     }
-
+}
+ 
     expFill(event) {
-        this.amount = true;
+           this.amount=true;
         let num = event.target.value;
         if (typeof num === 'string' && num !== '')
             num = parseFloat(num.replace(/,/g, ''));
@@ -94,9 +100,11 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         str = str.join('.');
         this.billAmount = str;
         return str;
-
-
+        
+      
     }
+
+    //camera code
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -107,25 +115,49 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         });
     }
 
+    detail(a) {
+        this.expenseDetail.push(a);
+        this.otr.expenseList = this.expenseDetail;
+    }
 
-
+ tempvar=[]
     submit() {
-        var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
+       
+        var bill=this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
+        console.log('new bill date',bill);
         this.otrDetail['expType'] = this.expType;
         this.otrDetail['billDate'] = bill;
         this.otrDetail['expAmount'] = this.expAmount;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
         this.otrDetail['imageurl'] = this.imageurl;
-                this.expenseDetail.push(this.otrDetail);
-        this.otr['expenseList']=this.expenseDetail;
-        this.otrArray.push(this.otr);
-        this.otrArray.pop();
-        localStorage.setItem(this.otrInfo.country,JSON.stringify(this.otrArray));
-        this.otrDetail = {};
-        this.otr = {};
-        this.router.navigate(['/home/expenselist']);
+        console.log('otr details expense info', this.otrDetail)
+        this.tempvar.push(this.otrDetail)
+
+
+        // this.expType='';
+        // this.billDate='';
+        // this.comment=''
+
+        this.detail(this.otrDetail);
+        console.log('expense__detail', this.expenseDetail);
+
+        console.log('aa', this.otr);
         
+        this.otrArray[(this.otrArray.length) - 1] = (this.otr);
+  
+        this.otrArray.pop(this.otrArray[(this.otrArray.length) - 1]);
+         this.otrArray.push(this.otrArray[(this.otrArray.length) - 1]);
+
+         console.log('bb', this.otrArray);
+
+        console.log('bb', this.otrArray);
+
+        localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
+        this.otrDetail={};
+        
+      this.router.navigate(['home/expenselist']);
+
     }
 
 }
