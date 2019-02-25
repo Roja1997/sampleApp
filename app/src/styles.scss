@@ -1,0 +1,43 @@
+/*Importing default angular material css theme. */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+
+.expensebtn{
+   position: fixed;
+   bottom: 1px;
+   color: red;
+   border-radius: 50%;
+   border: 15px solid red;
+ }
+
+.arrow-color {
+     background-color: white !important;
+     
+}
+
+.mat-mini-fab.mat-accent {
+    color:#5786d3 ;
+}
+.toolbar{
+    background-color:red;
+    height:54px;
+}
+.receiptclass{
+    color:white;
+    font-size: 34px;
+    margin-top: 7px;
+}
+.addbtn{
+        border-radius: 32px;  
+        width: 147px;     
+        margin-top: 16px;
+}
+.expenselist{
+    font-family:sans-serif;
+    width:100%;
+    border-bottom:1px solid #dcdcdc;
+}
+// expenseListExpenses{ 
+//     overflow:auto;position: absolute;right: 0px;left: 0px;top:56px;
+//     }

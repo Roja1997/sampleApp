@@ -1,0 +1,48 @@
+{
+    "routes": [
+        {
+            "path": "home",
+            "component": "homeComponent",
+            "children": [
+                {
+                    "component": "dashboardComponent",
+                    "path": "dashboard",
+                    "children": []
+                },
+                {
+                    "component": "expenseinfoComponent",
+                    "path": "expenseinfo",
+                    "resolve": "",
+                    "redirectTo": ""
+                },
+                {
+                    "path": "expense",
+                    "component": "expenseComponent"
+                },
+                {
+                    "component": "expenselistComponent",
+                    "path": "expenselist"
+                },
+                {
+                    "path": "afterSendingMail",
+                    "component": "aftersendingmailComponent"
+                },
+                {
+                    "path": "userdetail",
+                    "component": "userdetailComponent"
+                }
+            ],
+            "redirectTo": ""
+        },
+        {
+            "path": "''",
+            "redirectTo": "/home/dashboard",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

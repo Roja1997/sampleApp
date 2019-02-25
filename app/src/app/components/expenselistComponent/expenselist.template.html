@@ -1,0 +1,25 @@
+<div fxLayout="column " style="height:100%;position:relative;" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="true">
+  <mat-toolbar style="background:red !important;color:white !important;position:fixed ;   z-index: 3;">
+    <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-icon routerLink="/home/expenseinfo" *ngIf="showButton">keyboard_backspace</mat-icon>
+      <h3>My Expenses</h3>
+    </div>
+  </mat-toolbar>
+  <div fxLayout="column " style="    position: absolute;     top: 56px;     left: 0px;     right: 0px;" fxFlex=" calc(100%-128px)" fxLayoutAlign="  none" fxShow="true" fxHide="false">
+    <div fxLayout="row " class="expenselist" fxFlex="100" fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false" *ngFor="let expense of expenseArray">
+      <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><img style="border-radius:10%;width:85%;" [src]="expense.imageurl"></div>
+      <div fxLayout="column wrap" class="expDetails" fxFlex="47" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <h3>{{expense.expType}}</h3>
+        <p>{{expense.billDate}}</p>
+        <p>{{expense.comment}}</p>
+      </div>
+      <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start end" fxShow="true" fxHide="false">
+        <h3>{{expense.expAmount}}</h3>
+      </div>
+    </div>
+    <div fxLayout="column " style="position:fixed;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" (click)="sendingMail()">SUBMIT</button></div>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" class="expensebtn" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-fab="" style="color:red;  align:center;background-color:white;" (click)="sendEmailto()"> <i class="material-icons"> mail </i></button></div>
+  </div>
+</div>

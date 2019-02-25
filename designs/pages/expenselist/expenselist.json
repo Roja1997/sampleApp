@@ -1,0 +1,13 @@
+{
+    "appPageId": "1a629f56-7e3b-b05c-fd30-7748a9dae7d5",
+    "appPageName": "expenselist",
+    "componentName": "expenselistComponent",
+    "selectorName": "bh-expenselist",
+    "htmlFileName": "expenselist.template.html",
+    "tsFileName": "expenselist.component.ts",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

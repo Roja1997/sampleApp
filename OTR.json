@@ -1,0 +1,11 @@
+{
+    "artId": "",
+    "appName": "OTR",
+    "description": "otr app",
+    "lastModified": "2019-02-07T12:20:02.203Z",
+    "artURL": "http://localhost:3000/bhive-art/",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "dataSource": "neutrinos-rt",
+    "createDate": "2019-02-07T12:20:02.202Z"
+}

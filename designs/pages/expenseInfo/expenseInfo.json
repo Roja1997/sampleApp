@@ -1,0 +1,13 @@
+{
+    "appPageId": "ad714606-17c2-78b8-5d66-6fc9d30eaad9",
+    "appPageName": "expenseInfo",
+    "componentName": "expenseinfoComponent",
+    "selectorName": "bh-expenseinfo",
+    "htmlFileName": "expenseinfo.template.html",
+    "tsFileName": "expenseinfo.component.ts",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}
