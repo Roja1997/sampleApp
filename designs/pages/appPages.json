@@ -33,5 +33,10 @@
         "appPageName": "afterSendingMail",
         "componentName": "aftersendingmailComponent",
         "isEntry": false
+    },
+    "3da4d8d7-6db1-f74e-8127-a2c8719e0cbc": {
+        "appPageName": "dialogPage",
+        "componentName": "dialogpageComponent",
+        "isEntry": false
     }
 }

@@ -1,3 +1,11 @@
+<mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <mat-icon style="color:white" (click)="back()">keyboard_backspace</mat-icon>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <h1 style="color:white;">My Expenses</h1>
+  </div>
+</mat-toolbar>
 <div fxLayout="column " style="height:100%;position:relative;" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="true">
   <mat-toolbar style="background:red !important;color:white !important;position:fixed ;   z-index: 3;">
     <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">

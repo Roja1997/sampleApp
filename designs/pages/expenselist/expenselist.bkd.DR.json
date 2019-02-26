@@ -1,4 +1,209 @@
 {
+    "863e4702-f2ab-1a0f-bafd-2ae9c3c6be2e": {
+        "paletteKey": "NG-Toolbar",
+        "designerReference": [
+            {
+                "_key": "style",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "class",
+                "_value": "toolbar",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "color",
+                "_value": "",
+                "_type": "kv",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "content",
+                "_value": "",
+                "_type": "a",
+                "_attrDef": "p"
+            },
+            {
+                "_key": "fxLayoutAlign",
+                "_value": "space-between",
+                "_type": "kv",
+                "_attrDef": "c"
+            }
+        ],
+        "be4ea945-8543-a97f-931e-de2667e1364b": {
+            "paletteKey": "FlexLayoutCol",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "center",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                }
+            ],
+            "5040da82-aaba-7ea9-f960-123e18d4aa18": {
+                "paletteKey": "NG-icon",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "color:white",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "IconName",
+                        "_value": "keyboard_backspace",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "(click)",
+                        "_value": "back()",
+                        "_type": "kv",
+                        "_attrDef": "c"
+                    }
+                ]
+            }
+        },
+        "a2a3574d-3ec9-8630-1b35-0b5a494385a8": {
+            "paletteKey": "FlexLayoutCol",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "center",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                }
+            ],
+            "74046510-9cd3-cbf0-2f7f-fc0694659f60": {
+                "paletteKey": "NG-H1",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "color:white;",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "H1 Text",
+                        "_value": "My Expenses",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    }
+                ]
+            }
+        }
+    },
     "f072a05f-c506-9308-69e4-d55862502da8": {
         "paletteKey": "FlexLayoutCol",
         "designerReference": [

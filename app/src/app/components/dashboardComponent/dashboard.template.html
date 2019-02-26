@@ -1,3 +1,8 @@
+<mat-toolbar class="toolbar">
+  <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <h1 style="color:white;">My OTR List</h1>
+  </div>
+</mat-toolbar>
 <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="start stretch" fxShow="false" fxHide="false">
     <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
@@ -25,7 +30,7 @@
       </mat-form-field>
     </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-      <p *ngIf="isShow==false" style="color:red;">please select a country</p>
+      <p *ngIf="isShow==false" style="color:red;">Please select a Country</p>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngIf="country">
 

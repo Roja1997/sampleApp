@@ -1,9 +1,4 @@
 <div fxLayout="column " fxLayoutAlign="  none" fxShow="true" fxHide="false" fxFill="">
-  <mat-toolbar fxLayoutAlign="space-between" class="toolbar">
-    <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
-      <h1 style="color:white;">OTR</h1>
-    </div>
-  </mat-toolbar>
   <div fxLayout="column " style="overflow:auto;height:calc(100%-128px)" fxFlex="100" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
     <router-outlet></router-outlet>
   </div>
@@ -12,7 +7,7 @@
       <mat-icon class="receiptclass" routerLink="/home/dashboard">home</mat-icon>
     </div>
     <div fxLayout="column " fxLayoutAlign="start end" fxShow="true" fxHide="false">
-      <mat-icon class="receiptclass" (click)="edit()">edit</mat-icon>
+      <mat-icon class="receiptclass" (click)="edit()">person</mat-icon>
     </div>
   </mat-toolbar>
 </div>

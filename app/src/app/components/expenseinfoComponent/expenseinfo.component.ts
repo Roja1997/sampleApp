@@ -32,7 +32,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     imageurl;
     billDate = '';
     comment = '';
-    expAmount='';
+    expAmount;
     otr: any = { 'fromDate': '', 'toDate': '' };
     otrDetail: any = {};
     expenseDetail: any = [];
@@ -44,11 +44,12 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     billAmount = '';
     currentExpense;
     expenseList;
-    
+    currency;
+    billName='';
 
 
 
-    constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router, private route: ActivatedRoute) {
+    constructor(private bdms: NDataModelService,public dialog: MatDialog ,private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router, private route: ActivatedRoute) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -86,7 +87,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
     expFill(event) {
 
-         const pattern = /[0-9\+\-\.\ ]/;
+         const pattern = /[0-9\+\-\ ]/;
         let inputChar = String.fromCharCode(event.charCode);
         if (event.keyCode != 8 && !pattern.test(inputChar)) {
             event.preventDefault();
@@ -116,7 +117,10 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         }).catch((error) => {
             console.log(error);
         });
+  
     }
+
+   
 
 
  
@@ -124,23 +128,24 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.otrInfo.viewOtr = false;
         var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
         this.otrDetail['expType'] = this.expType;
+        this.otrDetail['billName'] = this.billName+" + "+this.expType;
         this.otrDetail['billDate'] = bill;
         if (this.otrInfo.country == "South Africa") {
 
-            this.expAmount = (this.expAmount * 5.10).toFixed(2);
+            this.currency = (this.expAmount * 5.10).toFixed(2);
         }
         else if (this.otrInfo.country == "Malaysia") {
 
-            this.expAmount = (this.expAmount * 17.46).toFixed(2);
+            this.currency = (this.expAmount * 17.46).toFixed(2);
         }
         else if (this.otrInfo.country == "Singapore") {
 
-            this.expAmount = (this.expAmount * 52.63).toFixed(2);
+            this.currency = (this.expAmount * 52.63).toFixed(2);
         }
         else {
-            this.expAmount= (this.expAmount * 1).toFixed(2);
+            this.currency= (this.expAmount * 1).toFixed(2);
         }
-        this.otrDetail['expAmount'] = this.expAmount;
+        this.otrDetail['expAmount'] = this.currency;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
         this.otrDetail['imageurl'] = this.imageurl;

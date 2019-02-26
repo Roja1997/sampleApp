@@ -1,4 +1,12 @@
 <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+  <mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+    <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+      <mat-icon style="color:white;" (click)="back()">keyboard_backspace</mat-icon>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+      <h1 style="color:white;">User Details</h1>
+    </div>
+  </mat-toolbar>
   <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Name:</p>

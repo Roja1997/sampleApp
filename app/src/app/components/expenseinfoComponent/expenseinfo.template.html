@@ -1,3 +1,11 @@
+<mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <mat-icon style="color:white;" (click)="openDialog()">keyboard_backspace</mat-icon>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <h1 style="color:white;">Record New Bill</h1>
+  </div>
+</mat-toolbar>
 <div fxLayout="column wrap" style="padding:16px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <form #name="ngForm">
     <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -10,6 +18,14 @@
             <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <mat-icon style="color:grey;font-size:20px;">picture_in_picture_alt</mat-icon>
+      </div>
+      <div fxLayout="column wrap" style="width:100%" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+        <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="billName" name="billName" placeholder="Bill Name" required maxLength="10"></mat-form-field>
       </div>
     </div>
     <div fxLayout="row " fxLayoutAlign="  center" fxShow="true" fxHide="false">
@@ -33,7 +49,7 @@
         <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
       </div>
       <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-        <mat-form-field><input matInput="" [(ngModel)]="expAmount" name="expAmount" placeholder="Amount" required [value]="billAmount" (keypress)="expFill($event)"></mat-form-field>
+        <mat-form-field><input matInput="" [(ngModel)]="expAmount" name="expAmount" placeholder="Amount" required [value]="billAmount" (keypress)="expFill($event)" maxlength="5"></mat-form-field>
       </div>
     </div>
     <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">

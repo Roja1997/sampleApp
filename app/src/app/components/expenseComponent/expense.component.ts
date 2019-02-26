@@ -48,6 +48,11 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         event.preventDefault();
     }
 
+        back(){
+        this.router.navigate(['home/userdetail']);
+    }
+
+
 
 
     //pickFromDate fun

@@ -4,75 +4,28 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-import { MatSnackBar } from '@angular/material';
-import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
-import { Router } from '@angular/router';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
  */
 
 @Component({
-    selector: 'bh-userdetail',
-    templateUrl: './userdetail.template.html'
+    selector: 'bh-dialogpage',
+    templateUrl: './dialogpage.template.html'
 })
 
-export class userdetailComponent extends NBaseComponent implements OnInit {
+export class dialogpageComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    Name;
-    Department;
-    Project; 
-    Customer; Manager;country
-    Purpose;
-    otrDetail: any = {}
-    otrDetails: any = {};
-    expensetdetail: any = [];
 
-    bindingName;
-    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService,private router:Router, private snackbar: MatSnackBar) {
+    constructor(private bdms: NDataModelService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    
+
     ngOnInit() {
-        this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
-        this.expensetdetail.push(this.otrDetails);
 
-       
-        this.Name = this.expensetdetail[0].Name;
-        this.Department = this.expensetdetail[0].Department;
-        this.Project = this.expensetdetail[0].Project;
-        this.Manager = this.expensetdetail[0].Manager;
-        this.Purpose = this.expensetdetail[0].Purpose;
-        this.Customer = this.expensetdetail[0].Customer;
-        this.country=this.otrdetailService.country;
     }
-    //profileData() fun
-    profileData() {
-        this.otrDetail['country']=this.otrdetailService.country;
-        this.otrDetail['Name'] = this.Name;
-        this.otrDetail['Department'] = this.Department;
-        this.otrDetail['Project'] = this.Project;
-        this.otrDetail['Customer'] = this.Customer;
-        this.otrDetail['Purpose'] = this.Purpose;
-        this.otrDetail['Manager'] = this.Manager;
-       
-        // this.otr=this.expensetdetail;
-        this.otrdetailService.userDetailObject(this.otrDetail);
-        localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
-        this.snackbar.open('successfully edited', 'close', { duration: 3000 });
-         this.router.navigate(['home/expense']);
-    }
-    //conformationFunction()
-    conformationFunction(){
-        this.router.navigate(['home/dashboard']);
-    }
-
-    back(){
-        this.router.navigate(['home/dashboard']);
-    }
-
-
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
@@ -126,7 +79,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete(dataModelName, filter) {
+    delete (dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here

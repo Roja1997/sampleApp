@@ -43,6 +43,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
         }
     }
 
+
     country;
     sendEmailto() {
         this.country = this.otrInfo.country;
@@ -61,6 +62,8 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
 }
+
+
 
 
 

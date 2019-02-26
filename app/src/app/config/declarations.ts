@@ -14,6 +14,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-dialogpageComponent
+import { dialogpageComponent } from '../components/dialogpageComponent/dialogpage.component';
 //CORE_REFERENCE_IMPORT-aftersendingmailComponent
 import { aftersendingmailComponent } from '../components/aftersendingmailComponent/aftersendingmail.component';
 //CORE_REFERENCE_IMPORT-mailService
@@ -70,6 +72,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   NMapComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-dialogpageComponent
+dialogpageComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-aftersendingmailComponent
 aftersendingmailComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-userdetailComponent
