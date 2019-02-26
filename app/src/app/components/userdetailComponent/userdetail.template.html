@@ -1,5 +1,5 @@
 <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Name:</p>
     </div>
@@ -7,7 +7,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="Name" name="Name" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Department:</p>
     </div>
@@ -15,7 +15,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="Department" name="Department" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Project:</p>
     </div>
@@ -23,7 +23,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="Project" name="Project" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Customer:</p>
     </div>
@@ -31,7 +31,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="Customer" name="Customer" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Purpose:</p>
     </div>
@@ -39,7 +39,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="Purpose" name="Purpose" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>country</p>
     </div>
@@ -47,7 +47,7 @@
       <mat-form-field><input matInput="" [(ngModel)]="country" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center none" fxShow="true" fxHide="false">
+  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column " fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p>Manager:</p>
     </div>
@@ -55,5 +55,10 @@
       <mat-form-field><input matInput="" [(ngModel)]="Manager" name="Manager" required></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-raised-button="" style="    border-radius: 32px;    width: 147px;     margin-top: 16px;" class="addbtn" color="warn" (click)="profileData()">Add</button></div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <div fxLayout="column wrap" class="expensebtn" fxLayoutAlign="start stretch" fxShow="true" fxHide="false"><button mat-fab="" style="color:red; background-color:white; align:center" title="add" (click)="profileData()">
+        <mat-icon>add_circle<mat-icon></mat-icon>
+        </mat-icon>
+      </button></div>
+  </div>
 </div>

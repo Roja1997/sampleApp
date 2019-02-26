@@ -365,7 +365,7 @@
                         },
                         {
                             "_key": "IconName",
-                            "_value": "receipt",
+                            "_value": "home",
                             "_type": "a",
                             "_attrDef": "p"
                         },
@@ -458,8 +458,8 @@
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "routerLink",
-                            "_value": "/home/userdetail",
+                            "_key": "(click)",
+                            "_value": "edit()",
                             "_type": "kv",
                             "_attrDef": "c"
                         }

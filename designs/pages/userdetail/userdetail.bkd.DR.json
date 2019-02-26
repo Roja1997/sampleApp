@@ -98,7 +98,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -357,7 +357,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -616,7 +616,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -875,7 +875,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1134,7 +1134,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1393,7 +1393,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1652,7 +1652,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1870,8 +1870,8 @@
                 }
             }
         },
-        "c4d0facd-46c9-ce5d-7c49-f54f6d54b069": {
-            "paletteKey": "FlexLayoutRow",
+        "5bcbe03b-9034-69d0-c98e-9d82ac480aff": {
+            "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
@@ -1899,7 +1899,7 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "",
+                    "_value": "wrap",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1928,40 +1928,105 @@
                     "_attrDef": "p"
                 }
             ],
-            "b517b46a-33d4-d930-115e-85165ba29cb8": {
-                "paletteKey": "NG-RaisedButton",
+            "5e4e9064-02fd-32e9-e55b-461f61570201": {
+                "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "    border-radius: 32px;    width: 147px;     margin-top: 16px;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "class",
-                        "_value": "addbtn",
+                        "_value": "expensebtn",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "buttonname",
-                        "_value": "Add",
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "color",
-                        "_value": "warn",
+                        "_key": "layoutAlign",
+                        "_value": "start",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "stretch",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "(click)",
-                        "_value": "profileData()",
+                        "_key": "fxHide",
+                        "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
                     }
-                ]
+                ],
+                "721c7f58-1643-7bf0-9778-8ae58830a01e": {
+                    "paletteKey": "NG-FabButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "color:red; background-color:white; align:center",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fabicon",
+                            "_value": " <mat-icon>add_circle<mat-icon>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "profileData()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "title",
+                            "_value": "add",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ]
+                }
             }
         }
     }

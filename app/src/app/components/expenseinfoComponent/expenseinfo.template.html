@@ -32,7 +32,7 @@
       <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" [(ngModel)]="expAmount" type="number" placeholder="Amount" required (keypress)="expFill($event)"></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="expAmount" placeholder="Amount" required (keypress)="expFill($event)"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -43,7 +43,6 @@
       <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="comment" placeholder="Comments"></mat-form-field>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false"></div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="img">
     <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <p style="color:grey;">Bill Preview</p>
@@ -54,7 +53,7 @@
     </div>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="amount"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
+    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="expAmount"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
         <mat-icon>check</mat-icon>
       </button></div>
   </div>

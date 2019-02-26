@@ -78,6 +78,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
         }
     }
+    preventuserTyping(event){
+        event.preventDefault();
+    }
 
     expFill(event) {
         this.amount = true;
@@ -101,9 +104,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.img = true;
         this.camService.camera().then((path) => {
             console.log('path', path);
-            this.imgPath = path;
+            this.imgPath = "data:image/jpeg;base64," + path;
         }).catch((error) => {
-            console.log(error);
+           // console.log(error);
         });
     }
 

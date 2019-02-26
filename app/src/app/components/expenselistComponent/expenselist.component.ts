@@ -21,7 +21,7 @@ import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } 
 export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     expenseArray;
-    showSubmitButton = true;
+    showButton = true;
     constructor(private route: ActivatedRoute,
         private bdms: NDataModelService, private router: Router,
         private mService: mailService, private otrInfo: otrdetailService) {
@@ -30,17 +30,24 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.otrInfo.viewOtr);
+       // console.log(this.otrInfo.viewOtr);
         if (this.otrInfo.viewOtr){
-            this.showSubmitButton = false;
+            this.showButton = false;
             this.expenseArray = this.otrInfo.otrValue.expenseList;
-            console.log('Expense Array:',this.expenseArray);
+            console.log('Expense Array:',this.expenseArray.imageurl);
         }
         else {
             let otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
             this.expenseArray = otrArray[otrArray['length'] - 1].expenseList;
-            console.log(this.expenseArray);
+           // console.log(this.expenseArray);
         }
+    }
+    loder()
+    {
+        setTimeout(() => {
+            
+            //this.spinner.hide();
+        }, 5000);
     }
 
     country;

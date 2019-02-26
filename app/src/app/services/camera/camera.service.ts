@@ -15,7 +15,7 @@ imageURI;
          (err)=>{
              return reject('failed');
          },{     quality: 100,
-            destinationType: 1,
+            destinationType: 0,
             sourceType: 1,
             encodingType: 0,
             mediaType: 0,
