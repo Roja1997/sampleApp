@@ -4,24 +4,23 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-import { MatSnackBar } from '@angular/material';
-import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
  */
 
 @Component({
-    selector: 'bh-home',
-    templateUrl: './home.template.html'
+    selector: 'bh-conformation',
+    templateUrl: './conformation.template.html'
 })
 
-export class homeComponent extends NBaseComponent implements OnInit {
+export class conformationComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
 
-    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService,private router:Router, private snackbar: MatSnackBar) {
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, public dialogRef: MatDialogRef<conformationComponent>) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -29,19 +28,19 @@ export class homeComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
 
     }
-    edit(){
-        if(this.otrdetailService.country)
-         this.router.navigate(['home/userdetail']);
-         else{
-           this.snackbar.open('select country', 'close', { duration: 3000 });
-           this.router.navigate(['home/dashboard']);   
-         }
+    dontApply() {
+        this.dialogRef.close();
     }
-    //dashboardView() func
-    dashboardView(){
-        this.otrdetailService.country=null;
-        this.router.navigate(['home/dashboard']);
+    expenseObj: any = [];
+    removeData() {
+        this.expenseObj = JSON.parse(localStorage.getItem(this.otrdetailService.country));
+        this.expenseObj.pop();
+        localStorage.setItem(this.otrdetailService.country, JSON.stringify(this.expenseObj));
+        this.router.navigate(['home/expense']);
+        this.dialogRef.close();
     }
+
+
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {
@@ -94,7 +93,7 @@ export class homeComponent extends NBaseComponent implements OnInit {
             })
     }
 
-    delete (dataModelName, filter) {
+    delete(dataModelName, filter) {
         this.mm.delete(dataModelName, filter,
             result => {
                 // On Success code here

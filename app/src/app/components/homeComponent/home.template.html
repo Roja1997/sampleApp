@@ -9,10 +9,10 @@
   </div>
   <mat-toolbar fxLayoutAlign="space-between" class="toolbar">
     <div fxLayout="column " fxLayoutAlign="start center" fxShow="true" fxHide="false">
-      <mat-icon class="receiptclass" routerLink="/home/dashboard">receipt</mat-icon>
+      <mat-icon class="receiptclass" (click)="dashboardView()">home</mat-icon>
     </div>
     <div fxLayout="column " fxLayoutAlign="start end" fxShow="true" fxHide="false">
-      <mat-icon class="receiptclass" routerLink="/home/userdetail" (click)="edit()">edit</mat-icon>
+      <mat-icon class="receiptclass" (click)="edit()" title="edit">edit</mat-icon>
     </div>
   </mat-toolbar>
 </div>
