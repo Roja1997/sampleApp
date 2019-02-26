@@ -329,6 +329,12 @@
                             "_value": "touch",
                             "_type": "kv",
                             "_attrDef": "c"
+                        },
+                        {
+                            "_key": "name",
+                            "_value": "selector",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -549,7 +555,7 @@
                         },
                         {
                             "_key": "html",
-                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required  [matDatepicker]=\"picker\" [value]='billDate' [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                            "_value": "<mat-form-field style=\"width:100%;\">\n  <input name=\"inputdate\" matInput  required  [matDatepicker]=\"picker\" [value]='billDate' [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" >\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                             "_type": "a",
                             "_attrDef": "p"
                         }
@@ -808,25 +814,13 @@
                         },
                         {
                             "_key": "type",
-                            "_value": "",
+                            "_value": "number",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
-                            "_key": "[value]",
-                            "_value": "billAmount",
-                            "_type": "kv",
-                            "_attrDef": "c"
-                        },
-                        {
-                            "_key": "(keyup)",
-                            "_value": "expFill($event)",
-                            "_type": "kv",
-                            "_attrDef": "c"
-                        },
-                        {
                             "_key": "(keypress)",
-                            "_value": "prevent($event)",
+                            "_value": "expFill($event)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -1088,12 +1082,6 @@
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[value]",
-                            "_value": "comment",
-                            "_type": "kv",
-                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -1475,7 +1463,7 @@
                 }
             }
         },
-        "3b33951c-1bfa-595b-78c7-03282df0f81c": {
+        "701f4944-81e3-13e1-45d9-8571651dcdc1": {
             "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
@@ -1595,6 +1583,12 @@
                         "_value": "amount",
                         "_type": "kv",
                         "_attrDef": "c"
+                    },
+                    {
+                        "_key": "(click)",
+                        "_value": "swb()",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ],
                 "ec2cbaf4-59bc-eaa7-d59e-d085dbd31011": {
@@ -1629,6 +1623,12 @@
                             "_value": "submit()",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "routerLink",
+                            "_value": "/home/expenselist",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }

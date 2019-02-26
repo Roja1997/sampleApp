@@ -462,6 +462,12 @@
                             "_value": "/home/userdetail",
                             "_type": "kv",
                             "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "edit()",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }

@@ -18,8 +18,6 @@ window['neutrinos'] = {
 import { aftersendingmailComponent } from '../components/aftersendingmailComponent/aftersendingmail.component';
 //CORE_REFERENCE_IMPORT-mailService
 import { mailService } from '../services/mail/mail.service';
-//CORE_REFERENCE_IMPORT-expenselistresolverService
-import { expenselistresolverService } from '../services/expenseListResolver/expenselistresolver.service';
 //CORE_REFERENCE_IMPORT-cameraService
 import { cameraService } from '../services/camera/camera.service';
 //CORE_REFERENCE_IMPORT-imageserviceService
@@ -106,8 +104,6 @@ export const appProviders = [
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-mailService
 mailService,
-//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-expenselistresolverService
-expenselistresolverService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-cameraService
 cameraService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-imageserviceService
@@ -124,5 +120,5 @@ otrdetailService,
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
 children: [{path: 'dashboard', component: dashboardComponent,
-children: []},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'userdetail', component: userdetailComponent},{path: 'expenseinfo', component: expenseinfoComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: []},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'afterSendingMail', component: aftersendingmailComponent},{path: 'userdetail', component: userdetailComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

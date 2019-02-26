@@ -8,7 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
-import {expenselistresolverService} from '../../services/expenseListResolver/expenselistresolver.service';
+import { expenselistresolverService } from '../../services/expenseListResolver/expenselistresolver.service';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -23,7 +23,9 @@ import {expenselistresolverService} from '../../services/expenseListResolver/exp
 
 export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    fromDate; toDate;
+    fromDate;
+    toDate;
+
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
@@ -37,11 +39,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
-       
-
-        console.log(this.otrdetailService.country);
         this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
-        console.log('this.exp', this.expensetdetail);
     }
 
 
@@ -54,7 +52,9 @@ export class expenseComponent extends NBaseComponent implements OnInit {
 
     //pickFromDate fun
     pickFromDate() {
+      
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
+       
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
     }
     //submitDate() function
@@ -62,7 +62,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     userdetailObject;
     submitDate() {
         this.userdetailobj = this.otrdetailService.userdetailObject;
-       
         this.otrDetail['Name'] = this.userdetailobj.Name;
         this.otrDetail['country'] = this.userdetailobj.country;
         this.otrDetail['Department'] = this.userdetailobj.Department;
@@ -74,13 +73,11 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
         if (this.expensetdetail == null)
             this.expensetdetail = [];
-       
         this.expensetdetail.push(this.otrDetail);
         var countryname = this.otrdetailService.country;
-        // this.otr=this.expensetdetail;
         localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
-       this.router.navigate(['home/expenseinfo']);
+        this.router.navigate(['home/expenseinfo']);
 
 
     }

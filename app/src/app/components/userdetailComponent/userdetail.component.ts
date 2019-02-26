@@ -34,7 +34,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
 
-        
+
         this.Name = this.expensetdetail[0].Name;
         this.Department = this.expensetdetail[0].Department;
         this.Project = this.expensetdetail[0].Project;
@@ -52,7 +52,6 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Customer'] = this.Customer;
         this.otrDetail['Purpose'] = this.Purpose;
         this.otrDetail['Manager'] = this.Manager;
-      
         this.otrdetailService.userDetailObject(this.otrDetail);
         localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
         this.snackbar.open('successfully edited', 'close', { duration: 3000 });
@@ -70,6 +69,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
      
         this.otrdetailService.sendEmail(this.country);
     }
+
 
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

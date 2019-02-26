@@ -57,6 +57,35 @@
                 "_attrDef": "p"
             }
         ],
+        "a3a5c470-9a8a-172c-79d3-183dbd5a5e08": {
+            "paletteKey": "NG-icon",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "IconName",
+                    "_value": "keyboard_arrow_left",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "(click)",
+                    "_value": "previousview()",
+                    "_type": "kv",
+                    "_attrDef": "c"
+                }
+            ]
+        },
         "e872d52c-0055-a2d8-d7a8-bc516eef580d": {
             "paletteKey": "FlexLayoutRow",
             "designerReference": [
@@ -98,7 +127,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -357,7 +386,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -616,7 +645,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -875,7 +904,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1134,7 +1163,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1393,7 +1422,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1652,7 +1681,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "none",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1746,41 +1775,6 @@
                             "_key": "text",
                             "_value": "Manager:",
                             "_type": "a",
-                            "_attrDef": "p"
-                        }
-                    ]
-                },
-                "292efd7c-87cc-bfc8-f44b-a1b2380511ab": {
-                    "paletteKey": "NG-button",
-                    "designerReference": [
-                        {
-                            "_key": "style",
-                            "_value": "background-color:green;",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "buttonname",
-                            "_value": "submit",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "color",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(click)",
-                            "_value": "sendEmailto1()",
-                            "_type": "kv",
                             "_attrDef": "p"
                         }
                     ]
@@ -1905,8 +1899,8 @@
                 }
             }
         },
-        "c4d0facd-46c9-ce5d-7c49-f54f6d54b069": {
-            "paletteKey": "FlexLayoutRow",
+        "320b7025-25cf-48b5-6a38-35533bdfca37": {
+            "paletteKey": "FlexLayoutCol",
             "designerReference": [
                 {
                     "_key": "style",
@@ -1934,7 +1928,7 @@
                 },
                 {
                     "_key": "wrap",
-                    "_value": "",
+                    "_value": "wrap",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -1963,40 +1957,264 @@
                     "_attrDef": "p"
                 }
             ],
-            "b517b46a-33d4-d930-115e-85165ba29cb8": {
-                "paletteKey": "NG-RaisedButton",
+            "22feb381-90e1-206e-18c8-cb8a98dbd281": {
+                "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "    border-radius: 32px;    width: 147px;     margin-top: 16px;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "class",
-                        "_value": "addbtn",
+                        "_value": "expensebtn",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "buttonname",
-                        "_value": "Add",
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "wrap",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "color",
-                        "_value": "warn",
+                        "_key": "layoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
                     {
-                        "_key": "(click)",
-                        "_value": "profileData()",
+                        "_key": "fxHide",
+                        "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
                     }
-                ]
+                ],
+                "9835d567-a361-b504-a160-956f3aa13a8d": {
+                    "paletteKey": "NG-FabButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "color:red;  align:center;background-color: white;",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fabicon",
+                            "_value": " <mat-icon>add_circle<mat-icon>",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "profileData()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "country",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ]
+                }
+            }
+        },
+        "b0a5eaae-07e8-2a86-f9b8-deacddf98cbb": {
+            "paletteKey": "FlexLayoutCol",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxFlex",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxLayoutGap",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "wrap",
+                    "_value": "wrap",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "layoutAlign",
+                    "_value": "start",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "pLayoutAlign",
+                    "_value": "stretch",
+                    "_type": "a",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxShow",
+                    "_value": "true",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "fxHide",
+                    "_value": "false",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                }
+            ],
+            "c4d0facd-46c9-ce5d-7c49-f54f6d54b069": {
+                "paletteKey": "FlexLayoutRow",
+                "designerReference": [
+                    {
+                        "_key": "style",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "class",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxFlex",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxLayoutGap",
+                        "_value": "",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "wrap",
+                        "_value": "",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "layoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "pLayoutAlign",
+                        "_value": "center",
+                        "_type": "a",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxShow",
+                        "_value": "true",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxHide",
+                        "_value": "false",
+                        "_type": "kv",
+                        "_attrDef": "p"
+                    }
+                ],
+                "b517b46a-33d4-d930-115e-85165ba29cb8": {
+                    "paletteKey": "NG-RaisedButton",
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "    border-radius: 32px;    width: 147px;     margin-top: 16px;position: fixed;",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "addbtn",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "buttonname",
+                            "_value": "Add",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "color",
+                            "_value": "warn",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "profileData()",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "country",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ]
+                }
             }
         }
     }

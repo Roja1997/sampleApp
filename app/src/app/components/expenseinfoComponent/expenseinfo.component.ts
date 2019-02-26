@@ -69,10 +69,6 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         event.preventDefault();
     }
 
-    preventuserTyping(event) {
-        event.preventDefault();
-    }
-
 
     prevent(event) {
         const pattern = /[0-9\+\-\ ]/;
@@ -112,8 +108,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     }
 
 
-
+    
     submit() {
+        this.otrInfo.viewOtr=false;
         var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
         this.otrDetail['expType'] = this.expType;
         this.otrDetail['billDate'] = bill;
@@ -131,5 +128,29 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.router.navigate(['/home/expenselist']);
         
     }
+
+    update(dataModelName, update, filter, options) {
+        const updateObject = {
+            update: update,
+            filter: filter,
+            options: options
+        };
+        this.mm.update(dataModelName, updateObject,
+            result => {
+                //  On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+        // this.otrArray.pop(this.otrArray[(this.otrArray.length) - 1]);
+        // console.log('bb', this.otrArray);
+
+        // localStorage.setItem(JSON.stringify(this.otrInfo.country), JSON.stringify(this.otrArray));
+        // this.otrDetail={};
+        
+    //   this.router.navigate(['home/userdetail']);
+
+    // }
 
 }

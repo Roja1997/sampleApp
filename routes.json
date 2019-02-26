@@ -12,7 +12,8 @@
                 {
                     "component": "expenseinfoComponent",
                     "path": "expenseinfo",
-                    "resolve": "{data:expenselistresolverService}"
+                    "resolve": "",
+                    "redirectTo": ""
                 },
                 {
                     "path": "expense",

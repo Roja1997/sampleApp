@@ -4,7 +4,9 @@ import { ModelMethods } from '../../lib/model.methods';
 // import { BDataModelService } from '../service/bDataModel.service';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
-
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -18,7 +20,7 @@ import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 export class homeComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
 
-    constructor(private bdms: NDataModelService) {
+    constructor(private bdms: NDataModelService,private router:Router,private otrdetailService:otrdetailService,private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -26,7 +28,14 @@ export class homeComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
 
     }
-
+    edit(){
+        if(this.otrdetailService.country)
+         this.router.navigate(['home/userdetail']);
+         else{
+              this.snackbar.open('select country.', 'close', { duration: 3000 });
+              this.router.navigate(['home/dashboard']);
+         }
+    }
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
             result => {

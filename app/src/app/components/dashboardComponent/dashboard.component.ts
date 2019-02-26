@@ -25,7 +25,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     country: string = '';
     isShow: boolean = false;
-    // otr={};
+    
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
@@ -71,18 +71,18 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(value);
-        if (this.otr == null)
+        if(this.otr==null)
             this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
         this.otrDetails.push(JSON.parse(this.otr));
-
+       
         this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-
+    
         this.dataSource.sort = this.sort;
     }
 
     //expenseList()
-    expenseList(a) {
-        this.otrdetailService.otrObject(a);
+    expenseList(singleOtr) {
+        this.otrdetailService.otrObject(singleOtr);
         this.router.navigate(['home/expenselist']);
         
     }
@@ -102,7 +102,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     }
 
     //  //apply filter
-    // applyFilter(filterValue: string) {
+    //    applyFilter(filterValue: string) {
     //     this.dataSource.filter = filterValue.trim().toLowerCase();
     //     if (this.dataSource.paginator) {
     //         this.dataSource.paginator.firstPage();
