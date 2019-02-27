@@ -8,7 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
-import { expenselistresolverService } from '../../services/expenseListResolver/expenselistresolver.service';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -83,7 +83,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Purpose'] = this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
-        this.otrDetail['perdiamAmount'] = this.perdiamAmount;
+        this.otrDetail['PerdiemAmount'] = this.perdiamAmount;
         if (this.expensetdetail == null)
             this.expensetdetail = [];
         this.expensetdetail.push(this.otrDetail);

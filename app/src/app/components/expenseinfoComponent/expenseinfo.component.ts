@@ -46,8 +46,8 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     billAmount = '';
     currentExpense;
     expenseList;
-
-
+     billName;
+    
     constructor(private bdms: NDataModelService, private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router, private route: ActivatedRoute,private dialog: MatDialog) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -71,24 +71,31 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     }
 
 
-    prevent(event) {
-        const pattern = /[0-9\+\-\ ]/;
-        let inputChar = String.fromCharCode(event.charCode);
-        if (event.keyCode != 8 && !pattern.test(inputChar)) {
-            event.preventDefault();
+    // prevent(event) {
+    //     const pattern = /[0-9\+\-\ ]/;
+    //     let inputChar = String.fromCharCode(event.charCode);
+    //     if (event.keyCode != 8 && !pattern.test(inputChar)) {
+    //         event.preventDefault();
 
-        }
-    }
+    //     }
+    // }
     preventuserTyping(event) {
         event.preventDefault();
     }
 
-    expFill(event) {
-        this.amount = true;
+   expFill(event) {
+
+         const pattern = /[0-9\+\-\ ]/;
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+            event.preventDefault();
+        }
         let num = event.target.value;
+
         if (typeof num === 'string' && num !== '')
             num = parseFloat(num.replace(/,/g, ''));
         let str = num.toString().split('.');
+
         if (str[0].length >= 5) {
             str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
         }
@@ -98,9 +105,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         str = str.join('.');
         this.billAmount = str;
         return str;
-
-
     }
+
+    
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
@@ -117,6 +124,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.otrInfo.viewOtr = false;
         var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
         this.otrDetail['expType'] = this.expType;
+         this.otrDetail['billName'] = this.billName+"_"+this.expType;
         this.otrDetail['billDate'] = bill;
         this.otrDetail['expAmount'] = this.expAmount;
         this.otrDetail['comments'] = this.comment;

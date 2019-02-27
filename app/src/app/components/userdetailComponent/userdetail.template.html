@@ -1,5 +1,12 @@
+<mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <mat-icon style="color:white" (click)="previousview()">keyboard_backspace</mat-icon>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <h1 style="color:white;">USer Detail</h1>
+  </div>
+</mat-toolbar>
 <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <mat-icon (click)="previousview()">keyboard_arrow_left</mat-icon>
   <form #userdetail="ngForm">
     <div fxLayout="row " fxLayoutAlign="center center" fxShow="true" fxHide="false">
       <div fxLayout="column wrap" fxFlex="25" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">

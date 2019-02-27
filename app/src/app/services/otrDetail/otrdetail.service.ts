@@ -19,8 +19,8 @@ export class otrdetailService {
         let obj = {
             name: a
         }
-        console.log('obj',obj)
-        return this.http.post('http://10.10.0.117:24483/api/sendEmail', obj).subscribe((response) => {
+        // console.log('obj',obj)
+        return this.http.post('http://10.10.0.117:24483/api/sendEmaill', obj).subscribe((response) => {
             
         });
     }

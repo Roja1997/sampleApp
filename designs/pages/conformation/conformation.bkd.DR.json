@@ -80,7 +80,30 @@
                 },
                 {
                     "_key": "text",
-                    "_value": "Are you sure you want to go back?if you go you will loose the recent data",
+                    "_value": "are you sure ?",
+                    "_type": "a",
+                    "_attrDef": "p"
+                }
+            ]
+        },
+        "66d80d9d-b494-dd14-603a-197c990f055c": {
+            "paletteKey": "NG-Paragraph",
+            "designerReference": [
+                {
+                    "_key": "style",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "class",
+                    "_value": "",
+                    "_type": "kv",
+                    "_attrDef": "p"
+                },
+                {
+                    "_key": "text",
+                    "_value": "if you go back , you will lose recent data ",
                     "_type": "a",
                     "_attrDef": "p"
                 }
