@@ -2,4 +2,7 @@
   <h3>Thank you for submit</h3>
   <p style="color:grey;">We received your bill and processing further,<br> stay back and we will reply soon</p>
   <div fxLayout="column wrap" style="padding-top:20px;" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-button="" style="border-radius:20px;width:60%;background:red;color:white;" routerLink="/home/dashboard">Go Back</button></div>
+  <div fxLayout="column wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="false">
+    <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false"><button mat-fab="" style="color:red;  align:center;background-color:white;" (click)="sendEmailto()"> <i class="material-icons"> mail </i></button></div>
+  </div>
 </div>

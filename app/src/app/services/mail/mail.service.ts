@@ -6,6 +6,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 
 
 export class mailService {
+zipFileName;
 
     constructor(private http: HttpClient, private otrInfo: otrdetailService) { }
     sendingMail() {
@@ -17,9 +18,7 @@ export class mailService {
         };
         let expenseArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
         let expobj = expenseArray[expenseArray.length - 1];
-        return this.http.post('http://10.10.0.125:5000/generate/csv', { userInfo: expobj }, headers).subscribe(result => {
-            console.log('hello',result);
-        });
+        return this.http.post('http://10.10.0.125:5000/generate/csv', { userInfo: expobj }, headers);
 
     }
 }

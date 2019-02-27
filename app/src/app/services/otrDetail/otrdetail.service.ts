@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { mailService } from '../../services/mail/mail.service';
 @Injectable()
 export class otrdetailService {
     country;
     otrValue;
     viewOtr = false;
     userdetailObject;
+    
     constructor(public router: Router, private http: HttpClient) {
     }
+    
     otrObject(otrObj) {
+      
         console.log('calling',otrObj);
         this.viewOtr = true;
         this.otrValue = otrObj;

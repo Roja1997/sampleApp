@@ -17,10 +17,10 @@
         <h3>{{expense.expAmount}}</h3>
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-      <mat-spinner (click)="loder()" diameter="60" mode="indeterminate" color="primary" strokeWidth="4"></mat-spinner>
+    <div fxLayout="column wrap" style="opacity:0.7;background:black;position: fixed;     height: 100%;     width: 100%;z-index:5;" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="this.showSpinner">
+      <mat-spinner diameter="60" mode="indeterminate" color="primary" strokeWidth="4"></mat-spinner>
     </div>
-    <div fxLayout="column " style="position:fixed;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" (click)="sendingMail()">SUBMIT</button></div>
+    <div fxLayout="column " style="position:fixed;bottom:90px;width:100%;" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="this.showButton"><button mat-raised-button="" style="border-radius:50px;width:60%;background:green;color:white;" (click)="sendingMail()">SUBMIT</button></div>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
     <div fxLayout="column wrap" class="expensebtn" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-fab="" style="color:red;  align:center;background-color:white;" (click)="sendEmailto()"> <i class="material-icons"> mail </i></button></div>

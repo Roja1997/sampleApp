@@ -641,7 +641,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "",
+                        "_value": "opacity:0.7;background:black;position: fixed;     height: 100%;     width: 100%;z-index:5;",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -692,6 +692,12 @@
                         "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "*ngIf",
+                        "_value": "this.showSpinner",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ],
                 "e606ff60-4556-a0ef-7f7e-f52b6ff44248": {
@@ -732,12 +738,6 @@
                             "_value": "primary",
                             "_type": "kv",
                             "_attrDef": "p"
-                        },
-                        {
-                            "_key": "(click)",
-                            "_value": "loder()",
-                            "_type": "kv",
-                            "_attrDef": "c"
                         },
                         {
                             "_key": "diameter",
@@ -807,7 +807,7 @@
                     },
                     {
                         "_key": "*ngIf",
-                        "_value": "showButton",
+                        "_value": "this.showButton",
                         "_type": "kv",
                         "_attrDef": "c"
                     }

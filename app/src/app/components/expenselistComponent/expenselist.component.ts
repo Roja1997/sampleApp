@@ -22,6 +22,9 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     expenseArray;
     showButton = true;
+    showSpinner = false;
+    showSubmitButton=false;
+    showEmailButton = false;
     constructor(private route: ActivatedRoute,
         private bdms: NDataModelService, private router: Router,
         private mService: mailService, private otrInfo: otrdetailService) {
@@ -30,40 +33,54 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-       // console.log(this.otrInfo.viewOtr);
-        if (this.otrInfo.viewOtr){
+        // console.log(this.otrInfo.viewOtr);
+        if (this.otrInfo.viewOtr) {
             this.showButton = false;
             this.expenseArray = this.otrInfo.otrValue.expenseList;
-            console.log('Expense Array:',this.expenseArray.imageurl);
+            console.log('Expense Array:', this.expenseArray.imageurl);
         }
         else {
             let otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
             this.expenseArray = otrArray[otrArray['length'] - 1].expenseList;
-           // console.log(this.expenseArray);
+            // console.log(this.expenseArray);
         }
     }
-    loder()
-    {
-        setTimeout(() => {
-            
-            //this.spinner.hide();
-        }, 5000);
-    }
+    // loder()
+    // {
+    //     setTimeout(() => {
+
+    //         //this.spinner.hide();
+    //     }, 5000);
+    // }
 
     country;
     sendEmailto() {
-        this.country = this.otrInfo.country;
-        this.otrInfo.sendEmail(this.country);
+        this.otrInfo.sendEmail(this.zipFileName);
     }
 
     addExpense() {
         this.router.navigate(['home/expenseinfo']);
     }
     a: any = {};
-
+    zipFileName;
     sendingMail() {
+        this.showSpinner = true;
 
-        this.mService.sendingMail();
+        this.showButton = true;
+        this.showEmailButton = true;
+        this.mService.sendingMail().subscribe(result => {
+
+            this.zipFileName = result;
+            console.log('hello.......', this.zipFileName);
+            if (result){
+                this.showSpinner = false;
+                //this.showButton = false;
+                 //this.showSubmitButton=false;
+
+            } else{
+                 this.showSpinner = true;
+            }
+        });
 
     }
 
