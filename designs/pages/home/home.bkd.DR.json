@@ -173,7 +173,7 @@
                     "_attrDef": "c"
                 }
             ],
-            "16375219-e68c-d461-ca90-b0dd7931133a": {
+            "961ea2ac-6577-2518-814a-3229ecea401a": {
                 "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
@@ -208,13 +208,13 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "space-between",
                         "_type": "a",
                         "_attrDef": "p"
                     },
                     {
                         "_key": "pLayoutAlign",
-                        "_value": "center",
+                        "_value": "stretch",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -261,7 +261,7 @@
                     ]
                 }
             },
-            "4ae336a7-914d-699f-c82a-81d0d54f4650": {
+            "b20f2557-a036-d638-b9e1-71dd1a3a8087": {
                 "paletteKey": "FlexLayoutCol",
                 "designerReference": [
                     {
@@ -296,7 +296,7 @@
                     },
                     {
                         "_key": "layoutAlign",
-                        "_value": "start",
+                        "_value": "center",
                         "_type": "a",
                         "_attrDef": "p"
                     },
@@ -330,7 +330,7 @@
                         },
                         {
                             "_key": "class",
-                            "_value": "receiptclass",
+                            "_value": "editclass",
                             "_type": "kv",
                             "_attrDef": "p"
                         },

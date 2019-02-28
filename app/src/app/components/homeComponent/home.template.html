@@ -3,11 +3,11 @@
     <router-outlet></router-outlet>
   </div>
   <mat-toolbar fxLayoutAlign="space-between" class="toolbar">
-    <div fxLayout="column " fxLayoutAlign="start center" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxLayoutAlign="space-between stretch" fxShow="true" fxHide="false">
       <mat-icon class="receiptclass" (click)="dashboardView()">home</mat-icon>
     </div>
-    <div fxLayout="column " fxLayoutAlign="start end" fxShow="true" fxHide="false">
-      <mat-icon class="receiptclass" (click)="edit()" title="edit">edit</mat-icon>
+    <div fxLayout="column " fxLayoutAlign="center end" fxShow="true" fxHide="false">
+      <mat-icon class="editclass" (click)="edit()" title="edit">edit</mat-icon>
     </div>
   </mat-toolbar>
 </div>

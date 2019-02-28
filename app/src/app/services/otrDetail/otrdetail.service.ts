@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class otrdetailService {
     country;
@@ -28,4 +28,16 @@ export class otrdetailService {
         this.userdetailObject = obj;
         return this.userdetailObject;
     }
+
+    currencyConverter(perdiemObj){
+         let headers = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+        console.log(perdiemObj);
+        return this.http.post('http://10.10.0.117:24483/api/currencyConverter', perdiemObj )
+    }
+
+
+
+
 }
