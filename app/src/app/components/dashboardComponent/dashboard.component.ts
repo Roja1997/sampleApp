@@ -29,11 +29,11 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+
     @ViewChild(MatSort) sort: MatSort;
     //for carosal
     dataSet;
-    
+
 
     constructor(private bdms: NDataModelService, private imgService: imageserviceService, private otrdetailService: otrdetailService, private router: Router, private localStorage: NLocalStorageService, private snackbar: MatSnackBar) {
         super();
@@ -66,7 +66,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
 
     otr: any = {};
     countryName(value) {
-        this.otrDetails=[];
+        this.otrDetails = [];
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;

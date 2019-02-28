@@ -8,7 +8,7 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
-import { expenselistresolverService } from '../../services/expenseListResolver/expenselistresolver.service';
+
 /**
  * Service import Example :
  * import { HeroService } from '../services/hero/hero.service';
@@ -39,23 +39,35 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
+        console.log(new Date().toLocaleString())
         this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
     }
 
-
+    previousView() {
+        this.router.navigate(['home/userdetail']);
+    }
     //function to disable once the user takes date from date. 
     disableManualData(event) {
         event.preventDefault();
     }
 
 
-
+    perdiamAmount;
     //pickFromDate fun
     pickFromDate() {
-      
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
-       
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
+        let countryName = this.otrdetailService.country;
+        if (countryName == "Singapore")
+            this.perdiamAmount = this.totaldays * 45;
+        else if (countryName == "South Africa")
+            this.perdiamAmount = this.totaldays * 300;
+        else if (countryName == "Malaysia")
+            this.perdiamAmount = this.totaldays * 85;
+        else
+            this.perdiamAmount = this.totaldays * 650;
+        console.log(countryName,this.perdiamAmount);
+
     }
     //submitDate() function
     userdetailobj: any = {};
@@ -71,6 +83,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Purpose'] = this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
+        this.otrDetail['PerdiemAmount'] = this.perdiamAmount;
         if (this.expensetdetail == null)
             this.expensetdetail = [];
         this.expensetdetail.push(this.otrDetail);

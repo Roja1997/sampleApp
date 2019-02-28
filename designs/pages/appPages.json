@@ -33,5 +33,10 @@
         "appPageName": "afterSendingMail",
         "componentName": "aftersendingmailComponent",
         "isEntry": false
+    },
+    "843607f5-f811-4863-890a-558e17f67ee8": {
+        "appPageName": "conformation",
+        "componentName": "conformationComponent",
+        "isEntry": false
     }
 }

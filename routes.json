@@ -29,7 +29,12 @@
                 },
                 {
                     "path": "userdetail",
-                    "component": "userdetailComponent"
+                    "component": "userdetailComponent",
+                    "children": []
+                },
+                {
+                    "component": "conformationComponent",
+                    "path": "conformation"
                 }
             ],
             "redirectTo": ""

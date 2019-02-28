@@ -22,6 +22,7 @@
 .toolbar{
     background-color:red;
     height:54px;
+  
 }
 .receiptclass{
     color:white;
@@ -35,9 +36,11 @@
 }
 .expenselist{
     font-family:sans-serif;
-    width:100%;
+    width:100%;padding-right: 15px;
     border-bottom:1px solid #dcdcdc;
 }
 // expenseListExpenses{ 
 //     overflow:auto;position: absolute;right: 0px;left: 0px;top:56px;
 //     }
+// top: 56px;     left: 0px;     right: 10px;
+

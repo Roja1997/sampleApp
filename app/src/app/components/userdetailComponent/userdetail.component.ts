@@ -19,50 +19,50 @@ import { Router } from '@angular/router';
 
 export class userdetailComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
-    Name;
-    Department;
-    Project;
-    Customer; Manager;country
-    Purpose;
+    Name; Department; Project; Customer; Manager; country; Purpose;
     otrDetail: any = {}
     otrDetails: any = {};
     expensetdetail: any = [];
 
     bindingName;
-    constructor(private bdms: NDataModelService,private otrdetailService:otrdetailService,private router:Router, private snackbar: MatSnackBar) {
+    constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private router: Router, private snackbar: MatSnackBar) {
         super();
         this.mm = new ModelMethods(bdms);
     }
-    
+
     ngOnInit() {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         this.expensetdetail.push(this.otrDetails);
 
-       
+
         this.Name = this.expensetdetail[0].Name;
         this.Department = this.expensetdetail[0].Department;
         this.Project = this.expensetdetail[0].Project;
         this.Manager = this.expensetdetail[0].Manager;
         this.Purpose = this.expensetdetail[0].Purpose;
         this.Customer = this.expensetdetail[0].Customer;
-        this.country=this.otrdetailService.country;
+        this.country = this.otrdetailService.country;
     }
     //profileData() fun
     profileData() {
-        this.otrDetail['country']=this.otrdetailService.country;
+        this.otrDetail['country'] = this.otrdetailService.country;
         this.otrDetail['Name'] = this.Name;
         this.otrDetail['Department'] = this.Department;
         this.otrDetail['Project'] = this.Project;
         this.otrDetail['Customer'] = this.Customer;
         this.otrDetail['Purpose'] = this.Purpose;
         this.otrDetail['Manager'] = this.Manager;
-       
-        // this.otr=this.expensetdetail;
         this.otrdetailService.userDetailObject(this.otrDetail);
         localStorage.setItem('userdetail', JSON.stringify(this.otrDetail));
         this.snackbar.open('successfully edited', 'close', { duration: 3000 });
-         this.router.navigate(['home/expense']);
+        this.router.navigate(['home/expense']);
     }
+
+
+    previousview(){
+        this.router.navigate(['home/dashboard']);
+    }
+
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

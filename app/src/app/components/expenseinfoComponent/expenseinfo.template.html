@@ -1,14 +1,30 @@
+<mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <mat-icon style="color:white" (click)="openDialog()">keyboard_backspace</mat-icon>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
+    <h1 style="color:white;">Record Bill Details</h1>
+  </div>
+</mat-toolbar>
 <div fxLayout="column wrap" style="padding:16px;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
   <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-icon style="color:grey;font-size:20px;">receipt</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field>
-        <mat-select style="width:100%;" placeholder="Expense Type" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch">
+        <mat-select style="width:100%;" placeholder="Expense Type" [(ngModel)]="expType" required (selectionChange)="openCamera()" touchUi="touch" name="selector">
           <mat-option *ngFor="let i of expenseType" [value]="i">{{i}}</mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row " fxLayoutAlign="start center" fxShow="true" fxHide="false">
+    <div fxLayout="column " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-icon style="color:grey;font-size:20px;">picture_in_picture_alt</mat-icon>
+    </div>
+    <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
+      <mat-form-field style="width:100%;"><input matInput="" [(ngModel)]="billName" placeholder="Bill Name" required maxLength="10"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row " fxLayoutAlign="  center" fxShow="true" fxHide="false">
@@ -17,7 +33,7 @@
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
       <mat-form-field style="width:100%;">
-        <input matInput="" required [matDatepicker]="picker" [value]="billDate" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
+        <input name="inputdate" matInput="" required [matDatepicker]="picker" [value]="billDate" [min]="minDate" [max]="maxDate" (keydown)="preventuserTyping($event)" placeholder="Bill Date" mat-raised-button="" (click)="picker.open()" style="cursor:pointer;" [(ngModel)]="billDate">
         <mat-datepicker #picker="" touchUi="touch"></mat-datepicker>
       </mat-form-field>
 
@@ -32,7 +48,7 @@
       <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
     </div>
     <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <mat-form-field><input matInput="" [(ngModel)]="expAmount" placeholder="Amount" required (keypress)="expFill($event)"></mat-form-field>
+      <mat-form-field><input matInput="" [(ngModel)]="expAmount" name="expAmount" placeholder="Amount" required (keypress)="expFill($event)" maxLength="6" [value]="billAmount"></mat-form-field>
     </div>
   </div>
   <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -53,7 +69,7 @@
     </div>
   </div>
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="expAmount"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
+    <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="expAmount" (click)="swb()"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
         <mat-icon>check</mat-icon>
       </button></div>
   </div>

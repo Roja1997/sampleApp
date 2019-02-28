@@ -14,6 +14,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-conformationComponent
+import { conformationComponent } from '../components/conformationComponent/conformation.component';
 //CORE_REFERENCE_IMPORT-aftersendingmailComponent
 import { aftersendingmailComponent } from '../components/aftersendingmailComponent/aftersendingmail.component';
 //CORE_REFERENCE_IMPORT-mailService
@@ -70,6 +72,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   NMapComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-conformationComponent
+conformationComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-aftersendingmailComponent
 aftersendingmailComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-userdetailComponent
@@ -120,5 +124,6 @@ otrdetailService,
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
 export const appRoutes = [{path: 'home', component: homeComponent,
 children: [{path: 'dashboard', component: dashboardComponent,
-children: []},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'afterSendingMail', component: aftersendingmailComponent},{path: 'userdetail', component: userdetailComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+children: []},{path: 'expenseinfo', component: expenseinfoComponent},{path: 'expense', component: expenseComponent},{path: 'expenselist', component: expenselistComponent},{path: 'afterSendingMail', component: aftersendingmailComponent},{path: 'userdetail', component: userdetailComponent,
+children: []},{path: 'conformation', component: conformationComponent}]},{path: '', redirectTo: '/home/dashboard', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

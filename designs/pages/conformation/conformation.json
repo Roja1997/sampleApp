@@ -1,0 +1,13 @@
+{
+    "appPageId": "843607f5-f811-4863-890a-558e17f67ee8",
+    "appPageName": "conformation",
+    "componentName": "conformationComponent",
+    "selectorName": "bh-conformation",
+    "htmlFileName": "conformation.template.html",
+    "tsFileName": "conformation.component.ts",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}
