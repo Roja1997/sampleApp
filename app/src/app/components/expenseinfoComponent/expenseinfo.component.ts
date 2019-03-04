@@ -49,7 +49,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
 
 
 
-    constructor(private bdms: NDataModelService,public dialog: MatDialog ,private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router, private route: ActivatedRoute) {
+    constructor(private bdms: NDataModelService,private camService: cameraService, private otrInfo: otrdetailService, private datePipe: DatePipe, private router: Router, private route: ActivatedRoute) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -67,7 +67,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.minDate = this.datePipe.transform(fromDate, "yyyy-MM-dd");
         this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
     }
-    //function to disable once the user takes date from date. 
+    //function to disablev once the user takes date from date. 
     disableManualData(event) {
         event.preventDefault();
     }
@@ -112,8 +112,9 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
-
+            console.log('image path',path);
             this.imgPath = path;
+            
         }).catch((error) => {
             console.log(error);
         });
@@ -148,6 +149,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.otrDetail['expAmount'] = this.currency;
         this.otrDetail['comments'] = this.comment;
         this.imageurl = this.imgPath;
+      
         this.otrDetail['imageurl'] = this.imageurl;
         this.expenseDetail.push(this.otrDetail);
         this.otr['expenseList'] = this.expenseDetail;
