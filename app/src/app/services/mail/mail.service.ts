@@ -7,9 +7,10 @@ import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 
 export class mailService {
     zipFileName;
+
     constructor(private http: HttpClient, private otrInfo: otrdetailService) { }
     sendingMail() {
-   let headers = {
+        let headers = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
         let expenseArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
@@ -18,4 +19,3 @@ export class mailService {
 
     }
 }
-       

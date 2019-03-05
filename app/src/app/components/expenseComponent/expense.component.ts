@@ -39,7 +39,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     minDate = new Date();
 
     ngOnInit() {
-        console.log(new Date().toLocaleString())
         this.expensetdetail = JSON.parse(localStorage.getItem((this.otrdetailService.country)));
     }
 

@@ -5,6 +5,7 @@ import { ModelMethods } from '../../lib/model.methods';
 import { NDataModelService } from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 
+import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
 import { Router } from '@angular/router'
 
 
@@ -21,7 +22,7 @@ import { Router } from '@angular/router'
 export class aftersendingmailComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
 
-    constructor(private bdms: NDataModelService, private router: Router) {
+    constructor(private bdms: NDataModelService, private router: Router,private otrInfo: otrdetailService) {
         super();
         this.mm = new ModelMethods(bdms);
     }
@@ -32,6 +33,11 @@ export class aftersendingmailComponent extends NBaseComponent implements OnInit 
 
     // navigateto(){
     //    this.router.navigate(['home/dashboard']);
+    // }
+    //     country;
+    // sendEmailto() {
+    //     this.country = this.otrInfo.country;
+    //     this.otrInfo.sendEmail(this.country);
     // }
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

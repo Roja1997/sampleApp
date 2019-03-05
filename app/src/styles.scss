@@ -6,9 +6,17 @@
 .expensebtn{
    position: fixed;
    bottom: 1px;
-   color: red;
+   color: white;
    border-radius: 50%;
+    background-color:white;
    border: 15px solid red;
+ }
+ .addexpensebtn{
+      position: fixed;
+       background-color:red;
+       color:white;
+       margin-left:290px;
+       margin-top: 290px;
  }
 
 .arrow-color {
@@ -42,8 +50,31 @@
 .expenselist{
     font-family:sans-serif;
     width:100%;
+    padding-right: 15px;
+     padding-left: 15px;
+     padding-top:25px;
     border-bottom:1px solid #dcdcdc;
+   }
+   .spinner{
+     opacity:0.7;
+     background:black;position: fixed;    
+      height: 100%;     
+      width: 100%;z-index:5;  
+   }
+.cls_image{
+    background-color: red;
+    border-radius: 12px;
 }
-// expenseListExpenses{ 
-//     overflow:auto;position: absolute;right: 0px;left: 0px;top:56px;
-//     }
+.dashboardclass{
+      margin-top:80px;
+      overflow:auto;
+}
+.submitCol{
+    position:absolute;bottom:90px;width:100%;
+}
+.submitBtn{
+  width:60%;
+    background:green;color:white;
+   
+}
+//color:red;  align:center;background-color:white;

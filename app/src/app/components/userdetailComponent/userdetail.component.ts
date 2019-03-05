@@ -32,9 +32,8 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
 
     ngOnInit() {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
+        if(!this.otrDetail){
         this.expensetdetail.push(this.otrDetails);
-
-
         this.Name = this.expensetdetail[0].Name;
         this.Department = this.expensetdetail[0].Department;
         this.Project = this.expensetdetail[0].Project;
@@ -42,6 +41,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
         this.Purpose = this.expensetdetail[0].Purpose;
         this.Customer = this.expensetdetail[0].Customer;
         this.country = this.otrdetailService.country;
+        }
     }
     //profileData() fun
     profileData() {

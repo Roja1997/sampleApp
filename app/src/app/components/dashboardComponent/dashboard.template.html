@@ -1,34 +1,20 @@
 <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-  <mat-toolbar fxLayoutAlign="space-between" class="toolbar">
+  <mat-toolbar fxLayoutAlign="space-between" style=" position:fixed;" class="toolbar">
     <div fxLayout="column wrap" fxLayoutAlign="center start" fxShow="true" fxHide="false">
       <h1 style="color:white;">MY OTR List</h1>
     </div>
   </mat-toolbar>
-  <div fxLayout="column " style="margin-top:20px;" fxLayoutAlign="start stretch" fxShow="false" fxHide="false">
+  <div fxLayout="column " class="dashboardclass" fxFlex=" calc(100%-128px)" fxLayoutAlign="start stretch" fxShow="false" fxHide="false">
     <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-      <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-        <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false">
-          <mat-icon (click)="changeDataSet(1)">keyboard_arrow_left</mat-icon>
-        </div>
-      </div>
-      <div fxLayout="column " fxFlex="70" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngFor="let row of dataSet;">
-        <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false"><img imgSrc="{{row.imgSrc}}" (click)="countryName(row.imgName)"></div>
-      </div>
-      <div fxLayout="row " fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-        <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false">
-          <mat-icon (click)="changeDataSet(-1)">keyboard_arrow_right</mat-icon>
-        </div>
+      <div fxLayout="column " fxFlex="70" fxLayoutAlign="start stretch" fxShow="true" fxHide="false" *ngFor="let row of dataSet;let i=index;">
+        <div fxLayout="column " fxLayoutAlign="center center" fxShow="true" fxHide="false"><img imgSrc="{{row.imgSrc}}" (click)="countryName(row.imgName,i)" [ngClass]="(selectedIndex==i)?&apos;cls_image&apos;:&apos;&apos;"></div>
       </div>
     </div>
   </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+    <h3>{{this.country}}</h3>
+  </div>
   <div fxLayout="column wrap" fxLayoutAlign="center stretch" fxShow="true" fxHide="false">
-    <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-      <mat-form-field>
-        <mat-select [(ngModel)]="country" required (selectionChange)="countryName($event.value)" name="country">
-          <mat-option *ngFor="let country of countries" [value]="country.country">{{country.country}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
       <p *ngIf="isShow==false" style="color:red;">please select a country</p>
     </div>

@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class otrdetailService {
-    country;
+    country;flag=false;
     otrValue;
     viewOtr = false;
     userdetailObject;
     constructor(public router: Router, private http: HttpClient) {
+        
     }
+    
     otrObject(otrObj) {
+      
         console.log('calling',otrObj);
         this.viewOtr = true;
         this.otrValue = otrObj;

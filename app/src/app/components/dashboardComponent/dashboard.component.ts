@@ -25,7 +25,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     country: string = '';
     isShow: boolean = false;
-    
+
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
@@ -40,13 +40,13 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.dataSet = this.imgService.getImages();
         this.mm = new ModelMethods(bdms);
     }
-    countries = [
+    // countries = [
 
-        { country: "Singapore", value: "Singapore" },
-        { country: "South Africa", value: "South Africa" },
-        { country: "Malaysia", value: "Malaysia" },
-        { country: "India", value: "India" }
-    ]
+    //     { country: "Singapore", value: "Singapore" },
+    //     { country: "South Africa", value: "South Africa" },
+    //     { country: "Malaysia", value: "Malaysia" },
+    //     { country: "India", value: "India" }
+    // ]
 
     //fab function for carosal
     changeDataSet(dir) {
@@ -65,162 +65,131 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     }
 
     otr: any = {};
-    countryName(value) {
-        this.otrDetails = [];
+    selectedIndex: number;
+    //this function is for showing histroy for selected country.
+    countryName(value, i) {
+        console.log('vvv', localStorage.getItem(value));
+        this.selectedIndex = i;
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
-        this.otr = localStorage.getItem(value);
-        if(this.otr==null)
-            this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
-        this.otrDetails.push(JSON.parse(this.otr));
-       
-        this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-    
-        this.dataSource.sort = this.sort;
-    }
+        if (!localStorage.getItem(value)) {
+            this.snackbar.open('No active OTR histroy for selected country', 'close', { duration: 3000 });
+        }else{
+            if (this.country != value) {
+                this.otrDetails = [];
 
-    //expenseList()
-    expenseList(singleOtr) {
-        this.otrdetailService.otrObject(singleOtr);
-        this.router.navigate(['home/expenselist']);
-        
-    }
-
-    //addExpense() func
-    addExpense() {
-        if (this.isShow == true) {
-            this.router.navigate(['home/userdetail']);
-        } else {
-            this.snackbar.open('select country', 'close', { duration: 3000 });
-            this.router.navigate(['home/dashboard']);
+                console.log('from service', this.otrdetailService.country);
+                this.otr = localStorage.getItem(value);
+                if (this.otr === null || JSON.parse(this.otr).length === 0)
+                    this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
+                this.otrDetails.push(JSON.parse(this.otr));
+                this.dataSource = new MatTableDataSource(this.otrDetails[0]);
+                this.dataSource.sort = this.sort;
+            }
         }
+        }
+
+        //expenseList() function when i click on eye icon passing that pertcular obj to service to show in expense list page
+        expenseList(singleOtr) {
+            this.otrdetailService.otrObject(singleOtr);
+            this.router.navigate(['home/expenselist']);
+
+        }
+
+        //addExpense() func to route to userdetails 
+        addExpense() {
+            if (this.isShow == true) {
+                this.router.navigate(['home/userdetail']);
+            } else {
+                this.snackbar.open('select country', 'close', { duration: 3000 });
+                this.router.navigate(['home/dashboard']);
+            }
+        }
+
+        ngOnInit() {
+
+        }
+
+        get(dataModelName, filter ?, keys ?, sort ?, pagenumber ?, pagesize ?) {
+            this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
+                result => {
+                    // On Success code here
+                },
+                error => {
+                    // Handle errors here
+                });
+        }
+
+        getById(dataModelName, dataModelId) {
+            this.mm.getById(dataModelName, dataModelId,
+                result => {
+                    // On Success code here
+                },
+                error => {
+                    // Handle errors here
+                })
+        }
+
+        put(dataModelName, dataModelObject) {
+            this.mm.put(dataModelName, dataModelObject,
+                result => {
+                    // On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+        validatePut(formObj, dataModelName, dataModelObject) {
+            this.mm.validatePut(formObj, dataModelName, dataModelObject,
+                result => {
+                    // On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+        update(dataModelName, update, filter, options) {
+            const updateObject = {
+                update: update,
+                filter: filter,
+                options: options
+            };
+            this.mm.update(dataModelName, updateObject,
+                result => {
+                    //  On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+        delete (dataModelName, filter) {
+            this.mm.delete(dataModelName, filter,
+                result => {
+                    // On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+        deleteById(dataModelName, dataModelId) {
+            this.mm.deleteById(dataModelName, dataModelId,
+                result => {
+                    // On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+        updateById(dataModelName, dataModelId, dataModelObj) {
+            this.mm.updateById(dataModelName, dataModelId, dataModelObj,
+                result => {
+                    // On Success code here
+                }, error => {
+                    // Handle errors here
+                })
+        }
+
+
+
     }
-
-    ngOnInit() {
-
-    }
-
-    //  //apply filter
-    //    applyFilter(filterValue: string) {
-    //     this.dataSource.filter = filterValue.trim().toLowerCase();
-    //     if (this.dataSource.paginator) {
-    //         this.dataSource.paginator.firstPage();
-    //     }
-    // }
-
-
-
-    get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
-        this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            });
-    }
-
-    getById(dataModelName, dataModelId) {
-        this.mm.getById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            },
-            error => {
-                // Handle errors here
-            })
-    }
-
-    put(dataModelName, dataModelObject) {
-        this.mm.put(dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    validatePut(formObj, dataModelName, dataModelObject) {
-        this.mm.validatePut(formObj, dataModelName, dataModelObject,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    update(dataModelName, update, filter, options) {
-        const updateObject = {
-            update: update,
-            filter: filter,
-            options: options
-        };
-        this.mm.update(dataModelName, updateObject,
-            result => {
-                //  On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    delete(dataModelName, filter) {
-        this.mm.delete(dataModelName, filter,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    deleteById(dataModelName, dataModelId) {
-        this.mm.deleteById(dataModelName, dataModelId,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-
-    updateById(dataModelName, dataModelId, dataModelObj) {
-        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-            result => {
-                // On Success code here
-            }, error => {
-                // Handle errors here
-            })
-    }
-    // //hard coded expenses details"path": "expense",
-    // expenses= [{
-    //     fromDate: "12/09/2019",
-    //     toDate: "31/09/ 2019",
-    //     expType: "fuel",
-    //     billAttached: "true",
-    //     amount:"1000"
-    // },{
-    //     fromDate: "01/12/2019",
-    //     toDate: "31/12/ 2019",
-    //     expType: "fuel",
-    //     billAttached: "true",
-    //     amount:"2000"
-    // }]
-    // //countryName fun
-    //  countryName(value){
-
-    //     this.isShow=true;
-    //     var otr = {
-
-    //         Name: "Vinay",
-    //         Department: "Delivery",
-    //         Project: "OTR",
-    //         Customer: "Rahul",
-    //         Purpose: "Travel",
-    //         Manager: "Vinay",
-    //         Destination:value,
-    //         expenses: this.expenses
-    //     };
-    //     console.log('this.value',value);
-    //     localStorage.setItem(JSON.stringify(value),JSON.stringify(otr));
-    // }
-
-
-}
