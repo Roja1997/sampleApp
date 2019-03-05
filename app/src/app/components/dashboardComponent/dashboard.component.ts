@@ -68,128 +68,126 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     selectedIndex: number;
     //this function is for showing histroy for selected country.
     countryName(value, i) {
-        console.log('vvv', localStorage.getItem(value));
         this.selectedIndex = i;
+        this.otrDetails = [];
         this.isShow = true;
         this.country = value;
         this.otrdetailService.country = value;
+        this.otr = localStorage.getItem(value);
         if (!localStorage.getItem(value)) {
             this.snackbar.open('No active OTR histroy for selected country', 'close', { duration: 3000 });
-        }else{
-            if (this.country != value) {
-                this.otrDetails = [];
-
-                console.log('from service', this.otrdetailService.country);
-                this.otr = localStorage.getItem(value);
-                if (this.otr === null || JSON.parse(this.otr).length === 0)
-                    this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
+        } else
+            if (this.otr === null || JSON.parse(this.otr).length === 0)
+                this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
+            else {
                 this.otrDetails.push(JSON.parse(this.otr));
-                this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-                this.dataSource.sort = this.sort;
             }
-        }
-        }
+        this.dataSource = new MatTableDataSource(this.otrDetails[0]);
 
-        //expenseList() function when i click on eye icon passing that pertcular obj to service to show in expense list page
-        expenseList(singleOtr) {
-            this.otrdetailService.otrObject(singleOtr);
-            this.router.navigate(['home/expenselist']);
-
-        }
-
-        //addExpense() func to route to userdetails 
-        addExpense() {
-            if (this.isShow == true) {
-                this.router.navigate(['home/userdetail']);
-            } else {
-                this.snackbar.open('select country', 'close', { duration: 3000 });
-                this.router.navigate(['home/dashboard']);
-            }
-        }
-
-        ngOnInit() {
-
-        }
-
-        get(dataModelName, filter ?, keys ?, sort ?, pagenumber ?, pagesize ?) {
-            this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
-                result => {
-                    // On Success code here
-                },
-                error => {
-                    // Handle errors here
-                });
-        }
-
-        getById(dataModelName, dataModelId) {
-            this.mm.getById(dataModelName, dataModelId,
-                result => {
-                    // On Success code here
-                },
-                error => {
-                    // Handle errors here
-                })
-        }
-
-        put(dataModelName, dataModelObject) {
-            this.mm.put(dataModelName, dataModelObject,
-                result => {
-                    // On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-        validatePut(formObj, dataModelName, dataModelObject) {
-            this.mm.validatePut(formObj, dataModelName, dataModelObject,
-                result => {
-                    // On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-        update(dataModelName, update, filter, options) {
-            const updateObject = {
-                update: update,
-                filter: filter,
-                options: options
-            };
-            this.mm.update(dataModelName, updateObject,
-                result => {
-                    //  On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-        delete (dataModelName, filter) {
-            this.mm.delete(dataModelName, filter,
-                result => {
-                    // On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-        deleteById(dataModelName, dataModelId) {
-            this.mm.deleteById(dataModelName, dataModelId,
-                result => {
-                    // On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-        updateById(dataModelName, dataModelId, dataModelObj) {
-            this.mm.updateById(dataModelName, dataModelId, dataModelObj,
-                result => {
-                    // On Success code here
-                }, error => {
-                    // Handle errors here
-                })
-        }
-
-
+        this.dataSource.sort = this.sort;
 
     }
+
+    //expenseList() function when i click on eye icon passing that pertcular obj to service to show in expense list page
+    expenseList(singleOtr) {
+        this.otrdetailService.otrObject(singleOtr);
+        this.router.navigate(['home/expenselist']);
+
+    }
+
+    //addExpense() func to route to userdetails 
+    addExpense() {
+        if (this.isShow == true) {
+            this.router.navigate(['home/userdetail']);
+        } else {
+            this.snackbar.open('select country', 'close', { duration: 3000 });
+            this.router.navigate(['home/dashboard']);
+        }
+    }
+
+    ngOnInit() {
+
+    }
+
+    get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
+        this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,
+            result => {
+                // On Success code here
+            },
+            error => {
+                // Handle errors here
+            });
+    }
+
+    getById(dataModelName, dataModelId) {
+        this.mm.getById(dataModelName, dataModelId,
+            result => {
+                // On Success code here
+            },
+            error => {
+                // Handle errors here
+            })
+    }
+
+    put(dataModelName, dataModelObject) {
+        this.mm.put(dataModelName, dataModelObject,
+            result => {
+                // On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+    validatePut(formObj, dataModelName, dataModelObject) {
+        this.mm.validatePut(formObj, dataModelName, dataModelObject,
+            result => {
+                // On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+    update(dataModelName, update, filter, options) {
+        const updateObject = {
+            update: update,
+            filter: filter,
+            options: options
+        };
+        this.mm.update(dataModelName, updateObject,
+            result => {
+                //  On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+    delete(dataModelName, filter) {
+        this.mm.delete(dataModelName, filter,
+            result => {
+                // On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+    deleteById(dataModelName, dataModelId) {
+        this.mm.deleteById(dataModelName, dataModelId,
+            result => {
+                // On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+    updateById(dataModelName, dataModelId, dataModelObj) {
+        this.mm.updateById(dataModelName, dataModelId, dataModelObj,
+            result => {
+                // On Success code here
+            }, error => {
+                // Handle errors here
+            })
+    }
+
+
+
+}

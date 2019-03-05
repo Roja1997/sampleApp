@@ -13,7 +13,7 @@ export class otrdetailService {
     
     otrObject(otrObj) {
       
-        console.log('calling',otrObj);
+        // console.log('calling',otrObj);
         this.viewOtr = true;
         this.otrValue = otrObj;
         return this.otrValue;
@@ -36,7 +36,7 @@ export class otrdetailService {
          let headers = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
-        console.log(perdiemObj);
+        // console.log(perdiemObj);
         return this.http.post('http://10.10.0.117:24483/api/currencyConverter', perdiemObj )
     }
 

@@ -111,7 +111,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
-            console.log('path', path);
+            // console.log('path', path);
             this.imgPath = "data:image/jpeg;base64," + path;
         }).catch((error) => {
             // console.log(error);

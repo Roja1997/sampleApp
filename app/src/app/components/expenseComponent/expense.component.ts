@@ -63,7 +63,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.perdiemObj['totaldays'] = this.totaldays;
         //calling service for currency converted and getting total perdiem Amount
         this.otrdetailService.currencyConverter(this.perdiemObj).subscribe(res => {
-            console.log(res);
+            // console.log(res);
             this.perdiamAmountINR = res['totalAmount'];
         });
 
@@ -75,7 +75,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
             this.perdiamAmount = (this.totaldays * 85);
         else
             this.perdiamAmount = (this.totaldays * 650);
-        console.log(this.countryName, this.perdiamAmount);
+        // console.log(this.countryName, this.perdiamAmount);
 
     }
     //submitDate() function

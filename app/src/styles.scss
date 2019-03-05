@@ -12,13 +12,10 @@
    border: 15px solid red;
  }
  .addexpensebtn{
-      position: fixed;
-       background-color:red;
-       color:white;
-       margin-left:290px;
-       margin-top: 290px;
- }
-
+         color:white;  
+         position:absolute;bottom:140px;width:100%;
+         padding-left:70%;
+}
 .arrow-color {
      background-color: white !important;
      

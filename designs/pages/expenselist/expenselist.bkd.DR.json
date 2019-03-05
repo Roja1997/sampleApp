@@ -983,7 +983,7 @@
                     },
                     {
                         "_key": "class",
-                        "_value": "",
+                        "_value": "addexpensebtn",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1035,13 +1035,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "    background-color: red;     color: white;     margin-left: 375px;margin-top: 243px;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "addexpensebtn",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },

@@ -25,7 +25,7 @@
       </div>
       <div fxLayout="column " class="submitCol" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-raised-button="" style="  border-radius:50px;" class="submitBtn" *ngIf="this.booleanvalue==false" (click)="sendingMail()">SUBMIT</button></div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="end center" fxShow="true" fxHide="false"><button mat-fab="" style="    background-color: red;     color: white;     margin-left: 375px;margin-top: 243px;" class="addexpensebtn" routerLink="/home/expenseinfo" *ngIf="showButton">
+    <div fxLayout="column wrap" class="addexpensebtn" fxLayoutAlign="end center" fxShow="true" fxHide="false"><button mat-fab="" routerLink="/home/expenseinfo" *ngIf="showButton">
         <mat-icon>add_circle<mat-icon></mat-icon>
         </mat-icon>
       </button></div>

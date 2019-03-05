@@ -37,7 +37,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
         if (this.otrInfo.viewOtr) {
             this.showButton = false;
             this.expenseArray = this.otrInfo.otrValue.expenseList;
-            console.log('Expense Array:', this.expenseArray.imageurl);
+            // console.log('Expense Array:', this.expenseArray.imageurl);
         }
         else {
             let otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
@@ -48,7 +48,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
 
     country;
     sendEmailto() {
-        console.log(this.zipFileName);
+        // console.log(this.zipFileName);
         this.otrInfo.sendEmail(this.zipFileName);
         this.router.navigate(['home/afterSendingMail']);
 
@@ -65,7 +65,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
         this.mService.sendingMail().subscribe(result => {
 
             this.zipFileName = result;
-            console.log('hello.......', this.zipFileName);
+            // console.log('hello.......', this.zipFileName);
             if (result) {
                 this.showSpinner = false;
                 this.booleanvalue = true;
