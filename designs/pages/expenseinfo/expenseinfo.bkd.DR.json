@@ -111,12 +111,6 @@
                         "_value": "keyboard_backspace",
                         "_type": "a",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "(click)",
-                        "_value": "openDialog()",
-                        "_type": "kv",
-                        "_attrDef": "c"
                     }
                 ]
             }
@@ -2023,12 +2017,6 @@
                         "_value": "false",
                         "_type": "kv",
                         "_attrDef": "p"
-                    },
-                    {
-                        "_key": "*ngIf",
-                        "_value": "expAmount",
-                        "_type": "kv",
-                        "_attrDef": "c"
                     }
                 ],
                 "ec2cbaf4-59bc-eaa7-d59e-d085dbd31011": {
