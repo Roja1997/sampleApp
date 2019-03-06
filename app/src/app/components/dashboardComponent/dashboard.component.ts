@@ -106,7 +106,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.otrdetailService.country = null;
     }
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {

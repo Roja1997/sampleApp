@@ -8,7 +8,7 @@ export class otrdetailService {
     viewOtr = false;
     userdetailObject;
     constructor(public router: Router, private http: HttpClient) {
-        
+        // console.log(this.flag);
     }
     
     otrObject(otrObj) {

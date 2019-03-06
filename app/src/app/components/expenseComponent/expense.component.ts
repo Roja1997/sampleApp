@@ -100,6 +100,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         var countryname = this.otrdetailService.country;
         localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
+        this.otrdetailService.flag=true;
         this.router.navigate(['home/expenseinfo']);
 
 

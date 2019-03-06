@@ -33,7 +33,7 @@ export class userdetailComponent extends NBaseComponent implements OnInit {
     ngOnInit() {
         this.otrDetails = JSON.parse(localStorage.getItem('userdetail'));
         if (!localStorage.getItem('userdetail')) {
-            this.snackbar.open('enter user details', 'close', { duration: 3000 });
+            this.snackbar.open('enter user details', 'close', { duration: 2000 });
         } else {
             this.expensetdetail.push(this.otrDetails);
             this.Name = this.expensetdetail[0].Name;
