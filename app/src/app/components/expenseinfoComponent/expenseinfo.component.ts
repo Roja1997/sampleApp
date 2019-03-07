@@ -66,19 +66,7 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
     }
     //function to disable once the user takes date from date. 
-    disableManualData(event) {
-        event.preventDefault();
-    }
 
-
-    // prevent(event) {
-    //     const pattern = /[0-9\+\-\ ]/;
-    //     let inputChar = String.fromCharCode(event.charCode);
-    //     if (event.keyCode != 8 && !pattern.test(inputChar)) {
-    //         event.preventDefault();
-
-    //     }
-    // }
     preventuserTyping(event) {
         event.preventDefault();
     }

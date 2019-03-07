@@ -20,7 +20,7 @@
           <h3>{{expense.expAmount}}</h3>
         </div>
       </div>
-      <div fxLayout="column wrap" class="spinner" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="this.showSpinner">
+      <div fxLayout="column wrap" class="spinner" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showSpinner">
         <mat-spinner diameter="60" mode="indeterminate" color="primary" strokeWidth="4"></mat-spinner>
       </div>
       <div fxLayout="column " class="submitCol" fxFlex="100" fxLayoutAlign="center center" fxShow="true" fxHide="false" *ngIf="showButton"><button mat-raised-button="" style="  border-radius:50px;" class="submitBtn" *ngIf="this.booleanvalue==false" (click)="sendingMail()">SUBMIT</button></div>

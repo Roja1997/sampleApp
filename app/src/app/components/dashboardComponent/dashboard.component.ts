@@ -25,11 +25,9 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     country: string = '';
     isShow: boolean = false;
-
     otrDetails: any = [];
     displayedColumns: string[] = ['receipt', 'fromDate', 'toDate', 'view'];
     dataSource: any;
-
     @ViewChild(MatSort) sort: MatSort;
     //for carosal
     dataSet;
@@ -40,6 +38,9 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.dataSet = this.imgService.getImages();
         this.mm = new ModelMethods(bdms);
     }
+    ngOnInit() {
+        this.otrdetailService.country = null;
+    }
     // countries = [
 
     //     { country: "Singapore", value: "Singapore" },
@@ -49,20 +50,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     // ]
 
     //fab function for carosal
-    changeDataSet(dir) {
-        if (dir == 1) {
-            this.dataSet.push(this.dataSet.shift());
-        }
-        else {
-            let temp = [];
-            temp.push(this.dataSet.pop());
-            for (let i = 0; i < this.dataSet.length; ++i) {
-                temp.push(this.dataSet[i]);
-            }
-            this.dataSet = temp;
-
-        }
-    }
+    
 
     otr: any = {};
     selectedIndex: number;
@@ -74,16 +62,12 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         this.country = value;
         this.otrdetailService.country = value;
         this.otr = localStorage.getItem(value);
-        if (!localStorage.getItem(value)) {
+        if (!localStorage.getItem(value)||!this.otr  || JSON.parse(this.otr).length === 0) 
             this.snackbar.open('No active OTR histroy for selected country', 'close', { duration: 3000 });
-        } else
-            if (this.otr === null || JSON.parse(this.otr).length === 0)
-                this.snackbar.open('No active OTR for selected country', 'close', { duration: 3000 });
             else {
                 this.otrDetails.push(JSON.parse(this.otr));
             }
         this.dataSource = new MatTableDataSource(this.otrDetails[0]);
-
         this.dataSource.sort = this.sort;
 
     }
@@ -92,7 +76,6 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
     expenseList(singleOtr) {
         this.otrdetailService.otrObject(singleOtr);
         this.router.navigate(['home/expenselist']);
-
     }
 
     //addExpense() func to route to userdetails 
@@ -105,9 +88,7 @@ export class dashboardComponent extends NBaseComponent implements OnInit {
         }
     }
 
-    ngOnInit() {
-        this.otrdetailService.country = null;
-    }
+
 
     get(dataModelName, filter?, keys?, sort?, pagenumber?, pagesize?) {
         this.mm.get(dataModelName, filter, keys, sort, pagenumber, pagesize,

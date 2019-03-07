@@ -1,11 +1,9 @@
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
 import { Component, OnInit } from '@angular/core'
 import { ModelMethods } from '../../lib/model.methods';
-// import { BDataModelService } from '../service/bDataModel.service';
-import { NDataModelService, NLocalStorageService, NPubSubService } from 'neutrinos-seed-services';
+import { NDataModelService, NLocalStorageService} from 'neutrinos-seed-services';
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { Router } from '@angular/router';
-//import { saveAs } from 'file-saver';
 import { mailService } from '../../services/mail/mail.service';
 import { cameraService } from '../../services/camera/camera.service';
 import { otrdetailService } from '../../services/otrDetail/otrdetail.service';
@@ -33,11 +31,10 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        // console.log(this.otrInfo.viewOtr);
         if (this.otrInfo.viewOtr) {
             this.showButton = false;
             this.expenseArray = this.otrInfo.otrValue.expenseList;
-            // console.log('Expense Array:', this.expenseArray.imageurl);
+        
         }
         else {
             let otrArray = JSON.parse(localStorage.getItem(this.otrInfo.country));
@@ -48,7 +45,7 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
 
     country;
     sendEmailto() {
-        // console.log(this.zipFileName);
+       
         this.otrInfo.sendEmail(this.zipFileName);
         this.router.navigate(['home/afterSendingMail']);
 
@@ -61,11 +58,12 @@ export class expenselistComponent extends NBaseComponent implements OnInit {
     booleanvalue = false;
     sendingMail() {
         this.showSpinner = true;
-        //this.showButton = true;
+       
+        this.otrInfo.flag=false;
         this.mService.sendingMail().subscribe(result => {
 
             this.zipFileName = result;
-            // console.log('hello.......', this.zipFileName);
+           
             if (result) {
                 this.showSpinner = false;
                 this.booleanvalue = true;

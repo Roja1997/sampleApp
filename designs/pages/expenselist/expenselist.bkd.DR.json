@@ -812,7 +812,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "this.showSpinner",
+                            "_value": "showSpinner",
                             "_type": "kv",
                             "_attrDef": "c"
                         }

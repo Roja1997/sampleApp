@@ -66,15 +66,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
             // console.log(res);
             this.perdiamAmountINR = res['totalAmount'];
         });
-
-        if (this.countryName == "Singapore")
-            this.perdiamAmount = (this.totaldays * 45);
-        else if (this.countryName == "South Africa")
-            this.perdiamAmount = (this.totaldays * 300);
-        else if (this.countryName == "Malaysia")
-            this.perdiamAmount = (this.totaldays * 85);
-        else
-            this.perdiamAmount = (this.totaldays * 650);
+        
         // console.log(this.countryName, this.perdiamAmount);
 
     }
@@ -92,7 +84,6 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         this.otrDetail['Purpose'] = this.userdetailobj.Purpose;
         this.otrDetail['fromDate'] = this.datepipe.transform(this.fromDate, 'dd-MMM-yyyy');
         this.otrDetail['toDate'] = this.datepipe.transform(this.toDate, 'dd-MMM-yyyy');
-        this.otrDetail['PerdiemAmount'] = this.perdiamAmount;
         this.otrDetail['perdiemAmountINR'] = this.perdiamAmountINR;
         if (this.expensetdetail == null)
             this.expensetdetail = [];
