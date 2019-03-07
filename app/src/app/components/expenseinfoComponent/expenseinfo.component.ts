@@ -23,29 +23,36 @@ import { Resolve, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, R
 
 export class expenseinfoComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
+   
+   
+   
+   
     expenseType = ["Perdiem Charges", "Airticket/Visa Charges", "GuestHouse Charges", "Hotel Charges", "Onsite Telephone Charges",
         "Onsite Conveyance Charges", "Petrol/Fuel Expenses", "Sales Promotion", "Staff Welfare Expenses", "Travel Food Expenses"]
-
-    imgPath;
-    img = false;
-    expType;
-    imageurl;
-    billDate = '';
-    comment = '';
-    expAmount;
-    otr: any = { 'fromDate': '', 'toDate': '' };
-    otrDetail: any = {};
-    expenseDetail: any = [];
-    otrArray: any = [];
-    valueArray: any = [];
     minDate;
     maxDate;
-    num = 10000;
-    billAmount = '';
-    currentExpense;
-    expenseList;
-    currency;
-    billName='';
+    img = false;
+    imgPath;
+    imageurl;
+    expType;
+    billDate;
+    bill;
+    billName;
+    expAmount;
+   
+    comment ;
+   
+
+    otr:any={};
+    otrDetail = {};
+    expenseDetail = [];
+    otrArray = [];
+  
+   
+    
+  
+    
+    
 
 
 
@@ -67,53 +74,20 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
         this.minDate = this.datePipe.transform(fromDate, "yyyy-MM-dd");
         this.maxDate = this.datePipe.transform(toDate, "yyyy-MM-dd");
     }
-    //function to disablev once the user takes date from date. 
-    disableManualData(event) {
-        event.preventDefault();
-    }
+    //function to disable once the user takes date from date. 
+   
 
-
-  /*  prevent(event) {
-        const pattern = /[0-9\+\-\ ]/;
-        let inputChar = String.fromCharCode(event.charCode);
-        if (event.keyCode != 8 && !pattern.test(inputChar)) {
-            event.preventDefault();
-
-        }
-    }*/
     preventuserTyping(event) {
         event.preventDefault();
     }
 
-    expFill(event) {
-
-         const pattern = /[0-9\+\-\ ]/;
-        let inputChar = String.fromCharCode(event.charCode);
-        if (event.keyCode != 8 && !pattern.test(inputChar)) {
-            event.preventDefault();
-        }
-        let num = event.target.value;
-
-        if (typeof num === 'string' && num !== '')
-            num = parseFloat(num.replace(/,/g, ''));
-        let str = num.toString().split('.');
-
-        if (str[0].length >= 5) {
-            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
-        }
-        if (str[1] && str[1].length >= 5) {
-            str[1] = str[1].replace(/(\d{3})/g, '$1,');
-        }
-        str = str.join('.');
-        this.billAmount = str;
-        return str;
-    }
 
     openCamera() {
         this.img = true;
         this.camService.camera().then((path) => {
             console.log('image path',path);
             this.imgPath = path;
+           return path;
             
         }).catch((error) => {
             console.log(error);
@@ -127,29 +101,28 @@ export class expenseinfoComponent extends NBaseComponent implements OnInit {
  
     submit() {
         this.otrInfo.viewOtr = false;
-        var bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
-        this.otrDetail['expType'] = this.expType;
-        this.otrDetail['billName'] = this.billName+" + "+this.expType;
-        this.otrDetail['billDate'] = bill;
+        this.bill = this.datePipe.transform(this.billDate, "dd-MMM-yyyy");
+        this.otrDetail['Expense_Type'] = this.expType;
+        this.otrDetail['Bill_Name'] = this.billName+" _ "+this.expType;
+        this.otrDetail['Bill_Date'] = this.bill;
         if (this.otrInfo.country == "South Africa") {
 
-            this.currency = (this.expAmount * 5.10).toFixed(2);
+            this.expAmount = (this.expAmount * 5.10).toFixed(2);
         }
         else if (this.otrInfo.country == "Malaysia") {
 
-            this.currency = (this.expAmount * 17.46).toFixed(2);
+            this.expAmount = (this.expAmount * 17.46).toFixed(2);
         }
         else if (this.otrInfo.country == "Singapore") {
 
-            this.currency = (this.expAmount * 52.63).toFixed(2);
+            this.expAmount = (this.expAmount * 52.63).toFixed(2);
         }
         else {
-            this.currency= (this.expAmount * 1).toFixed(2);
+            this.expAmount= (this.expAmount * 1).toFixed(2);
         }
-        this.otrDetail['expAmount'] = this.currency;
-        this.otrDetail['comments'] = this.comment;
+        this.otrDetail['Expense_Amount'] = this.expAmount;
+        this.otrDetail['Comments'] = this.comment;
         this.imageurl = this.imgPath;
-      
         this.otrDetail['imageurl'] = this.imageurl;
         this.expenseDetail.push(this.otrDetail);
         this.otr['expenseList'] = this.expenseDetail;

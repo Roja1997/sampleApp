@@ -423,13 +423,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "width:100%;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "col",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -706,13 +706,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "width:100%",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "col",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -1041,7 +1041,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required  [matDatepicker]=\"picker\" [value]='billDate' [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\" mat-raised-button (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" name=\"billDate\">\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
+                                "_value": "<mat-form-field style=\"width:100%;\">\n  <input matInput  required  [matDatepicker]=\"picker\" [value]='billDate' [min]=\"minDate\" [max]=\"maxDate\" (keydown)=\"preventuserTyping($event)\"  placeholder=\"Bill Date\"  (click)=\"picker.open()\" style=\"cursor:pointer;\" [(ngModel)]=\"billDate\" name=\"billDate\">\n  <mat-datepicker #picker  touchUi=\"touch\" ></mat-datepicker>\n</mat-form-field>\n\n\n\n\n\n",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -1194,13 +1194,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "width:100%;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "col",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -1300,27 +1300,9 @@
                             },
                             {
                                 "_key": "type",
-                                "_value": "",
+                                "_value": "number",
                                 "_type": "kv",
                                 "_attrDef": "p"
-                            },
-                            {
-                                "_key": "[value]",
-                                "_value": "billAmount",
-                                "_type": "kv",
-                                "_attrDef": "c"
-                            },
-                            {
-                                "_key": "(keypress)",
-                                "_value": "expFill($event)",
-                                "_type": "kv",
-                                "_attrDef": "c"
-                            },
-                            {
-                                "_key": "maxlength",
-                                "_value": "5",
-                                "_type": "kv",
-                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -1331,7 +1313,7 @@
                 "designerReference": [
                     {
                         "_key": "style",
-                        "_value": "width:100%;",
+                        "_value": "",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1471,13 +1453,13 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "width:100%;",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": "col",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -2051,12 +2033,6 @@
                             "_value": "submit()",
                             "_type": "kv",
                             "_attrDef": "p"
-                        },
-                        {
-                            "_key": "routerLink",
-                            "_value": "/home/expenselist",
-                            "_type": "kv",
-                            "_attrDef": "c"
                         },
                         {
                             "_key": "*ngIf",
