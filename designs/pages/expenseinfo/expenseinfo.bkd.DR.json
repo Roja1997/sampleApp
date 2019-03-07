@@ -1309,24 +1309,6 @@
                                 "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(keypress)",
-                                "_value": "expFill($event)",
-                                "_type": "kv",
-                                "_attrDef": "c"
-                            },
-                            {
-                                "_key": "maxLength",
-                                "_value": "6",
-                                "_type": "kv",
-                                "_attrDef": "c"
-                            },
-                            {
-                                "_key": "[value]",
-                                "_value": "billAmount",
-                                "_type": "kv",
-                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -2068,12 +2050,6 @@
                                 "_value": "submit()",
                                 "_type": "kv",
                                 "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "/home/expenselist",
-                                "_type": "kv",
-                                "_attrDef": "c"
                             }
                         ]
                     }

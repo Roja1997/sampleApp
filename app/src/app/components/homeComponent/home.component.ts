@@ -59,7 +59,6 @@ export class homeComponent extends NBaseComponent implements OnInit {
     }
     //dashboardView() func
     dashboardView() {
-
         // console.log('bb',this.otrdetailService.flag);
         if (this.otrdetailService.flag == true)
             this.openDialog();

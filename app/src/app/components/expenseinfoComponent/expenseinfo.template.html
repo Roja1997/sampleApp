@@ -49,7 +49,7 @@
         <mat-icon style="color:grey;font-size:20px;">account_balance_wallet</mat-icon>
       </div>
       <div fxLayout="column wrap" style="width:100%;" fxLayoutAlign="start stretch" fxShow="true" fxHide="false">
-        <mat-form-field><input matInput="" [(ngModel)]="expAmount" name="expAmount" placeholder="Amount" required (keypress)="expFill($event)" maxLength="6" [value]="billAmount"></mat-form-field>
+        <mat-form-field><input matInput="" [(ngModel)]="expAmount" name="expAmount" placeholder="Amount" required></mat-form-field>
       </div>
     </div>
     <div fxLayout="row " style="width:100%;" fxLayoutAlign="start center" fxShow="true" fxHide="false">
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="center center" fxShow="true" fxHide="false">
-      <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" (click)="swb()" *ngIf="name.valid"><button mat-fab="" color="red" routerLink="/home/expenselist" (click)="submit()">
+      <div fxLayout="row wrap" class="expensebtn" fxLayoutAlign="center center" fxShow="true" fxHide="false" (click)="swb()" *ngIf="name.valid"><button mat-fab="" color="red" (click)="submit()">
           <mat-icon>check</mat-icon>
         </button></div>
     </div>

@@ -1035,7 +1035,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "background-color:red;color:white;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
