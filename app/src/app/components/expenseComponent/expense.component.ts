@@ -25,12 +25,12 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     mm: ModelMethods;
     fromDate;
     toDate;
-
     otrDetail: any = {};
     expensetdetail: any = [];
     totaldays;
+    perdiamAmountINR;
     //for userdetail page
-    Name; Department; Project; Customer; Manager; Purpose;
+    // Name; Department; Project; Customer; Manager; Purpose;
     constructor(private bdms: NDataModelService, private otrdetailService: otrdetailService, private snackbar: MatSnackBar, private router: Router, private datepipe: DatePipe) {
         super();
         this.mm = new ModelMethods(bdms);
@@ -45,29 +45,22 @@ export class expenseComponent extends NBaseComponent implements OnInit {
     previousView() {
         this.router.navigate(['home/userdetail']);
     }
-    //function to disable once the user takes date from date. 
+    //function to disable once the user takes date (from date). 
     disableManualData(event) {
         event.preventDefault();
     }
 
     //pickFromDate fun
-    perdiamAmount;
-    perdiamAmountINR;
     perdiemObj: any = {};
-    countryName;
     pickFromDate() {
         this.toDate = new Date(this.fromDate.getFullYear(), this.fromDate.getMonth() + 1, 0);
         this.totaldays = (((this.toDate.getTime() - this.fromDate.getTime()) / (24 * 60 * 60 * 1000)) + 1);
-        this.countryName = this.otrdetailService.country;
-        this.perdiemObj['countryName'] = this.countryName;
+        this.perdiemObj['countryName'] = this.otrdetailService.country;
         this.perdiemObj['totaldays'] = this.totaldays;
-        //calling service for currency converted and getting total perdiem Amount
+        //calling service for currency converter and getting total perdiem Amount
         this.otrdetailService.currencyConverter(this.perdiemObj).subscribe(res => {
-            // console.log(res);
             this.perdiamAmountINR = res['totalAmount'];
         });
-        
-        // console.log(this.countryName, this.perdiamAmount);
 
     }
     //submitDate() function
@@ -91,7 +84,7 @@ export class expenseComponent extends NBaseComponent implements OnInit {
         var countryname = this.otrdetailService.country;
         localStorage.setItem(countryname, JSON.stringify(this.expensetdetail));
         this.otrDetail = {};
-        this.otrdetailService.flag=true;
+        this.otrdetailService.flag = true;
         this.router.navigate(['home/expenseinfo']);
 
 

@@ -62,13 +62,13 @@
             "designerReference": [
                 {
                     "_key": "style",
-                    "_value": " position:fixed;",
+                    "_value": "",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
                 {
                     "_key": "class",
-                    "_value": "toolbar",
+                    "_value": "toolbarClass",
                     "_type": "kv",
                     "_attrDef": "p"
                 },

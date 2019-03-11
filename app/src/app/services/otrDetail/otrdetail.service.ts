@@ -33,9 +33,7 @@ export class otrdetailService {
     }
 
     currencyConverter(perdiemObj){
-         let headers = {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-        };
+         
         // console.log(perdiemObj);
         return this.http.post('http://10.10.0.117:24483/api/currencyConverter', perdiemObj )
     }

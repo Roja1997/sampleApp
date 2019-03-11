@@ -28,6 +28,11 @@
     background-color:red;
     height:54px;
 }
+.toolbarClass{
+    position:fixed;
+    background-color:red;
+    height:54px;
+}
 .receiptclass{
     color:white;
     font-size: 34px;
@@ -38,6 +43,12 @@
     font-size: 30px;
     margin-top: -7px;
     margin-right: 7px;
+}
+.userdetailClass{
+    margin-top:20px;
+}
+.expenseClass{
+    padding:16px;
 }
 .addbtn{
         border-radius: 32px;  
@@ -74,4 +85,7 @@
     background:green;color:white;
    
 }
-//color:red;  align:center;background-color:white;
+
+.col{
+    width:100%;
+}

@@ -209,13 +209,13 @@
         "designerReference": [
             {
                 "_key": "style",
-                "_value": "margin-top:20px;",
+                "_value": "",
                 "_type": "kv",
                 "_attrDef": "p"
             },
             {
                 "_key": "class",
-                "_value": "",
+                "_value": "userdetailClass",
                 "_type": "kv",
                 "_attrDef": "p"
             },
